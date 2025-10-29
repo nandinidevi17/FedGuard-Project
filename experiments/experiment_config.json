@@ -1,0 +1,42 @@
+
+{
+  "experiment_name": "fedguard_ucsd_ped1",
+  "description": "Evaluate FedGuard defense against poisoning attacks on UCSD Pedestrian dataset",
+  "dataset": "UCSDped1",
+  "scenarios": [
+    {
+      "name": "baseline",
+      "description": "Original baseline model without federated learning",
+      "model": "ucsd_baseline.h5"
+    },
+    {
+      "name": "secure_federated",
+      "description": "Federated learning with FedGuard defense",
+      "defense_method": "mad",
+      "aggregation_method": "mean",
+      "num_clients": 3,
+      "num_honest": 2,
+      "num_malicious": 1,
+      "rounds": 5
+    },
+    {
+      "name": "insecure_federated",
+      "description": "Federated learning without defense",
+      "defense_method": "none",
+      "aggregation_method": "mean",
+      "num_clients": 3,
+      "num_honest": 2,
+      "num_malicious": 1,
+      "rounds": 5
+    }
+  ],
+  "attack_parameters": {
+    "type": "random_noise",
+    "scale": 10.0
+  },
+  "evaluation": {
+    "test_folder": "Test001",
+    "metrics": ["accuracy", "precision", "recall", "f1", "auc"],
+    "anomaly_percentile": 95
+  }
+}
