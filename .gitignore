@@ -1,9 +1,32 @@
-# Virtual Environment
-venv/
-
-# Python cache files
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
 
-# Trained models (optional)
+# Data
 *.h5
+*.tif
+*.jpg
+*.mp4
+UCSD_Anomaly_Dataset.v1p2/
+
+# Results
+results/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config (for team members to customize)
+config.py
+!config.template.py
