@@ -55,7 +55,7 @@ try:
     logger.info(f"\nLoading initial model from {model_path}...")
     global_model = tf.keras.models.load_model(model_path)
     initial_weights = global_model.get_weights()
-    logger.info("✓ Model loaded successfully")
+    logger.info("[OK] Model loaded successfully")
     
     # Initialize Kafka consumer
     logger.info(f"\nConnecting to Kafka at {KAFKA_SERVER}...")
@@ -64,9 +64,10 @@ try:
         bootstrap_servers=KAFKA_SERVER,
         value_deserializer=lambda m: json.loads(m.decode('utf-8')),
         auto_offset_reset='latest',
-        consumer_timeout_ms=KAFKA_TIMEOUT
+    #     consumer_timeout_ms=3600000,  # ✅ 1 hour timeout (3600000 ms)
+    # enable_auto_commit=False
     )
-    logger.info("✓ Kafka consumer initialized")
+    logger.info("[OK] Kafka consumer initialized")
     
     logger.info("\n" + "="*60)
     logger.info("SERVER RUNNING - Waiting for client updates")
@@ -112,7 +113,7 @@ try:
                 client_weights_list = [client_updates[cid]['weights'] for cid in client_ids]
                 
                 # SECURITY CHECK
-                logger.info("\n🛡️  Running FedGuard security check...")
+                logger.info("\n[SECURITY] Running FedGuard security check...")
                 logger.info(f"Defense method: {DEFENSE_METHOD}")
                 
                 if DEFENSE_METHOD == "cosine":
@@ -152,7 +153,7 @@ try:
                     score = scores[i]
                     is_honest = i in honest_indices
                     
-                    status = "✓ HONEST" if is_honest else "✗ MALICIOUS"
+                    status = "[HONEST]" if is_honest else "[MALICIOUS]"
                     logger.info(f"  {client_id:30s} {score_name}: {score:8.4f} - {status}")
                     
                     if is_honest:
@@ -164,17 +165,17 @@ try:
                 logger.info(f"\nVerdict: {len(honest_clients)} honest, {len(malicious_clients)} malicious")
                 
                 if malicious_clients:
-                    logger.warning(f"⚠️  Blocked malicious clients: {', '.join(malicious_clients)}")
+                    logger.warning(f"[WARNING] Blocked malicious clients: {', '.join(malicious_clients)}")
                 
                 # Check if we have enough honest clients
                 if len(honest_clients) < MIN_HONEST_CLIENTS:
-                    logger.error(f"❌ Insufficient honest clients ({len(honest_clients)} < {MIN_HONEST_CLIENTS})")
+                    logger.error(f"[ERROR] Insufficient honest clients ({len(honest_clients)} < {MIN_HONEST_CLIENTS})")
                     logger.error("Skipping this round - model not updated")
                     client_updates = {}
                     continue
                 
                 # AGGREGATION
-                logger.info(f"\n📊 Aggregating {len(honest_clients)} honest updates...")
+                logger.info(f"\n[AGGREGATION] Aggregating {len(honest_clients)} honest updates...")
                 logger.info(f"Aggregation method: {AGGREGATION_METHOD}")
                 
                 honest_weights = [client_weights_list[i] for i in honest_indices]
@@ -209,7 +210,7 @@ try:
                 # Save model
                 save_path = os.path.join(MODELS_DIR, 'global_model_secured.h5')
                 global_model.save(save_path)
-                logger.info(f"\n✓ Global model updated and saved to: {save_path}")
+                logger.info(f"\n[OK] Global model updated and saved to: {save_path}")
                 
                 # Save round statistics
                 round_stats = {
@@ -236,7 +237,7 @@ try:
                 
                 # Stop after specified number of rounds
                 if round_number >= NUM_FEDERATED_ROUNDS:
-                    logger.info(f"\n✓ Completed {NUM_FEDERATED_ROUNDS} rounds - stopping server")
+                    logger.info(f"\n[OK] Completed {NUM_FEDERATED_ROUNDS} rounds - stopping server")
                     break
         
         except Exception as e:

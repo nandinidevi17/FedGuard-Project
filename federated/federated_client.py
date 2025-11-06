@@ -29,8 +29,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # --- CONFIGURATION ---
-CLIENT_ID = "Client-01"  # CHANGE THIS FOR EACH CLIENT (Client-01, Client-02, etc.)
-VIDEO_SOURCE = os.path.join(UCSD_PED1_TRAIN, "Train001")  # CHANGE FOR EACH CLIENT
+CLIENT_ID = "Client-02"  # CHANGE THIS FOR EACH CLIENT (Client-01, Client-02, etc.)
+VIDEO_SOURCE = os.path.join(UCSD_PED1_TRAIN, "Train002")  # CHANGE FOR EACH CLIENT
 MODEL_PATH = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
 # -------------------
 
@@ -43,7 +43,7 @@ try:
     logger.info(f"Loading model from {MODEL_PATH}...")
     model = tf.keras.models.load_model(MODEL_PATH)
     model.compile(optimizer='adam', loss='mean_squared_error')
-    logger.info("✓ Model loaded successfully")
+    logger.info("[OK] Model loaded successfully")
     
     # 2. Initialize Kafka Producer
     logger.info(f"Connecting to Kafka at {KAFKA_SERVER}...")
@@ -52,7 +52,7 @@ try:
         value_serializer=lambda v: json.dumps(v).encode('utf-8'),
         request_timeout_ms=KAFKA_TIMEOUT
     )
-    logger.info("✓ Kafka connection established")
+    logger.info("[OK] Kafka connection established")
     
     # 3. Load frames from dataset
     logger.info(f"Loading frames from: {VIDEO_SOURCE}")
@@ -63,7 +63,7 @@ try:
         logger.error(f"No image files found in {VIDEO_SOURCE}")
         sys.exit(1)
     
-    logger.info(f"✓ Found {len(frame_files)} frames")
+    logger.info(f"[OK] Found {len(frame_files)} frames")
     logger.info(f"Batch size: {FRAMES_PER_UPDATE} frames")
     logger.info("\n" + "="*60)
     logger.info("CLIENT RUNNING - Processing frames in loop")
@@ -119,7 +119,7 @@ try:
             total_training_time += train_time
             
             loss = history.history['loss'][0]
-            logger.info(f"✓ Training complete - Loss: {loss:.6f}, Time: {train_time:.2f}s")
+            logger.info(f"[OK] Training complete - Loss: {loss:.6f}, Time: {train_time:.2f}s")
             
             # Extract weights
             new_weights = model.get_weights()
@@ -144,7 +144,7 @@ try:
             producer.flush()
             
             send_time = time.time() - send_start
-            logger.info(f"✓ Update sent successfully (Send time: {send_time:.2f}s)")
+            logger.info(f"[OK] Update sent successfully (Send time: {send_time:.2f}s)")
             
             # Stats
             update_count += 1

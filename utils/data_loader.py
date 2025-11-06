@@ -5,6 +5,7 @@ import os
 import cv2
 import numpy as np
 import logging
+import tensorflow as tf
 from tensorflow.keras.utils import Sequence
 
 logger = logging.getLogger(__name__)

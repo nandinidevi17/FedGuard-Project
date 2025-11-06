@@ -15,7 +15,7 @@ from datetime import datetime
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config import *
-from models.anomaly_model import create_autoencoder
+from results.models.anomaly_model import create_autoencoder  # ✅ FIXED THIS LINE
 from utils.data_loader import VideoFrameGenerator
 
 # Setup logging

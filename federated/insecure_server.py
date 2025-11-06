@@ -30,7 +30,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 logger.warning("="*60)
-logger.warning("⚠️  INSECURE SERVER (NO DEFENSE)")
+logger.warning("[WARNING] INSECURE SERVER (NO DEFENSE)")
 logger.warning("="*60)
 logger.warning("This server accepts ALL updates without security checks")
 logger.warning(f"Expected clients: {NUM_CLIENTS}")
@@ -40,7 +40,7 @@ try:
     model_path = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
     logger.info(f"\nLoading model from {model_path}...")
     global_model = tf.keras.models.load_model(model_path)
-    logger.info("✓ Model loaded")
+    logger.info("[OK] Model loaded")
     
     # Initialize Kafka
     logger.info(f"\nConnecting to Kafka at {KAFKA_SERVER}...")
@@ -48,10 +48,11 @@ try:
         KAFKA_TOPIC,
         bootstrap_servers=KAFKA_SERVER,
         value_deserializer=lambda m: json.loads(m.decode('utf-8')),
-        auto_offset_reset='latest',
-        consumer_timeout_ms=KAFKA_TIMEOUT
+        auto_offset_reset='earliest',
+        consumer_timeout_ms=3600000,  # ✅ 1 hour timeout (3600000 ms)
+    enable_auto_commit=False
     )
-    logger.info("✓ Kafka connected")
+    logger.info("[OK] Kafka connected")
     
     logger.info("\n" + "="*60)
     logger.info("SERVER RUNNING")
@@ -73,7 +74,7 @@ try:
         
         if len(client_updates) >= NUM_CLIENTS:
             round_number += 1
-            logger.warning(f"\n⚠️  ROUND {round_number} - Accepting ALL clients (no security check)")
+            logger.warning(f"\n[WARNING] ROUND {round_number} - Accepting ALL clients (no security check)")
             
             client_ids = list(client_updates.keys())
             all_weights = list(client_updates.values())
@@ -93,7 +94,7 @@ try:
             
             save_path = os.path.join(MODELS_DIR, 'global_model_insecured.h5')
             global_model.save(save_path)
-            logger.info(f"✓ Model updated and saved to: {save_path}\n")
+            logger.info(f"[OK] Model updated and saved to: {save_path}\n")
             
             client_updates = {}
             

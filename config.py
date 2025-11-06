@@ -26,10 +26,11 @@ for dir_path in [RESULTS_DIR, MODELS_DIR, LOGS_DIR, PLOTS_DIR, METRICS_DIR]:
     os.makedirs(dir_path, exist_ok=True)
 
 # ============ MODEL PARAMETERS ============
+# ============ MODEL PARAMETERS ============
 IMG_SIZE = 256
-LATENT_DIM = 128  # Bottleneck size in autoencoder
-EPOCHS = 20  # Increased from 10
-BATCH_SIZE = 32  # Increased from 16
+LATENT_DIM = 128
+EPOCHS = 25# INCREASED from 20
+BATCH_SIZE = 32 # DECREASED from 32 for better learning
 LEARNING_RATE = 0.001
 VALIDATION_SPLIT = 0.2
 

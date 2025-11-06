@@ -38,7 +38,7 @@ ATTACK_SCALE = 10.0  # Multiplier for attack strength
 # -------------------
 
 logger.warning("="*60)
-logger.warning("⚠️  MALICIOUS CLIENT STARTING")
+logger.warning("[WARNING] MALICIOUS CLIENT STARTING")
 logger.warning("="*60)
 logger.warning(f"Client ID: {CLIENT_ID}")
 logger.warning(f"Attack type: {ATTACK_TYPE}")
@@ -49,7 +49,7 @@ try:
     logger.info(f"Loading model structure from {MODEL_PATH}...")
     base_model = tf.keras.models.load_model(MODEL_PATH)
     weight_shapes = [w.shape for w in base_model.get_weights()]
-    logger.info(f"✓ Model structure loaded - {len(weight_shapes)} layers")
+    logger.info(f"[OK] Model structure loaded - {len(weight_shapes)} layers")
     
     # Initialize Kafka
     logger.info(f"Connecting to Kafka at {KAFKA_SERVER}...")
@@ -58,7 +58,7 @@ try:
         value_serializer=lambda v: json.dumps(v).encode('utf-8'),
         request_timeout_ms=KAFKA_TIMEOUT
     )
-    logger.info("✓ Kafka connection established")
+    logger.info("[OK] Kafka connection established")
     
     logger.warning("\n" + "="*60)
     logger.warning("ATTACK IN PROGRESS")
@@ -111,7 +111,7 @@ try:
         logger.warning(f"\n[Attack #{attack_count}] Sending poisoned update...")
         producer.send(KAFKA_TOPIC, value=update_message)
         producer.flush()
-        logger.warning(f"✓ Malicious update sent to topic '{KAFKA_TOPIC}'")
+        logger.warning(f"[OK] Malicious update sent to topic '{KAFKA_TOPIC}'")
         
         # Wait before next attack
         time.sleep(UPDATE_INTERVAL)
