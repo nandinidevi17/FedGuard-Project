@@ -64,7 +64,7 @@ try:
         bootstrap_servers=KAFKA_SERVER,
         value_deserializer=lambda m: json.loads(m.decode('utf-8')),
         auto_offset_reset='latest',
-    #     consumer_timeout_ms=3600000,  # ✅ 1 hour timeout (3600000 ms)
+        consumer_timeout_ms=KAFKA_TIMEOUT,
     # enable_auto_commit=False
     )
     logger.info("[OK] Kafka consumer initialized")
@@ -78,7 +78,9 @@ try:
     total_updates_received = 0
     total_attacks_blocked = 0
     
+    updates_processed = False
     for message in consumer:
+        updates_processed = True
         try:
             update_data = message.value
             client_id = update_data['client_id']
@@ -243,6 +245,9 @@ try:
         except Exception as e:
             logger.error(f"Error processing update: {str(e)}", exc_info=True)
             continue
+
+    if not updates_processed:
+        logger.warning("Kafka consumer timed out - no messages received.")
 
 except KeyboardInterrupt:
     logger.info("\n\nKeyboard interrupt - stopping server")
