@@ -1,12 +1,8 @@
-"""
-Central configuration file for FedGuard project.
-All team members should copy config.template.py and rename to config.py
-"""
 import os
 
 # ============ PATHS ============
-# TODO: Each team member should update these paths
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# Update this path on your machine if necessary:
 DATASET_ROOT = "C:\\Users\\Nandini Devi\\Downloads\\uropds\\UCSD_Anomaly_Dataset.v1p2"
 
 # Auto-generated paths (don't modify)
@@ -26,37 +22,47 @@ for dir_path in [RESULTS_DIR, MODELS_DIR, LOGS_DIR, PLOTS_DIR, METRICS_DIR]:
     os.makedirs(dir_path, exist_ok=True)
 
 # ============ MODEL PARAMETERS ============
-# ============ MODEL PARAMETERS ============
-IMG_SIZE = 256
+IMG_SIZE = 128
 LATENT_DIM = 128
-EPOCHS = 25# INCREASED from 20
-BATCH_SIZE = 32 # DECREASED from 32 for better learning
+EPOCHS = 1
+BATCH_SIZE = 4
 LEARNING_RATE = 0.001
 VALIDATION_SPLIT = 0.2
 
 # ============ FEDERATED LEARNING ============
-NUM_CLIENTS = 3
+NUM_CLIENTS = 4
 NUM_FEDERATED_ROUNDS = 5
-FRAMES_PER_UPDATE = 100
+FRAMES_PER_UPDATE = 16
 
 # ============ KAFKA CONFIGURATION ============
-KAFKA_SERVER = 'localhost:9092'
+KAFKA_SERVER = 'localhost:9092'   # or 'broker-ip:9092' if remote
 KAFKA_TOPIC = 'model-updates'
-KAFKA_TIMEOUT = 30000  # 30 seconds
+KAFKA_TIMEOUT = 30000  # milliseconds (30 seconds)
+
+# For large messages: increase these on both client and broker if needed
+KAFKA_MAX_REQUEST_BYTES = 60_000_000
+KAFKA_FETCH_MAX_BYTES = 60_000_000
 
 # ============ SECURITY PARAMETERS ============
-SIMILARITY_THRESHOLD = 0.5  # Will be replaced with adaptive method
+SIMILARITY_THRESHOLD = 0.5
 USE_ADAPTIVE_THRESHOLD = True
-MAD_THRESHOLD = 3.5  # Median Absolute Deviation threshold
-MIN_HONEST_CLIENTS = 2  # Minimum clients needed to proceed
+MAD_THRESHOLD = 3.5
+MIN_HONEST_CLIENTS = 1
 
 # ============ EVALUATION ============
-ANOMALY_PERCENTILE = 95  # Top 5% reconstruction errors are anomalies
+ANOMALY_PERCENTILE = 95
 TEST_FOLDERS = {
-    'ped1': 'Test001',  # Contains anomalies
+    'ped1': 'Test001',
     'ped2': 'Test001'
 }
 
 # ============ LOGGING ============
-LOG_LEVEL = "INFO"  # Options: DEBUG, INFO, WARNING, ERROR
+LOG_LEVEL = "INFO"
 LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+# ============ SECURITY / DEFENSE (server) ============
+# Defense method on server: one of "cosine", "mad", "krum", "median", "trimmed_mean"
+DEFENSE_METHOD = "mad"
+
+# Aggregation method used after filtering: "mean", "median", or "trimmed_mean"
+AGGREGATION_METHOD = "mean"
+
