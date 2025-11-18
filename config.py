@@ -3,7 +3,8 @@ import os
 # ============ PATHS ============
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 # Update this path on your machine if necessary:
-DATASET_ROOT = "C:\\Users\\Nandini Devi\\Downloads\\uropds\\UCSD_Anomaly_Dataset.v1p2"
+# The dataset should be placed in the `data` directory.
+DATASET_ROOT = os.path.join(PROJECT_ROOT, "data", "UCSD_Anomaly_Dataset.v1p2")
 
 # Auto-generated paths (don't modify)
 UCSD_PED1_TRAIN = os.path.join(DATASET_ROOT, "UCSDped1", "Train")
