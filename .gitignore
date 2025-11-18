@@ -14,9 +14,9 @@ env/
 *.mp4
 UCSD_Anomaly_Dataset.v1p2/
 
-# Results
-results/
-*.log
+# # Results
+# results/
+# *.log
 
 # IDE
 .vscode/

@@ -1,0 +1,58 @@
+2025-11-06 23:04:13,038 - __main__ - INFO - ============================================================
+2025-11-06 23:04:13,039 - __main__ - INFO - FEDERATED CLIENT: Client-02
+2025-11-06 23:04:13,039 - __main__ - INFO - ============================================================
+2025-11-06 23:04:13,039 - __main__ - INFO - Loading model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-11-06 23:04:13,371 - __main__ - INFO - [OK] Model loaded successfully
+2025-11-06 23:04:13,372 - __main__ - INFO - Connecting to Kafka at localhost:9092...
+2025-11-06 23:04:13,378 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-06 23:04:13,379 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-11-06 23:04:13,380 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-06 23:04:13,488 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-11-06 23:04:13,489 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-11-06 23:04:13,493 - __main__ - INFO - [OK] Kafka connection established
+2025-11-06 23:04:13,493 - __main__ - INFO - Loading frames from: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Train\Train002
+2025-11-06 23:04:13,494 - __main__ - INFO - [OK] Found 200 frames
+2025-11-06 23:04:13,495 - __main__ - INFO - Batch size: 100 frames
+2025-11-06 23:04:13,496 - __main__ - INFO - 
+============================================================
+2025-11-06 23:04:13,497 - __main__ - INFO - CLIENT RUNNING - Processing frames in loop
+2025-11-06 23:04:13,497 - __main__ - INFO - ============================================================
+
+2025-11-06 23:04:14,905 - __main__ - INFO - 
+[Update #1] Collected 100 frames
+2025-11-06 23:04:14,916 - __main__ - INFO - Performing local training...
+2025-11-06 23:04:32,732 - __main__ - INFO - [OK] Training complete - Loss: 0.024287, Time: 17.82s
+2025-11-06 23:04:32,906 - __main__ - INFO - Sending update to Kafka topic: 'model-updates'...
+2025-11-06 23:04:33,695 - __main__ - INFO - [OK] Update sent successfully (Send time: 0.79s)
+2025-11-06 23:04:33,695 - __main__ - INFO - Total updates sent: 1
+2025-11-06 23:04:33,696 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-06 23:04:33,696 - __main__ - INFO - Avg training time: 17.82s
+2025-11-06 23:04:33,699 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-06 23:04:33,700 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-06 23:04:35,250 - __main__ - INFO - 
+[Update #2] Collected 100 frames
+2025-11-06 23:04:35,258 - __main__ - INFO - Performing local training...
+2025-11-06 23:05:03,072 - __main__ - INFO - [OK] Training complete - Loss: 0.012588, Time: 27.81s
+2025-11-06 23:05:03,186 - __main__ - INFO - Sending update to Kafka topic: 'model-updates'...
+2025-11-06 23:05:04,999 - __main__ - INFO - [OK] Update sent successfully (Send time: 1.81s)
+2025-11-06 23:05:04,999 - __main__ - INFO - Total updates sent: 2
+2025-11-06 23:05:05,000 - __main__ - INFO - Avg training time: 22.81s
+2025-11-06 23:05:06,516 - __main__ - INFO - 
+[Update #3] Collected 100 frames
+2025-11-06 23:05:06,526 - __main__ - INFO - Performing local training...
+2025-11-06 23:05:34,609 - __main__ - INFO - [OK] Training complete - Loss: 0.010271, Time: 28.08s
+2025-11-06 23:05:34,725 - __main__ - INFO - Sending update to Kafka topic: 'model-updates'...
+2025-11-06 23:05:36,594 - __main__ - INFO - [OK] Update sent successfully (Send time: 1.87s)
+2025-11-06 23:05:36,595 - __main__ - INFO - Total updates sent: 3
+2025-11-06 23:05:36,595 - __main__ - INFO - Avg training time: 24.57s
+2025-11-06 23:05:38,099 - __main__ - INFO - 
+[Update #4] Collected 100 frames
+2025-11-06 23:05:38,113 - __main__ - INFO - Performing local training...
+2025-11-06 23:06:09,439 - __main__ - INFO - [OK] Training complete - Loss: 0.007727, Time: 31.33s
+2025-11-06 23:06:09,552 - __main__ - INFO - Sending update to Kafka topic: 'model-updates'...
+2025-11-06 23:06:11,427 - __main__ - INFO - [OK] Update sent successfully (Send time: 1.87s)
+2025-11-06 23:06:11,427 - __main__ - INFO - Total updates sent: 4
+2025-11-06 23:06:11,428 - __main__ - INFO - Avg training time: 26.26s
+2025-11-06 23:06:12,901 - __main__ - INFO - 
+[Update #5] Collected 100 frames
+2025-11-06 23:06:12,923 - __main__ - INFO - Performing local training...

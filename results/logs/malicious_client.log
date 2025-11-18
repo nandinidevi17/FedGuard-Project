@@ -1,0 +1,269 @@
+2025-11-11 12:33:46,588 - __main__ - WARNING - ============================================================
+2025-11-11 12:33:46,588 - __main__ - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-11-11 12:33:46,589 - __main__ - WARNING - ============================================================
+2025-11-11 12:33:46,589 - __main__ - WARNING - Client ID: Malicious-Attacker-01
+2025-11-11 12:33:46,589 - __main__ - WARNING - Attack type: random_noise
+2025-11-11 12:33:46,589 - __main__ - WARNING - Attack scale: 10.0
+2025-11-11 12:33:46,589 - __main__ - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-11-11 12:33:47,214 - __main__ - INFO - [OK] Model structure loaded - 30 layers
+2025-11-11 12:33:47,214 - __main__ - INFO - Connecting to Kafka at localhost:9092...
+2025-11-11 12:33:47,222 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-11 12:33:47,224 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-11-11 12:33:47,225 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-11 12:33:47,338 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-11-11 12:33:47,338 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-11-11 12:33:47,340 - __main__ - INFO - [OK] Kafka connection established
+2025-11-11 12:33:47,341 - __main__ - WARNING - 
+============================================================
+2025-11-11 12:33:47,341 - __main__ - WARNING - ATTACK IN PROGRESS
+2025-11-11 12:33:47,342 - __main__ - WARNING - Sending poisoned updates every 10 seconds
+2025-11-11 12:33:47,342 - __main__ - WARNING - ============================================================
+
+2025-11-11 12:33:47,460 - __main__ - WARNING - 
+[Attack #1] Sending poisoned update...
+2025-11-11 12:33:48,603 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:33:48,605 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-11 12:33:48,606 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-11 12:33:48,606 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-11 12:33:58,719 - __main__ - WARNING - 
+[Attack #2] Sending poisoned update...
+2025-11-11 12:33:59,787 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:34:10,077 - __main__ - WARNING - 
+[Attack #3] Sending poisoned update...
+2025-11-11 12:34:11,501 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:34:21,600 - __main__ - WARNING - 
+[Attack #4] Sending poisoned update...
+2025-11-11 12:34:22,699 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:34:32,811 - __main__ - WARNING - 
+[Attack #5] Sending poisoned update...
+2025-11-11 12:34:33,989 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:34:44,112 - __main__ - WARNING - 
+[Attack #6] Sending poisoned update...
+2025-11-11 12:34:45,140 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:34:55,265 - __main__ - WARNING - 
+[Attack #7] Sending poisoned update...
+2025-11-11 12:34:56,428 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:35:06,591 - __main__ - WARNING - 
+[Attack #8] Sending poisoned update...
+2025-11-11 12:35:07,818 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:35:17,945 - __main__ - WARNING - 
+[Attack #9] Sending poisoned update...
+2025-11-11 12:35:19,221 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:35:29,376 - __main__ - WARNING - 
+[Attack #10] Sending poisoned update...
+2025-11-11 12:35:30,605 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:35:40,885 - __main__ - WARNING - 
+[Attack #11] Sending poisoned update...
+2025-11-11 12:35:42,593 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:35:52,739 - __main__ - WARNING - 
+[Attack #12] Sending poisoned update...
+2025-11-11 12:35:53,973 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:36:04,119 - __main__ - WARNING - 
+[Attack #13] Sending poisoned update...
+2025-11-11 12:36:05,270 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:36:15,391 - __main__ - WARNING - 
+[Attack #14] Sending poisoned update...
+2025-11-11 12:36:16,402 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:36:26,542 - __main__ - WARNING - 
+[Attack #15] Sending poisoned update...
+2025-11-11 12:36:28,084 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:36:38,198 - __main__ - WARNING - 
+[Attack #16] Sending poisoned update...
+2025-11-11 12:36:39,357 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:36:49,487 - __main__ - WARNING - 
+[Attack #17] Sending poisoned update...
+2025-11-11 12:36:50,716 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:37:01,008 - __main__ - WARNING - 
+[Attack #18] Sending poisoned update...
+2025-11-11 12:37:02,454 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:37:12,619 - __main__ - WARNING - 
+[Attack #19] Sending poisoned update...
+2025-11-11 12:37:14,075 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:37:24,215 - __main__ - WARNING - 
+[Attack #20] Sending poisoned update...
+2025-11-11 12:37:25,639 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:37:35,777 - __main__ - WARNING - 
+[Attack #21] Sending poisoned update...
+2025-11-11 12:37:37,103 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:37:47,259 - __main__ - WARNING - 
+[Attack #22] Sending poisoned update...
+2025-11-11 12:37:48,845 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:37:59,026 - __main__ - WARNING - 
+[Attack #23] Sending poisoned update...
+2025-11-11 12:38:00,436 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:38:10,562 - __main__ - WARNING - 
+[Attack #24] Sending poisoned update...
+2025-11-11 12:38:11,917 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:38:22,139 - __main__ - WARNING - 
+[Attack #25] Sending poisoned update...
+2025-11-11 12:38:23,659 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:38:33,821 - __main__ - WARNING - 
+[Attack #26] Sending poisoned update...
+2025-11-11 12:38:35,452 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:38:45,636 - __main__ - WARNING - 
+[Attack #27] Sending poisoned update...
+2025-11-11 12:38:47,200 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:38:57,335 - __main__ - WARNING - 
+[Attack #28] Sending poisoned update...
+2025-11-11 12:38:58,731 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:39:08,869 - __main__ - WARNING - 
+[Attack #29] Sending poisoned update...
+2025-11-11 12:39:10,186 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:39:20,313 - __main__ - WARNING - 
+[Attack #30] Sending poisoned update...
+2025-11-11 12:39:21,537 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:39:31,687 - __main__ - WARNING - 
+[Attack #31] Sending poisoned update...
+2025-11-11 12:39:33,318 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:39:43,453 - __main__ - WARNING - 
+[Attack #32] Sending poisoned update...
+2025-11-11 12:39:44,902 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:39:55,181 - __main__ - WARNING - 
+[Attack #33] Sending poisoned update...
+2025-11-11 12:39:56,770 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:40:06,900 - __main__ - WARNING - 
+[Attack #34] Sending poisoned update...
+2025-11-11 12:40:08,480 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:40:18,629 - __main__ - WARNING - 
+[Attack #35] Sending poisoned update...
+2025-11-11 12:40:19,885 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:40:30,026 - __main__ - WARNING - 
+[Attack #36] Sending poisoned update...
+2025-11-11 12:40:31,409 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:40:41,553 - __main__ - WARNING - 
+[Attack #37] Sending poisoned update...
+2025-11-11 12:40:43,321 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:40:53,454 - __main__ - WARNING - 
+[Attack #38] Sending poisoned update...
+2025-11-11 12:40:54,720 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 12:40:59,357 - __main__ - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-11-11 12:40:59,359 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-11-11 12:40:59,362 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-11 12:40:59,362 - __main__ - WARNING - 
+Malicious client stopped after 38 attacks
+2025-11-11 18:31:55,337 - __main__ - WARNING - ============================================================
+2025-11-11 18:31:55,338 - __main__ - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-11-11 18:31:55,338 - __main__ - WARNING - ============================================================
+2025-11-11 18:31:55,338 - __main__ - WARNING - Client ID: Malicious-Attacker-01
+2025-11-11 18:31:55,339 - __main__ - WARNING - Attack type: random_noise
+2025-11-11 18:31:55,339 - __main__ - WARNING - Attack scale: 10.0
+2025-11-11 18:31:55,339 - __main__ - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-11-11 18:31:56,073 - __main__ - INFO - [OK] Model structure loaded - 30 layers
+2025-11-11 18:31:56,074 - __main__ - INFO - Connecting to Kafka at localhost:9092...
+2025-11-11 18:31:56,082 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-11 18:31:56,084 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-11-11 18:31:56,086 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-11 18:31:56,196 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-11-11 18:31:56,198 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-11-11 18:31:56,200 - __main__ - INFO - [OK] Kafka connection established
+2025-11-11 18:31:56,200 - __main__ - WARNING - 
+============================================================
+2025-11-11 18:31:56,200 - __main__ - WARNING - ATTACK IN PROGRESS
+2025-11-11 18:31:56,200 - __main__ - WARNING - Sending poisoned updates every 10 seconds
+2025-11-11 18:31:56,200 - __main__ - WARNING - ============================================================
+
+2025-11-11 18:31:56,320 - __main__ - WARNING - 
+[Attack #1] Sending poisoned update...
+2025-11-11 18:31:57,076 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:31:57,131 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-11 18:31:57,132 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-11 18:31:57,132 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-11 18:32:07,148 - __main__ - WARNING - 
+[Attack #2] Sending poisoned update...
+2025-11-11 18:32:08,043 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:32:18,122 - __main__ - WARNING - 
+[Attack #3] Sending poisoned update...
+2025-11-11 18:32:19,103 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:32:29,169 - __main__ - WARNING - 
+[Attack #4] Sending poisoned update...
+2025-11-11 18:32:29,860 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:32:39,932 - __main__ - WARNING - 
+[Attack #5] Sending poisoned update...
+2025-11-11 18:32:40,803 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:32:50,894 - __main__ - WARNING - 
+[Attack #6] Sending poisoned update...
+2025-11-11 18:32:51,759 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:33:01,826 - __main__ - WARNING - 
+[Attack #7] Sending poisoned update...
+2025-11-11 18:33:02,610 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:33:12,665 - __main__ - WARNING - 
+[Attack #8] Sending poisoned update...
+2025-11-11 18:33:13,323 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:33:23,390 - __main__ - WARNING - 
+[Attack #9] Sending poisoned update...
+2025-11-11 18:33:24,109 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:33:34,181 - __main__ - WARNING - 
+[Attack #10] Sending poisoned update...
+2025-11-11 18:33:35,124 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:33:45,214 - __main__ - WARNING - 
+[Attack #11] Sending poisoned update...
+2025-11-11 18:33:46,046 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:33:56,112 - __main__ - WARNING - 
+[Attack #12] Sending poisoned update...
+2025-11-11 18:33:56,717 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:34:06,770 - __main__ - WARNING - 
+[Attack #13] Sending poisoned update...
+2025-11-11 18:34:07,365 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:34:17,419 - __main__ - WARNING - 
+[Attack #14] Sending poisoned update...
+2025-11-11 18:34:18,073 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:34:28,138 - __main__ - WARNING - 
+[Attack #15] Sending poisoned update...
+2025-11-11 18:34:28,681 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:34:38,744 - __main__ - WARNING - 
+[Attack #16] Sending poisoned update...
+2025-11-11 18:34:39,391 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:34:49,500 - __main__ - WARNING - 
+[Attack #17] Sending poisoned update...
+2025-11-11 18:34:50,333 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:35:00,391 - __main__ - WARNING - 
+[Attack #18] Sending poisoned update...
+2025-11-11 18:35:00,972 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:35:11,019 - __main__ - WARNING - 
+[Attack #19] Sending poisoned update...
+2025-11-11 18:35:11,603 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:35:21,652 - __main__ - WARNING - 
+[Attack #20] Sending poisoned update...
+2025-11-11 18:35:22,257 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:35:32,296 - __main__ - WARNING - 
+[Attack #21] Sending poisoned update...
+2025-11-11 18:35:32,870 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:35:42,940 - __main__ - WARNING - 
+[Attack #22] Sending poisoned update...
+2025-11-11 18:35:43,513 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:35:53,587 - __main__ - WARNING - 
+[Attack #23] Sending poisoned update...
+2025-11-11 18:35:54,313 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:36:05,335 - __main__ - WARNING - 
+[Attack #24] Sending poisoned update...
+2025-11-11 18:36:09,800 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:36:20,484 - __main__ - WARNING - 
+[Attack #25] Sending poisoned update...
+2025-11-11 18:36:25,356 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:36:35,447 - __main__ - WARNING - 
+[Attack #26] Sending poisoned update...
+2025-11-11 18:36:36,861 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:36:46,911 - __main__ - WARNING - 
+[Attack #27] Sending poisoned update...
+2025-11-11 18:36:47,524 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:36:57,575 - __main__ - WARNING - 
+[Attack #28] Sending poisoned update...
+2025-11-11 18:36:58,086 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:37:08,140 - __main__ - WARNING - 
+[Attack #29] Sending poisoned update...
+2025-11-11 18:37:08,701 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:37:18,740 - __main__ - WARNING - 
+[Attack #30] Sending poisoned update...
+2025-11-11 18:37:19,400 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:37:29,449 - __main__ - WARNING - 
+[Attack #31] Sending poisoned update...
+2025-11-11 18:37:30,195 - __main__ - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-11 18:37:31,263 - __main__ - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-11-11 18:37:31,264 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-11-11 18:37:31,266 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-11 18:37:31,266 - __main__ - WARNING - 
+Malicious client stopped after 31 attacks

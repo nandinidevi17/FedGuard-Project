@@ -1,0 +1,16 @@
+{
+  "round": 1,
+  "timestamp": "2025-11-11T18:24:56.944739",
+  "clients_participated": [
+    "Client-01"
+  ],
+  "honest_clients": [
+    "Client-01"
+  ],
+  "malicious_clients": [],
+  "security_scores": {
+    "Client-01": 0.0
+  },
+  "defense_method": "mad",
+  "aggregation_method": "mean"
+}

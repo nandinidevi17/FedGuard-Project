@@ -1,0 +1,13 @@
+{
+  "loss": [
+    0.0035421925131231546
+  ],
+  "val_loss": [
+    0.0014105113223195076
+  ],
+  "training_time_seconds": 700.529711,
+  "dataset": "ped1",
+  "img_size": 128,
+  "epochs": 1,
+  "batch_size": 4
+}

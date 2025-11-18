@@ -1,0 +1,18 @@
+2025-11-08 21:18:39,384 - fedguard_client - INFO - ============================================================
+2025-11-08 21:18:39,384 - fedguard_client - INFO - FEDERATED CLIENT: Client-01
+2025-11-08 21:18:39,384 - fedguard_client - INFO - ============================================================
+2025-11-08 21:18:39,386 - fedguard_client - INFO - Loading model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-11-08 21:18:44,388 - fedguard_client - INFO - [OK] Model loaded successfully
+2025-11-08 21:18:44,388 - fedguard_client - INFO - Connecting to Kafka at localhost:9092 (topic: model-updates)...
+2025-11-08 21:18:44,463 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-08 21:18:44,464 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-11-08 21:18:44,465 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-08 21:18:44,576 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-11-08 21:18:44,577 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-11-08 21:18:44,579 - fedguard_client - INFO - [OK] Kafka producer initialized
+2025-11-08 21:18:44,580 - fedguard_client - INFO - Loading frames from: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Train\Train001
+2025-11-08 21:18:44,651 - fedguard_client - INFO - [OK] Found 200 frames
+2025-11-08 21:18:44,652 - fedguard_client - INFO - Batch size: 100 frames
+2025-11-08 21:18:47,675 - fedguard_client - INFO - 
+[Update #1] Collected 100 frames
+2025-11-08 21:18:47,690 - fedguard_client - INFO - Performing local training...
