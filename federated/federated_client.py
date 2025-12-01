@@ -318,8 +318,8 @@ logging.basicConfig(
 )
 logger = logging.getLogger("fedguard_client")
 
-CLIENT_ID = "Client-01"  # CHANGE THIS FOR EACH CLIENT
-VIDEO_SOURCE = os.path.join(UCSD_PED1_TRAIN, "Train001")
+CLIENT_ID = "Client-03"  # CHANGE THIS FOR EACH CLIENT
+VIDEO_SOURCE = os.path.join(UCSD_PED1_TRAIN, "Train003")
 MODEL_PATH = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
 
 def serialize_weights_to_bytes(weights_list):
