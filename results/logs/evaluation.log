@@ -1,0 +1,133 @@
+2025-12-01 12:00:52,142 - __main__ - INFO - 
+FEDGUARD MODEL COMPARISON
+2025-12-01 12:00:52,143 - __main__ - INFO - 
+============================================================
+2025-12-01 12:00:52,144 - __main__ - INFO - Evaluating: FedGuard (Secure)
+2025-12-01 12:00:52,144 - __main__ - INFO - Model path: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 12:00:52,144 - __main__ - INFO - Test folder: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:00:52,474 - __main__ - INFO - ✓ Model loaded successfully
+2025-12-01 12:00:54,387 - utils.data_loader - INFO - Loaded 200 test frames from C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:00:54,388 - __main__ - INFO - ✓ Loaded 200 frames
+2025-12-01 12:00:54,388 - utils.data_loader - WARNING - Ground truth not found at C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001_gt
+2025-12-01 12:00:54,389 - __main__ - INFO - ✓ Ground truth loaded (0 anomalies)
+2025-12-01 12:00:54,389 - __main__ - INFO - Calculating reconstruction errors...
+2025-12-01 12:00:56,760 - __main__ - INFO - ✓ Reconstruction errors calculated
+2025-12-01 12:00:56,763 - utils.metrics - WARNING - Could not calculate ROC-AUC
+2025-12-01 12:09:44,034 - __main__ - INFO - 
+FEDGUARD MODEL COMPARISON
+2025-12-01 12:09:44,035 - __main__ - INFO - 
+============================================================
+2025-12-01 12:09:44,035 - __main__ - INFO - Evaluating: FedGuard (Secure)
+2025-12-01 12:09:44,035 - __main__ - INFO - Model path: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 12:09:44,035 - __main__ - INFO - Test folder: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:09:44,332 - __main__ - INFO - ✓ Model loaded successfully
+2025-12-01 12:09:44,394 - utils.data_loader - INFO - Loaded 200 test frames from C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:09:44,395 - __main__ - INFO - ✓ Loaded 200 frames
+2025-12-01 12:09:44,395 - utils.data_loader - WARNING - Ground truth not found at C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001_gt
+2025-12-01 12:09:44,396 - __main__ - INFO - ✓ Ground truth loaded (0 anomalies)
+2025-12-01 12:09:44,396 - __main__ - INFO - Calculating reconstruction errors...
+2025-12-01 12:09:46,715 - __main__ - INFO - ✓ Reconstruction errors calculated
+2025-12-01 12:09:46,718 - utils.metrics - WARNING - Could not calculate ROC-AUC (ground truth contains a single class). Returning auc=None.
+2025-12-01 12:09:46,718 - __main__ - INFO - 
+RESULTS
+2025-12-01 12:09:46,718 - __main__ - INFO - Threshold (MSE): 0.003946
+2025-12-01 12:09:46,719 - __main__ - INFO - Accuracy: 95.00%
+2025-12-01 12:09:46,719 - __main__ - INFO - Precision: 0.00%
+2025-12-01 12:09:46,719 - __main__ - INFO - Recall: 0.00%
+2025-12-01 12:09:46,719 - __main__ - INFO - F1-Score: 0.0000
+2025-12-01 12:14:20,379 - __main__ - INFO - 
+FEDGUARD MODEL COMPARISON
+2025-12-01 12:14:20,379 - __main__ - INFO - 
+============================================================
+2025-12-01 12:14:20,379 - __main__ - INFO - Evaluating: FedGuard (Secure)
+2025-12-01 12:14:20,379 - __main__ - INFO - Model path: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 12:14:20,379 - __main__ - INFO - Test folder: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:14:20,647 - __main__ - INFO - ✓ Model loaded successfully
+2025-12-01 12:14:20,709 - utils.data_loader - INFO - Loaded 200 test frames from C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:14:20,710 - __main__ - INFO - ✓ Loaded 200 frames
+2025-12-01 12:14:20,710 - utils.data_loader - WARNING - Ground truth not found at C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001_gt
+2025-12-01 12:14:20,711 - __main__ - INFO - ✓ Ground truth loaded (0 anomalies)
+2025-12-01 12:14:20,711 - __main__ - INFO - Calculating reconstruction errors...
+2025-12-01 12:14:22,997 - __main__ - INFO - ✓ Reconstruction errors calculated
+2025-12-01 12:14:22,999 - utils.metrics - WARNING - Could not calculate ROC-AUC (ground truth contains a single class). Returning auc=None.
+2025-12-01 12:14:22,999 - __main__ - INFO - 
+RESULTS
+2025-12-01 12:14:23,000 - __main__ - INFO - Threshold (MSE): 0.003946
+2025-12-01 12:14:23,000 - __main__ - INFO - Accuracy: 95.00%
+2025-12-01 12:14:23,000 - __main__ - INFO - Precision: 0.00%
+2025-12-01 12:14:23,000 - __main__ - INFO - Recall: 0.00%
+2025-12-01 12:14:23,000 - __main__ - INFO - F1-Score: 0.0000
+2025-12-01 12:14:23,000 - __main__ - INFO - AUC-ROC: N/A
+2025-12-01 12:14:23,002 - __main__ - INFO - 
+============================================================
+2025-12-01 12:14:23,002 - __main__ - INFO - Evaluating: Attacked (No Defense)
+2025-12-01 12:14:23,002 - __main__ - INFO - Model path: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 12:14:23,002 - __main__ - INFO - Test folder: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:14:23,006 - __main__ - ERROR - Failed to load model: Error when deserializing class 'InputLayer' using config={'batch_shape': [None, 256, 256, 1], 'dtype': 'float32', 'sparse': False, 'ragged': False, 'name': 'input_layer'}.
+
+Exception encountered: Unrecognized keyword arguments: ['batch_shape']
+2025-12-01 12:14:23,006 - __main__ - ERROR - Failed to evaluate attacked model
+2025-12-01 12:31:56,248 - __main__ - INFO - 
+FEDGUARD MODEL COMPARISON
+2025-12-01 12:31:56,249 - __main__ - INFO - 
+============================================================
+2025-12-01 12:31:56,249 - __main__ - INFO - Evaluating: FedGuard (Secure)
+2025-12-01 12:31:56,250 - __main__ - INFO - Model path: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 12:31:56,250 - __main__ - INFO - Test folder: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:31:56,627 - __main__ - INFO - ✓ Model loaded successfully
+2025-12-01 12:31:56,710 - utils.data_loader - INFO - Loaded 200 test frames from C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:31:56,711 - __main__ - INFO - ✓ Loaded 200 frames
+2025-12-01 12:31:56,711 - utils.data_loader - WARNING - Ground truth not found at C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001_gt
+2025-12-01 12:31:56,711 - __main__ - INFO - ✓ Ground truth loaded (0 anomalies)
+2025-12-01 12:31:56,711 - __main__ - INFO - Calculating reconstruction errors...
+2025-12-01 12:32:00,254 - __main__ - INFO - ✓ Reconstruction errors calculated
+2025-12-01 12:32:00,257 - utils.metrics - WARNING - Could not calculate ROC-AUC (ground truth contains a single class). Returning auc=None.
+2025-12-01 12:32:00,258 - __main__ - INFO - 
+RESULTS
+2025-12-01 12:32:00,258 - __main__ - INFO - Threshold (MSE): 0.003946
+2025-12-01 12:32:00,258 - __main__ - INFO - Accuracy: 95.00%
+2025-12-01 12:32:00,259 - __main__ - INFO - Precision: 0.00%
+2025-12-01 12:32:00,259 - __main__ - INFO - Recall: 0.00%
+2025-12-01 12:32:00,259 - __main__ - INFO - F1-Score: 0.0000
+2025-12-01 12:32:00,260 - __main__ - INFO - AUC-ROC: N/A
+2025-12-01 12:32:00,263 - __main__ - INFO - 
+============================================================
+2025-12-01 12:32:00,263 - __main__ - INFO - Evaluating: Attacked (No Defense)
+2025-12-01 12:32:00,264 - __main__ - INFO - Model path: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 12:32:00,264 - __main__ - INFO - Test folder: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:32:00,272 - __main__ - ERROR - Failed to load model: Error when deserializing class 'InputLayer' using config={'batch_shape': [None, 256, 256, 1], 'dtype': 'float32', 'sparse': False, 'ragged': False, 'name': 'input_layer'}.
+
+Exception encountered: Unrecognized keyword arguments: ['batch_shape']
+2025-12-01 12:32:00,273 - __main__ - ERROR - Failed to evaluate attacked model
+2025-12-01 12:32:16,440 - __main__ - INFO - 
+FEDGUARD MODEL COMPARISON
+2025-12-01 12:32:16,440 - __main__ - INFO - 
+============================================================
+2025-12-01 12:32:16,440 - __main__ - INFO - Evaluating: FedGuard (Secure)
+2025-12-01 12:32:16,440 - __main__ - INFO - Model path: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 12:32:16,440 - __main__ - INFO - Test folder: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:32:16,901 - __main__ - INFO - ✓ Model loaded successfully
+2025-12-01 12:32:17,028 - utils.data_loader - INFO - Loaded 200 test frames from C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:32:17,028 - __main__ - INFO - ✓ Loaded 200 frames
+2025-12-01 12:32:17,028 - utils.data_loader - WARNING - Ground truth not found at C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001_gt
+2025-12-01 12:32:17,029 - __main__ - INFO - ✓ Ground truth loaded (0 anomalies)
+2025-12-01 12:32:17,029 - __main__ - INFO - Calculating reconstruction errors...
+2025-12-01 12:32:20,799 - __main__ - INFO - ✓ Reconstruction errors calculated
+2025-12-01 12:32:20,803 - utils.metrics - WARNING - Could not calculate ROC-AUC (ground truth contains a single class). Returning auc=None.
+2025-12-01 12:32:20,803 - __main__ - INFO - 
+RESULTS
+2025-12-01 12:32:20,803 - __main__ - INFO - Threshold (MSE): 0.003946
+2025-12-01 12:32:20,804 - __main__ - INFO - Accuracy: 95.00%
+2025-12-01 12:32:20,804 - __main__ - INFO - Precision: 0.00%
+2025-12-01 12:32:20,804 - __main__ - INFO - Recall: 0.00%
+2025-12-01 12:32:20,804 - __main__ - INFO - F1-Score: 0.0000
+2025-12-01 12:32:20,805 - __main__ - INFO - AUC-ROC: N/A
+2025-12-01 12:32:20,807 - __main__ - INFO - 
+============================================================
+2025-12-01 12:32:20,808 - __main__ - INFO - Evaluating: Attacked (No Defense)
+2025-12-01 12:32:20,808 - __main__ - INFO - Model path: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 12:32:20,809 - __main__ - INFO - Test folder: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Test\Test001
+2025-12-01 12:32:20,815 - __main__ - ERROR - Failed to load model: Error when deserializing class 'InputLayer' using config={'batch_shape': [None, 256, 256, 1], 'dtype': 'float32', 'sparse': False, 'ragged': False, 'name': 'input_layer'}.
+
+Exception encountered: Unrecognized keyword arguments: ['batch_shape']
+2025-12-01 12:32:20,816 - __main__ - ERROR - Failed to evaluate attacked model

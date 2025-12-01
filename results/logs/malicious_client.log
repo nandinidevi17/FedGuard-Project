@@ -267,3 +267,439 @@ Keyboard interrupt - stopping attacks
 2025-11-11 18:37:31,266 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
 2025-11-11 18:37:31,266 - __main__ - WARNING - 
 Malicious client stopped after 31 attacks
+2025-11-29 09:38:54,972 - malicious_client - WARNING - ============================================================
+2025-11-29 09:38:54,973 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-11-29 09:38:54,973 - malicious_client - WARNING - ============================================================
+2025-11-29 09:38:54,973 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-11-29 09:38:54,974 - malicious_client - WARNING - Attack type: random_noise
+2025-11-29 09:38:54,974 - malicious_client - WARNING - Attack scale: 2.0
+2025-11-29 09:38:54,975 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-11-29 09:39:02,980 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-11-29 09:39:02,980 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-11-29 09:39:02,989 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-29 09:39:02,992 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-11-29 09:39:02,995 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-29 09:39:03,108 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-11-29 09:39:03,108 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-11-29 09:39:03,111 - malicious_client - INFO - [OK] Kafka connection established
+2025-11-29 09:39:03,112 - malicious_client - WARNING - 
+============================================================
+2025-11-29 09:39:03,112 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-11-29 09:39:03,113 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-11-29 09:39:03,114 - malicious_client - WARNING - ============================================================
+
+2025-11-29 09:39:03,180 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-11-29 09:39:04,095 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524597 headers_present=True
+2025-11-29 09:39:04,108 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-29 09:39:04,109 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-29 09:39:04,110 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-29 09:39:06,050 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:39:26,103 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-11-29 09:39:26,671 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524707 headers_present=True
+2025-11-29 09:39:28,197 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:39:48,254 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-11-29 09:39:48,789 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524691 headers_present=True
+2025-11-29 09:39:50,725 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:40:10,972 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-11-29 09:40:11,903 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524703 headers_present=True
+2025-11-29 09:40:13,427 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:40:33,620 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-11-29 09:40:35,396 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523971 headers_present=True
+2025-11-29 09:40:37,808 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:40:57,977 - malicious_client - WARNING - 
+[Attack #6] Building poisoned update...
+2025-11-29 09:40:59,304 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524479 headers_present=True
+2025-11-29 09:41:01,146 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:41:21,212 - malicious_client - WARNING - 
+[Attack #7] Building poisoned update...
+2025-11-29 09:41:21,715 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524491 headers_present=True
+2025-11-29 09:41:24,070 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:41:44,135 - malicious_client - WARNING - 
+[Attack #8] Building poisoned update...
+2025-11-29 09:41:44,900 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524210 headers_present=True
+2025-11-29 09:41:46,586 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:42:06,688 - malicious_client - WARNING - 
+[Attack #9] Building poisoned update...
+2025-11-29 09:42:08,285 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524075 headers_present=True
+2025-11-29 09:42:10,105 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:42:30,302 - malicious_client - WARNING - 
+[Attack #10] Building poisoned update...
+2025-11-29 09:42:31,516 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524100 headers_present=True
+2025-11-29 09:42:33,875 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:42:54,005 - malicious_client - WARNING - 
+[Attack #11] Building poisoned update...
+2025-11-29 09:42:54,672 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524050 headers_present=True
+2025-11-29 09:42:57,059 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:43:17,395 - malicious_client - WARNING - 
+[Attack #12] Building poisoned update...
+2025-11-29 09:43:19,325 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524298 headers_present=True
+2025-11-29 09:43:25,025 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:43:45,161 - malicious_client - WARNING - 
+[Attack #13] Building poisoned update...
+2025-11-29 09:43:46,066 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523922 headers_present=True
+2025-11-29 09:43:47,656 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:44:07,714 - malicious_client - WARNING - 
+[Attack #14] Building poisoned update...
+2025-11-29 09:44:08,331 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524427 headers_present=True
+2025-11-29 09:44:10,145 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:44:30,215 - malicious_client - WARNING - 
+[Attack #15] Building poisoned update...
+2025-11-29 09:44:31,031 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524648 headers_present=True
+2025-11-29 09:44:34,315 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-11-29 09:44:50,529 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-11-29 09:44:50,534 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-11-29 09:44:50,539 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-29 09:44:50,542 - malicious_client - WARNING - 
+Malicious client stopped after 15 attacks
+2025-12-01 11:01:52,523 - malicious_client - WARNING - ============================================================
+2025-12-01 11:01:52,524 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:01:52,524 - malicious_client - WARNING - ============================================================
+2025-12-01 11:01:52,524 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:01:52,524 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:01:52,525 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:01:52,525 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:01:56,353 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:01:56,353 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:01:56,358 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:01:56,360 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:01:58,380 - malicious_client - ERROR - 
+
+ERROR: NoBrokersAvailable
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 211, in main
+    producer = KafkaProducer(
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\kafka.py", line 381, in __init__
+    client = KafkaClient(metrics=self._metrics, metric_group_prefix='producer',
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\client_async.py", line 244, in __init__
+    self.config['api_version'] = self.check_version(timeout=check_timeout)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\client_async.py", line 927, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+2025-12-01 11:01:58,383 - malicious_client - WARNING - 
+Malicious client stopped after 0 attacks
+2025-12-01 11:03:34,407 - malicious_client - WARNING - ============================================================
+2025-12-01 11:03:34,408 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:03:34,408 - malicious_client - WARNING - ============================================================
+2025-12-01 11:03:34,408 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:03:34,408 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:03:34,408 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:03:34,408 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:03:38,033 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:03:38,034 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:03:38,039 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:03:38,039 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:03:38,040 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:03:38,154 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:03:38,154 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:03:38,157 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-01 11:03:38,157 - malicious_client - WARNING - 
+============================================================
+2025-12-01 11:03:38,157 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-01 11:03:38,158 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-01 11:03:38,158 - malicious_client - WARNING - ============================================================
+
+2025-12-01 11:03:38,207 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-01 11:03:38,619 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524467 headers_present=True
+2025-12-01 11:03:38,625 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:03:38,625 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:03:38,627 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:03:39,667 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:03:59,702 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-01 11:04:00,139 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524602 headers_present=True
+2025-12-01 11:04:01,467 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:04:21,512 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-01 11:04:21,977 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524041 headers_present=True
+2025-12-01 11:04:23,070 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:04:43,149 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-01 11:04:43,992 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524226 headers_present=True
+2025-12-01 11:04:45,722 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:05:05,763 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-12-01 11:05:07,291 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524532 headers_present=True
+2025-12-01 11:05:10,361 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:05:30,685 - malicious_client - WARNING - 
+[Attack #6] Building poisoned update...
+2025-12-01 11:05:32,155 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524404 headers_present=True
+2025-12-01 11:05:33,421 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:05:45,553 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-01 11:05:45,553 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-01 11:05:45,554 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:05:45,555 - malicious_client - WARNING - 
+Malicious client stopped after 6 attacks
+2025-12-01 11:11:36,015 - malicious_client - WARNING - ============================================================
+2025-12-01 11:11:36,015 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:11:36,016 - malicious_client - WARNING - ============================================================
+2025-12-01 11:11:36,016 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:11:36,016 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:11:36,016 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:11:36,016 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:11:39,450 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:11:39,451 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:11:39,457 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:11:39,458 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:11:39,459 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:11:39,577 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:11:39,578 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:11:39,581 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-01 11:11:39,582 - malicious_client - WARNING - 
+============================================================
+2025-12-01 11:11:39,582 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-01 11:11:39,583 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-01 11:11:39,583 - malicious_client - WARNING - ============================================================
+
+2025-12-01 11:11:39,622 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-01 11:11:40,022 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524648 headers_present=True
+2025-12-01 11:11:40,027 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:11:40,028 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:11:40,028 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:11:41,146 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:11:45,980 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-01 11:11:45,980 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-01 11:11:45,981 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:11:45,982 - malicious_client - WARNING - 
+Malicious client stopped after 1 attacks
+2025-12-01 11:22:30,897 - malicious_client - WARNING - ============================================================
+2025-12-01 11:22:30,897 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:22:30,898 - malicious_client - WARNING - ============================================================
+2025-12-01 11:22:30,898 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:22:30,898 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:22:30,898 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:22:30,898 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:22:34,410 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:22:34,411 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:22:34,415 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:22:34,416 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:22:34,417 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:22:34,522 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:22:34,523 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:22:34,526 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-01 11:22:34,527 - malicious_client - WARNING - 
+============================================================
+2025-12-01 11:22:34,527 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-01 11:22:34,527 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-01 11:22:34,529 - malicious_client - WARNING - ============================================================
+
+2025-12-01 11:22:34,570 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-01 11:22:34,971 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524470 headers_present=True
+2025-12-01 11:22:34,978 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:22:34,979 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:22:34,979 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:22:35,943 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:22:56,040 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-01 11:22:58,146 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524532 headers_present=True
+2025-12-01 11:23:00,380 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:23:20,606 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-01 11:23:21,622 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524750 headers_present=True
+2025-12-01 11:23:23,302 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:23:26,134 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-01 11:23:26,135 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-01 11:23:26,138 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:23:26,140 - malicious_client - WARNING - 
+Malicious client stopped after 3 attacks
+2025-12-01 11:29:33,068 - malicious_client - WARNING - ============================================================
+2025-12-01 11:29:33,068 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:29:33,068 - malicious_client - WARNING - ============================================================
+2025-12-01 11:29:33,068 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:29:33,068 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:29:33,068 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:29:33,069 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:29:36,518 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:29:36,518 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:29:36,523 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:29:36,524 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:29:36,525 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:29:36,637 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:29:36,638 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:29:36,641 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-01 11:29:36,641 - malicious_client - WARNING - 
+============================================================
+2025-12-01 11:29:36,642 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-01 11:29:36,642 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-01 11:29:36,645 - malicious_client - WARNING - ============================================================
+
+2025-12-01 11:29:36,687 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-01 11:29:37,096 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523967 headers_present=True
+2025-12-01 11:29:37,101 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:29:37,103 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:29:37,103 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:29:37,936 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:29:57,990 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-01 11:29:58,378 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524748 headers_present=True
+2025-12-01 11:29:59,277 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-01 11:29:59,278 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-01 11:29:59,280 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:29:59,281 - malicious_client - WARNING - 
+Malicious client stopped after 2 attacks
+2025-12-01 11:36:17,264 - malicious_client - WARNING - ============================================================
+2025-12-01 11:36:17,264 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:36:17,265 - malicious_client - WARNING - ============================================================
+2025-12-01 11:36:17,265 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:36:17,265 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:36:17,265 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:36:17,265 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:36:22,885 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:36:22,885 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:36:22,892 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:36:22,893 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:36:22,894 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:36:23,008 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:36:23,008 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:36:23,010 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-01 11:36:23,011 - malicious_client - WARNING - 
+============================================================
+2025-12-01 11:36:23,012 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-01 11:36:23,012 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-01 11:36:23,012 - malicious_client - WARNING - ============================================================
+
+2025-12-01 11:36:23,062 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-01 11:36:23,643 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524192 headers_present=True
+2025-12-01 11:36:23,653 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:36:23,655 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:36:23,656 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:36:25,046 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:36:45,091 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-01 11:36:45,563 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524327 headers_present=True
+2025-12-01 11:36:46,674 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:37:02,697 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-01 11:37:02,698 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-01 11:37:02,699 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:37:02,699 - malicious_client - WARNING - 
+Malicious client stopped after 2 attacks
+2025-12-01 11:44:25,268 - malicious_client - WARNING - ============================================================
+2025-12-01 11:44:25,268 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:44:25,268 - malicious_client - WARNING - ============================================================
+2025-12-01 11:44:25,268 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:44:25,269 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:44:25,269 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:44:25,269 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:44:28,596 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:44:28,596 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:44:28,602 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:44:28,603 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:44:28,604 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:44:28,718 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:44:28,719 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:44:28,721 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-01 11:44:28,722 - malicious_client - WARNING - 
+============================================================
+2025-12-01 11:44:28,723 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-01 11:44:28,723 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-01 11:44:28,723 - malicious_client - WARNING - ============================================================
+
+2025-12-01 11:44:28,770 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-01 11:44:29,177 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524351 headers_present=True
+2025-12-01 11:44:29,184 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:44:29,185 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:44:29,185 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:44:30,144 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:44:43,017 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-01 11:44:43,017 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-01 11:44:43,019 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:44:43,020 - malicious_client - WARNING - 
+Malicious client stopped after 1 attacks
+2025-12-01 11:50:41,421 - malicious_client - WARNING - ============================================================
+2025-12-01 11:50:41,421 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:50:41,421 - malicious_client - WARNING - ============================================================
+2025-12-01 11:50:41,421 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:50:41,422 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:50:41,422 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:50:41,422 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:50:54,246 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:50:54,247 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:50:54,254 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:50:54,255 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:50:54,256 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:50:54,365 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:50:54,366 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:50:54,369 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-01 11:50:54,369 - malicious_client - WARNING - 
+============================================================
+2025-12-01 11:50:54,369 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-01 11:50:54,371 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-01 11:50:54,373 - malicious_client - WARNING - ============================================================
+
+2025-12-01 11:50:54,423 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-01 11:50:54,877 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524318 headers_present=True
+2025-12-01 11:50:54,885 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:50:54,886 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:50:54,886 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:50:55,769 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:51:15,818 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-01 11:51:16,272 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524388 headers_present=True
+2025-12-01 11:51:17,584 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:51:22,775 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-01 11:51:22,776 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-01 11:51:22,777 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:51:22,778 - malicious_client - WARNING - 
+Malicious client stopped after 2 attacks
+2025-12-01 11:54:28,511 - malicious_client - WARNING - ============================================================
+2025-12-01 11:54:28,512 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-01 11:54:28,512 - malicious_client - WARNING - ============================================================
+2025-12-01 11:54:28,513 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-01 11:54:28,513 - malicious_client - WARNING - Attack type: random_noise
+2025-12-01 11:54:28,514 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-01 11:54:28,514 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:54:42,623 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-01 11:54:42,624 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-01 11:54:42,635 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:54:42,636 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:54:42,638 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:54:42,743 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:54:42,743 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:54:42,747 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-01 11:54:42,748 - malicious_client - WARNING - 
+============================================================
+2025-12-01 11:54:42,748 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-01 11:54:42,750 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-01 11:54:42,751 - malicious_client - WARNING - ============================================================
+
+2025-12-01 11:54:42,809 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-01 11:54:43,891 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524298 headers_present=True
+2025-12-01 11:54:43,911 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:54:43,914 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:54:43,915 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:54:46,964 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-01 11:55:06,203 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-01 11:55:06,203 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-01 11:55:06,205 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:55:06,206 - malicious_client - WARNING - 
+Malicious client stopped after 1 attacks

@@ -9309,3 +9309,946 @@ SERVER RUNNING - Waiting for client updates
 2025-11-18 16:17:10,467 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
 2025-11-18 16:17:10,468 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
 2025-11-18 16:17:10,470 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-29 09:38:41,802 - fedguard_server - INFO - ============================================================
+2025-11-29 09:38:41,803 - fedguard_server - INFO - FEDGUARD SECURE SERVER
+2025-11-29 09:38:41,804 - fedguard_server - INFO - ============================================================
+2025-11-29 09:38:41,804 - fedguard_server - INFO - Defense method: mad
+2025-11-29 09:38:41,804 - fedguard_server - INFO - Aggregation method: mean
+2025-11-29 09:38:41,805 - fedguard_server - INFO - Expected clients: 4
+2025-11-29 09:38:41,805 - fedguard_server - INFO - Min honest clients: 1
+2025-11-29 09:38:59,151 - fedguard_server - INFO - Loading initial model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-11-29 09:39:00,377 - fedguard_server - INFO - [OK] Model loaded successfully
+2025-11-29 09:39:00,379 - fedguard_server - INFO - Connecting to Kafka at localhost:9092 (topic: model-updates)...
+2025-11-29 09:39:00,391 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-29 09:39:00,395 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-11-29 09:39:00,398 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-29 09:39:00,542 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-11-29 09:39:00,542 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-11-29 09:39:00,544 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-11-29 09:39:00,544 - fedguard_server - INFO - [OK] Kafka consumer initialized
+2025-11-29 09:39:00,545 - fedguard_server - INFO - 
+SERVER RUNNING - Waiting for client updates
+
+2025-11-29 09:39:00,558 - kafka.cluster - INFO - Group coordinator for fedguard-server is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-11-29 09:39:00,559 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group fedguard-server
+2025-11-29 09:39:00,565 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-11-29 09:39:00,567 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group fedguard-server
+2025-11-29 09:39:00,569 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-29 09:39:00,571 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-29 09:39:00,571 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-29 09:39:00,684 - kafka.coordinator - INFO - (Re-)joining group fedguard-server
+2025-11-29 09:39:03,747 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-11-29 09:39:03,750 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-29 09:39:03,751 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-29 09:39:03,774 - kafka.coordinator - INFO - Successfully joined group fedguard-server with generation 11
+2025-11-29 09:39:03,775 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-11-29 09:39:03,775 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group fedguard-server
+2025-11-29 09:39:06,099 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:39:06,101 - fedguard_server - INFO -   Metadata: update #1, loss: N/A
+2025-11-29 09:39:06,192 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:39:06,196 - fedguard_server - INFO -   Updates collected: 1/4
+2025-11-29 09:39:28,234 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:39:28,235 - fedguard_server - INFO -   Metadata: update #2, loss: N/A
+2025-11-29 09:39:28,305 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:39:28,306 - fedguard_server - INFO -   Updates collected: 1/4
+2025-11-29 09:39:50,765 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:39:50,766 - fedguard_server - INFO -   Metadata: update #3, loss: N/A
+2025-11-29 09:39:50,866 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:39:50,867 - fedguard_server - INFO -   Updates collected: 1/4
+2025-11-29 09:40:09,148 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:40:09,148 - fedguard_server - INFO -   Metadata: update #1, loss: 0.0164018627256155
+2025-11-29 09:40:09,291 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:40:09,292 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:40:13,451 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:40:13,452 - fedguard_server - INFO -   Metadata: update #4, loss: N/A
+2025-11-29 09:40:13,527 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:40:13,527 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:40:16,369 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:40:16,369 - fedguard_server - INFO -   Metadata: update #2, loss: 0.01085643656551838
+2025-11-29 09:40:16,447 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:40:16,447 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:40:23,823 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:40:23,823 - fedguard_server - INFO -   Metadata: update #3, loss: 0.009464669972658157
+2025-11-29 09:40:23,929 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:40:23,930 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:40:31,564 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:40:31,564 - fedguard_server - INFO -   Metadata: update #4, loss: 0.007329639978706837
+2025-11-29 09:40:31,696 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:40:31,697 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:40:37,854 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:40:37,854 - fedguard_server - INFO -   Metadata: update #5, loss: N/A
+2025-11-29 09:40:37,976 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:40:37,977 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:40:39,754 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:40:39,754 - fedguard_server - INFO -   Metadata: update #5, loss: 0.00691817095503211
+2025-11-29 09:40:39,849 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:40:39,850 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:40:48,136 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:40:48,136 - fedguard_server - INFO -   Metadata: update #6, loss: 0.006140224635601044
+2025-11-29 09:40:48,204 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:40:48,205 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:40:55,519 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:40:55,520 - fedguard_server - INFO -   Metadata: update #7, loss: 0.00578825268894434
+2025-11-29 09:40:55,634 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:40:55,635 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:01,171 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:41:01,172 - fedguard_server - INFO -   Metadata: update #6, loss: N/A
+2025-11-29 09:41:01,281 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:41:01,282 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:03,921 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:41:03,922 - fedguard_server - INFO -   Metadata: update #8, loss: 0.004883127752691507
+2025-11-29 09:41:04,003 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:41:04,004 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:12,531 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:41:12,531 - fedguard_server - INFO -   Metadata: update #9, loss: 0.004716384224593639
+2025-11-29 09:41:12,604 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:41:12,605 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:20,857 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:41:20,858 - fedguard_server - INFO -   Metadata: update #10, loss: 0.004440375603735447
+2025-11-29 09:41:20,932 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:41:20,932 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:24,094 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:41:24,095 - fedguard_server - INFO -   Metadata: update #7, loss: N/A
+2025-11-29 09:41:24,170 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:41:24,170 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:28,639 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:41:28,639 - fedguard_server - INFO -   Metadata: update #11, loss: 0.004136574920266867
+2025-11-29 09:41:28,714 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:41:28,715 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:37,332 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:41:37,334 - fedguard_server - INFO -   Metadata: update #12, loss: 0.003679030342027545
+2025-11-29 09:41:37,407 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:41:37,409 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:45,546 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:41:45,546 - fedguard_server - INFO -   Metadata: update #13, loss: 0.004403864964842796
+2025-11-29 09:41:45,639 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:41:45,640 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:46,613 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:41:46,613 - fedguard_server - INFO -   Metadata: update #8, loss: N/A
+2025-11-29 09:41:46,696 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:41:46,699 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:41:53,498 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:41:53,499 - fedguard_server - INFO -   Metadata: update #14, loss: 0.004722339566797018
+2025-11-29 09:41:53,589 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:41:53,590 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:42:00,919 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:42:00,919 - fedguard_server - INFO -   Metadata: update #15, loss: 0.00448512751609087
+2025-11-29 09:42:01,010 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:42:01,011 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:42:09,857 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:42:09,858 - fedguard_server - INFO -   Metadata: update #16, loss: 0.0045851762406528
+2025-11-29 09:42:09,948 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:42:09,948 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:42:10,134 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:42:10,134 - fedguard_server - INFO -   Metadata: update #9, loss: N/A
+2025-11-29 09:42:10,208 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:42:10,208 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:42:14,616 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-11-29 09:42:14,616 - fedguard_server - INFO -   Metadata: update #1, loss: 0.014814814552664757
+2025-11-29 09:42:14,705 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:42:14,706 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:18,784 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:42:18,785 - fedguard_server - INFO -   Metadata: update #17, loss: 0.004811329301446676
+2025-11-29 09:42:18,855 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:42:18,856 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:23,635 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-11-29 09:42:23,635 - fedguard_server - INFO -   Metadata: update #2, loss: 0.010372685268521309
+2025-11-29 09:42:23,716 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:42:23,719 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:27,584 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:42:27,584 - fedguard_server - INFO -   Metadata: update #18, loss: 0.004567659925669432
+2025-11-29 09:42:27,712 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:42:27,713 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:32,634 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-11-29 09:42:32,636 - fedguard_server - INFO -   Metadata: update #3, loss: 0.009392200037837029
+2025-11-29 09:42:32,798 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:42:32,798 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:33,938 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:42:33,939 - fedguard_server - INFO -   Metadata: update #10, loss: N/A
+2025-11-29 09:42:34,068 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:42:34,069 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:36,442 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:42:36,442 - fedguard_server - INFO -   Metadata: update #19, loss: 0.004589134827256203
+2025-11-29 09:42:36,565 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:42:36,566 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:42,073 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-11-29 09:42:42,074 - fedguard_server - INFO -   Metadata: update #4, loss: 0.007402435876429081
+2025-11-29 09:42:42,170 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:42:42,170 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:45,078 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:42:45,079 - fedguard_server - INFO -   Metadata: update #20, loss: 0.0042497823014855385
+2025-11-29 09:42:45,295 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:42:45,296 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:51,061 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-11-29 09:42:51,061 - fedguard_server - INFO -   Metadata: update #5, loss: 0.006706658285111189
+2025-11-29 09:42:51,135 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:42:51,135 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:52,970 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:42:52,974 - fedguard_server - INFO -   Metadata: update #21, loss: 0.004055381286889315
+2025-11-29 09:42:53,160 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:42:53,164 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:42:57,081 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-11-29 09:42:57,081 - fedguard_server - INFO -   Metadata: update #11, loss: N/A
+2025-11-29 09:42:57,155 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:42:57,155 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:00,151 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-11-29 09:43:00,152 - fedguard_server - INFO -   Metadata: update #6, loss: 0.006415355019271374
+2025-11-29 09:43:00,220 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:43:00,221 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:01,353 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:43:01,354 - fedguard_server - INFO -   Metadata: update #22, loss: 0.004050241783261299
+2025-11-29 09:43:01,432 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:43:01,434 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:08,779 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-11-29 09:43:08,779 - fedguard_server - INFO -   Metadata: update #7, loss: 0.005721699446439743
+2025-11-29 09:43:08,881 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:43:08,881 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:09,704 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:43:09,705 - fedguard_server - INFO -   Metadata: update #23, loss: 0.003648169571533799
+2025-11-29 09:43:09,798 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:43:09,799 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:18,890 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-11-29 09:43:18,890 - fedguard_server - INFO -   Metadata: update #8, loss: 0.005895351059734821
+2025-11-29 09:43:19,015 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:43:19,016 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:19,544 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-11-29 09:43:19,545 - fedguard_server - INFO -   Metadata: update #24, loss: 0.0033907468896359205
+2025-11-29 09:43:19,674 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:43:19,675 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:21,880 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-01
+2025-11-29 09:43:21,904 - fedguard_server - INFO -   Metadata: update #1, loss: 0.012193797156214714
+2025-11-29 09:43:22,336 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-11-29 09:43:22,340 - fedguard_server - INFO -   Updates collected: 4/4
+2025-11-29 09:43:22,344 - fedguard_server - INFO - 
+============================================================
+2025-11-29 09:43:22,346 - fedguard_server - INFO - ROUND 1 - AGGREGATION
+2025-11-29 09:43:22,347 - fedguard_server - INFO - ============================================================
+2025-11-29 09:43:22,347 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-11-29 09:43:22,749 - fedguard_server - INFO - 
+Client Security Scores:
+2025-11-29 09:43:22,750 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -932.735738765581 - [MALICIOUS]
+2025-11-29 09:43:22,753 - fedguard_server - INFO -   Client-03                      MAD Score: -0.5040811458377242 - [HONEST]
+2025-11-29 09:43:22,759 - fedguard_server - INFO -   Client-02                      MAD Score: 0.5040811458377242 - [HONEST]
+2025-11-29 09:43:22,776 - fedguard_server - INFO -   Client-01                      MAD Score: 0.8449188541622757 - [HONEST]
+2025-11-29 09:43:22,782 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-11-29 09:43:22,784 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-11-29 09:43:22,934 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-11-29 09:43:22,939 - fedguard_server - INFO -   L2 distance: 2.277074
+2025-11-29 09:43:22,940 - fedguard_server - INFO -   Cosine similarity: 0.998829
+2025-11-29 09:43:24,341 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-11-29 09:43:24,359 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_001_stats.json
+2025-11-29 09:43:24,363 - fedguard_server - INFO - ============================================================
+
+2025-11-29 09:43:25,057 - fedguard_server - INFO - 
+[Round 2] Received message from key: Malicious-Attacker-01
+2025-11-29 09:43:25,057 - fedguard_server - INFO -   Metadata: update #12, loss: N/A
+2025-11-29 09:43:25,178 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:43:25,184 - fedguard_server - INFO -   Updates collected: 1/4
+2025-11-29 09:43:29,171 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-02
+2025-11-29 09:43:29,171 - fedguard_server - INFO -   Metadata: update #9, loss: 0.005736165679991245
+2025-11-29 09:43:29,257 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:43:29,258 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:43:29,550 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-03
+2025-11-29 09:43:29,550 - fedguard_server - INFO -   Metadata: update #25, loss: 0.003214942291378975
+2025-11-29 09:43:29,632 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:43:29,633 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:29,917 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-11-29 09:43:29,917 - fedguard_server - INFO -   Metadata: update #2, loss: 0.007064321078360081
+2025-11-29 09:43:30,012 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-11-29 09:43:30,012 - fedguard_server - INFO -   Updates collected: 4/4
+2025-11-29 09:43:30,012 - fedguard_server - INFO - 
+============================================================
+2025-11-29 09:43:30,013 - fedguard_server - INFO - ROUND 2 - AGGREGATION
+2025-11-29 09:43:30,013 - fedguard_server - INFO - ============================================================
+2025-11-29 09:43:30,014 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-11-29 09:43:30,117 - fedguard_server - INFO - 
+Client Security Scores:
+2025-11-29 09:43:30,118 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -933.6496824405552 - [MALICIOUS]
+2025-11-29 09:43:30,118 - fedguard_server - INFO -   Client-02                      MAD Score: 0.4788788213102411 - [HONEST]
+2025-11-29 09:43:30,118 - fedguard_server - INFO -   Client-03                      MAD Score: -0.4788788213102411 - [HONEST]
+2025-11-29 09:43:30,119 - fedguard_server - INFO -   Client-01                      MAD Score: 0.8701211786897589 - [HONEST]
+2025-11-29 09:43:30,119 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-11-29 09:43:30,119 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-11-29 09:43:30,163 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-11-29 09:43:30,164 - fedguard_server - INFO -   L2 distance: 2.441415
+2025-11-29 09:43:30,164 - fedguard_server - INFO -   Cosine similarity: 0.998658
+2025-11-29 09:43:30,312 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-11-29 09:43:30,314 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_002_stats.json
+2025-11-29 09:43:30,314 - fedguard_server - INFO - ============================================================
+
+2025-11-29 09:43:39,329 - fedguard_server - INFO - 
+[Round 3] Received message from key: Client-02
+2025-11-29 09:43:39,330 - fedguard_server - INFO -   Metadata: update #10, loss: 0.0054903640411794186
+2025-11-29 09:43:39,410 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:43:39,410 - fedguard_server - INFO -   Updates collected: 1/4
+2025-11-29 09:43:39,594 - fedguard_server - INFO - 
+[Round 3] Received message from key: Client-03
+2025-11-29 09:43:39,594 - fedguard_server - INFO -   Metadata: update #26, loss: 0.004482686519622803
+2025-11-29 09:43:39,673 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:43:39,675 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:43:40,466 - fedguard_server - INFO - 
+[Round 3] Received message from key: Client-01
+2025-11-29 09:43:40,466 - fedguard_server - INFO -   Metadata: update #3, loss: 0.005400674417614937
+2025-11-29 09:43:40,572 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-11-29 09:43:40,573 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:47,682 - fedguard_server - INFO - 
+[Round 3] Received message from key: Malicious-Attacker-01
+2025-11-29 09:43:47,683 - fedguard_server - INFO -   Metadata: update #13, loss: N/A
+2025-11-29 09:43:47,765 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:43:47,765 - fedguard_server - INFO -   Updates collected: 4/4
+2025-11-29 09:43:47,765 - fedguard_server - INFO - 
+============================================================
+2025-11-29 09:43:47,766 - fedguard_server - INFO - ROUND 3 - AGGREGATION
+2025-11-29 09:43:47,766 - fedguard_server - INFO - ============================================================
+2025-11-29 09:43:47,767 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-11-29 09:43:47,852 - fedguard_server - INFO - 
+Client Security Scores:
+2025-11-29 09:43:47,853 - fedguard_server - INFO -   Client-02                      MAD Score: 0.498342233360961 - [HONEST]
+2025-11-29 09:43:47,853 - fedguard_server - INFO -   Client-03                      MAD Score: -0.4983422333611235 - [HONEST]
+2025-11-29 09:43:47,854 - fedguard_server - INFO -   Client-01                      MAD Score: 0.8506577666388765 - [HONEST]
+2025-11-29 09:43:47,854 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -968.7544924306027 - [MALICIOUS]
+2025-11-29 09:43:47,854 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-11-29 09:43:47,855 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-11-29 09:43:47,892 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-11-29 09:43:47,893 - fedguard_server - INFO -   L2 distance: 2.590338
+2025-11-29 09:43:47,894 - fedguard_server - INFO -   Cosine similarity: 0.998490
+2025-11-29 09:43:48,089 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-11-29 09:43:48,092 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_003_stats.json
+2025-11-29 09:43:48,093 - fedguard_server - INFO - ============================================================
+
+2025-11-29 09:43:49,322 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-02
+2025-11-29 09:43:49,324 - fedguard_server - INFO -   Metadata: update #11, loss: 0.005436202511191368
+2025-11-29 09:43:49,432 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:43:49,433 - fedguard_server - INFO -   Updates collected: 1/4
+2025-11-29 09:43:49,465 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-03
+2025-11-29 09:43:49,465 - fedguard_server - INFO -   Metadata: update #27, loss: 0.004217812791466713
+2025-11-29 09:43:49,549 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:43:49,550 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:43:50,606 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-01
+2025-11-29 09:43:50,607 - fedguard_server - INFO -   Metadata: update #4, loss: 0.004404547158628702
+2025-11-29 09:43:50,840 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-11-29 09:43:50,842 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:59,511 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-03
+2025-11-29 09:43:59,511 - fedguard_server - INFO -   Metadata: update #28, loss: 0.004190359264612198
+2025-11-29 09:43:59,594 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:43:59,594 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:43:59,625 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-02
+2025-11-29 09:43:59,625 - fedguard_server - INFO -   Metadata: update #12, loss: 0.0052552917040884495
+2025-11-29 09:43:59,710 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:43:59,710 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:01,169 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-01
+2025-11-29 09:44:01,174 - fedguard_server - INFO -   Metadata: update #5, loss: 0.003525434760376811
+2025-11-29 09:44:01,383 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-11-29 09:44:01,387 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:09,304 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-03
+2025-11-29 09:44:09,304 - fedguard_server - INFO -   Metadata: update #29, loss: 0.004202413838356733
+2025-11-29 09:44:09,397 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:44:09,398 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:09,529 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-02
+2025-11-29 09:44:09,529 - fedguard_server - INFO -   Metadata: update #13, loss: 0.005306925158947706
+2025-11-29 09:44:09,633 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:44:09,633 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:10,188 - fedguard_server - INFO - 
+[Round 4] Received message from key: Malicious-Attacker-01
+2025-11-29 09:44:10,189 - fedguard_server - INFO -   Metadata: update #14, loss: N/A
+2025-11-29 09:44:10,324 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:44:10,325 - fedguard_server - INFO -   Updates collected: 4/4
+2025-11-29 09:44:10,325 - fedguard_server - INFO - 
+============================================================
+2025-11-29 09:44:10,325 - fedguard_server - INFO - ROUND 4 - AGGREGATION
+2025-11-29 09:44:10,327 - fedguard_server - INFO - ============================================================
+2025-11-29 09:44:10,328 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-11-29 09:44:10,456 - fedguard_server - INFO - 
+Client Security Scores:
+2025-11-29 09:44:10,457 - fedguard_server - INFO -   Client-02                      MAD Score: 0.45454203665284787 - [HONEST]
+2025-11-29 09:44:10,458 - fedguard_server - INFO -   Client-03                      MAD Score: -0.45454203665269105 - [HONEST]
+2025-11-29 09:44:10,458 - fedguard_server - INFO -   Client-01                      MAD Score: 0.894457963347152 - [HONEST]
+2025-11-29 09:44:10,458 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -935.193325933888 - [MALICIOUS]
+2025-11-29 09:44:10,459 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-11-29 09:44:10,459 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-11-29 09:44:10,511 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-11-29 09:44:10,512 - fedguard_server - INFO -   L2 distance: 2.862493
+2025-11-29 09:44:10,513 - fedguard_server - INFO -   Cosine similarity: 0.998160
+2025-11-29 09:44:10,947 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-11-29 09:44:10,962 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_004_stats.json
+2025-11-29 09:44:10,978 - fedguard_server - INFO - ============================================================
+
+2025-11-29 09:44:11,434 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-01
+2025-11-29 09:44:11,436 - fedguard_server - INFO -   Metadata: update #6, loss: 0.0033962312154471874
+2025-11-29 09:44:11,802 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-11-29 09:44:11,810 - fedguard_server - INFO -   Updates collected: 1/4
+2025-11-29 09:44:19,692 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-03
+2025-11-29 09:44:19,692 - fedguard_server - INFO -   Metadata: update #30, loss: 0.00435063848271966
+2025-11-29 09:44:19,804 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:44:19,806 - fedguard_server - INFO -   Updates collected: 2/4
+2025-11-29 09:44:20,013 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-02
+2025-11-29 09:44:20,013 - fedguard_server - INFO -   Metadata: update #14, loss: 0.005406105425208807
+2025-11-29 09:44:20,092 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:44:20,092 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:22,868 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-01
+2025-11-29 09:44:22,871 - fedguard_server - INFO -   Metadata: update #7, loss: 0.003075899789109826
+2025-11-29 09:44:23,076 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-11-29 09:44:23,077 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:29,520 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-03
+2025-11-29 09:44:29,520 - fedguard_server - INFO -   Metadata: update #31, loss: 0.004289102740585804
+2025-11-29 09:44:29,602 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-11-29 09:44:29,603 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:29,923 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-02
+2025-11-29 09:44:29,924 - fedguard_server - INFO -   Metadata: update #15, loss: 0.005444076843559742
+2025-11-29 09:44:30,003 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-11-29 09:44:30,004 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:33,215 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-01
+2025-11-29 09:44:33,217 - fedguard_server - INFO -   Metadata: update #8, loss: 0.0032616080716252327
+2025-11-29 09:44:33,424 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-11-29 09:44:33,429 - fedguard_server - INFO -   Updates collected: 3/4
+2025-11-29 09:44:34,343 - fedguard_server - INFO - 
+[Round 5] Received message from key: Malicious-Attacker-01
+2025-11-29 09:44:34,344 - fedguard_server - INFO -   Metadata: update #15, loss: N/A
+2025-11-29 09:44:34,430 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-11-29 09:44:34,431 - fedguard_server - INFO -   Updates collected: 4/4
+2025-11-29 09:44:34,431 - fedguard_server - INFO - 
+============================================================
+2025-11-29 09:44:34,431 - fedguard_server - INFO - ROUND 5 - AGGREGATION
+2025-11-29 09:44:34,432 - fedguard_server - INFO - ============================================================
+2025-11-29 09:44:34,432 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-11-29 09:44:34,520 - fedguard_server - INFO - 
+Client Security Scores:
+2025-11-29 09:44:34,520 - fedguard_server - INFO -   Client-01                      MAD Score: 0.8874768527199182 - [HONEST]
+2025-11-29 09:44:34,521 - fedguard_server - INFO -   Client-03                      MAD Score: -0.4615231472800819 - [HONEST]
+2025-11-29 09:44:34,521 - fedguard_server - INFO -   Client-02                      MAD Score: 0.4615231472800819 - [HONEST]
+2025-11-29 09:44:34,521 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -1074.6964850873242 - [MALICIOUS]
+2025-11-29 09:44:34,523 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-11-29 09:44:34,523 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-11-29 09:44:34,565 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-11-29 09:44:34,566 - fedguard_server - INFO -   L2 distance: 3.067893
+2025-11-29 09:44:34,569 - fedguard_server - INFO -   Cosine similarity: 0.997893
+2025-11-29 09:44:34,731 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-11-29 09:44:34,733 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_005_stats.json
+2025-11-29 09:44:34,734 - fedguard_server - INFO - ============================================================
+
+2025-11-29 09:44:34,734 - fedguard_server - INFO - 
+[OK] Completed 5 rounds - stopping server
+2025-11-29 09:44:34,735 - fedguard_server - INFO - 
+============================================================
+2025-11-29 09:44:34,735 - fedguard_server - INFO - SERVER SHUTDOWN SUMMARY
+2025-11-29 09:44:34,735 - fedguard_server - INFO - ============================================================
+2025-11-29 09:44:34,735 - fedguard_server - INFO - Total rounds completed: 5
+2025-11-29 09:44:34,736 - fedguard_server - INFO - Total updates received: 69
+2025-11-29 09:44:34,736 - fedguard_server - INFO - Total attacks blocked: 5
+2025-11-29 09:44:34,736 - fedguard_server - INFO - Attack detection rate: 7.2%
+2025-11-29 09:44:34,736 - fedguard_server - INFO - ============================================================
+2025-11-29 09:44:34,751 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-11-29 09:44:34,751 - kafka.coordinator - INFO - Leaving consumer group (fedguard-server).
+2025-11-29 09:44:34,769 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-29 09:44:34,771 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:01:40,414 - fedguard_server - INFO - ============================================================
+2025-12-01 11:01:40,415 - fedguard_server - INFO - FEDGUARD SECURE SERVER
+2025-12-01 11:01:40,416 - fedguard_server - INFO - ============================================================
+2025-12-01 11:01:40,416 - fedguard_server - INFO - Defense method: mad
+2025-12-01 11:01:40,416 - fedguard_server - INFO - Aggregation method: mean
+2025-12-01 11:01:40,416 - fedguard_server - INFO - Expected clients: 4
+2025-12-01 11:01:40,416 - fedguard_server - INFO - Min honest clients: 1
+2025-12-01 11:01:55,798 - fedguard_server - INFO - Loading initial model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:01:56,352 - fedguard_server - INFO - [OK] Model loaded successfully
+2025-12-01 11:01:56,353 - fedguard_server - INFO - Connecting to Kafka at localhost:9092 (topic: model-updates)...
+2025-12-01 11:01:56,358 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:01:56,360 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:01:58,380 - fedguard_server - ERROR - FATAL ERROR (server): NoBrokersAvailable
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\fedguard_server.py", line 489, in main
+    consumer = KafkaConsumer(KAFKA_TOPIC, **consumer_config)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\consumer\group.py", line 356, in __init__
+    self._client = KafkaClient(metrics=self._metrics, **self.config)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\client_async.py", line 244, in __init__
+    self.config['api_version'] = self.check_version(timeout=check_timeout)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\client_async.py", line 927, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+2025-12-01 11:01:58,411 - fedguard_server - INFO - 
+============================================================
+2025-12-01 11:01:58,411 - fedguard_server - INFO - SERVER SHUTDOWN SUMMARY
+2025-12-01 11:01:58,411 - fedguard_server - INFO - ============================================================
+2025-12-01 11:01:58,412 - fedguard_server - INFO - Total rounds completed: 0
+2025-12-01 11:01:58,413 - fedguard_server - INFO - Total updates received: 0
+2025-12-01 11:01:58,413 - fedguard_server - INFO - Total attacks blocked: 0
+2025-12-01 11:01:58,414 - fedguard_server - INFO - ============================================================
+2025-12-01 11:03:29,929 - fedguard_server - INFO - ============================================================
+2025-12-01 11:03:29,929 - fedguard_server - INFO - FEDGUARD SECURE SERVER
+2025-12-01 11:03:29,930 - fedguard_server - INFO - ============================================================
+2025-12-01 11:03:29,930 - fedguard_server - INFO - Defense method: mad
+2025-12-01 11:03:29,930 - fedguard_server - INFO - Aggregation method: mean
+2025-12-01 11:03:29,930 - fedguard_server - INFO - Expected clients: 4
+2025-12-01 11:03:29,930 - fedguard_server - INFO - Min honest clients: 1
+2025-12-01 11:03:32,795 - fedguard_server - INFO - Loading initial model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 11:03:33,174 - fedguard_server - INFO - [OK] Model loaded successfully
+2025-12-01 11:03:33,175 - fedguard_server - INFO - Connecting to Kafka at localhost:9092 (topic: model-updates)...
+2025-12-01 11:03:33,179 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:03:33,180 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 11:03:33,181 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:03:33,308 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 11:03:33,308 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 11:03:33,308 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 11:03:33,308 - fedguard_server - INFO - [OK] Kafka consumer initialized
+2025-12-01 11:03:33,309 - fedguard_server - INFO - 
+SERVER RUNNING - Waiting for client updates
+
+2025-12-01 11:03:33,317 - kafka.cluster - INFO - Group coordinator for fedguard-server is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 11:03:33,318 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group fedguard-server
+2025-12-01 11:03:33,318 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 11:03:33,320 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group fedguard-server
+2025-12-01 11:03:33,321 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:03:33,322 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:03:33,322 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:03:33,425 - kafka.coordinator - INFO - (Re-)joining group fedguard-server
+2025-12-01 11:03:33,427 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:03:33,428 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:03:36,455 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 11:03:36,457 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 11:03:36,458 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 11:03:36,458 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:03:36,496 - kafka.coordinator - INFO - Successfully joined group fedguard-server with generation 13
+2025-12-01 11:03:36,496 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 11:03:36,496 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group fedguard-server
+2025-12-01 11:03:36,856 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-12-01 11:03:36,857 - fedguard_server - INFO -   Metadata: update #32, loss: 0.004012153018265963
+2025-12-01 11:03:36,915 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:03:36,916 - fedguard_server - INFO -   Updates collected: 1/4
+2025-12-01 11:03:36,916 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-12-01 11:03:36,916 - fedguard_server - INFO -   Metadata: update #16, loss: 0.005133361555635929
+2025-12-01 11:03:36,968 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:03:36,968 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:03:36,969 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-01
+2025-12-01 11:03:36,969 - fedguard_server - INFO -   Metadata: update #9, loss: 0.003236845601350069
+2025-12-01 11:03:37,024 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:03:37,024 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:03:37,024 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-12-01 11:03:37,025 - fedguard_server - INFO -   Metadata: update #33, loss: 0.003664091695100069
+2025-12-01 11:03:37,079 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:03:37,079 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:03:37,079 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-12-01 11:03:37,080 - fedguard_server - INFO -   Metadata: update #17, loss: 0.00505936611443758
+2025-12-01 11:03:37,134 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:03:37,134 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:03:37,134 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-01
+2025-12-01 11:03:37,135 - fedguard_server - INFO -   Metadata: update #10, loss: 0.002343391999602318
+2025-12-01 11:03:37,190 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:03:37,190 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:03:37,190 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-03
+2025-12-01 11:03:37,190 - fedguard_server - INFO -   Metadata: update #34, loss: 0.003746607108041644
+2025-12-01 11:03:37,247 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:03:37,248 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:03:37,248 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-02
+2025-12-01 11:03:37,248 - fedguard_server - INFO -   Metadata: update #18, loss: 0.004931322298943996
+2025-12-01 11:03:37,305 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:03:37,306 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:03:37,373 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-01
+2025-12-01 11:03:37,374 - fedguard_server - INFO -   Metadata: update #11, loss: 0.0017070003086701035
+2025-12-01 11:03:37,429 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:03:37,429 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:03:37,430 - fedguard_server - INFO - 
+[Round 1] Received message from key: Client-01
+2025-12-01 11:03:37,430 - fedguard_server - INFO -   Metadata: update #12, loss: 0.0017504144925624132
+2025-12-01 11:03:37,484 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:03:37,485 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:03:39,688 - fedguard_server - INFO - 
+[Round 1] Received message from key: Malicious-Attacker-01
+2025-12-01 11:03:39,689 - fedguard_server - INFO -   Metadata: update #1, loss: N/A
+2025-12-01 11:03:39,737 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-12-01 11:03:39,738 - fedguard_server - INFO -   Updates collected: 4/4
+2025-12-01 11:03:39,738 - fedguard_server - INFO - 
+============================================================
+2025-12-01 11:03:39,738 - fedguard_server - INFO - ROUND 1 - AGGREGATION
+2025-12-01 11:03:39,739 - fedguard_server - INFO - ============================================================
+2025-12-01 11:03:39,739 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-12-01 11:03:39,793 - fedguard_server - INFO - 
+Client Security Scores:
+2025-12-01 11:03:39,793 - fedguard_server - INFO -   Client-03                      MAD Score: -0.46334774732394923 - [HONEST]
+2025-12-01 11:03:39,793 - fedguard_server - INFO -   Client-02                      MAD Score: 0.4633477473241038 - [HONEST]
+2025-12-01 11:03:39,793 - fedguard_server - INFO -   Client-01                      MAD Score: 0.8856522526758962 - [HONEST]
+2025-12-01 11:03:39,793 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -920.8424213229027 - [MALICIOUS]
+2025-12-01 11:03:39,794 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-12-01 11:03:39,794 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-12-01 11:03:39,816 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-12-01 11:03:39,816 - fedguard_server - INFO -   L2 distance: 3.274685
+2025-12-01 11:03:39,816 - fedguard_server - INFO -   Cosine similarity: 0.997607
+2025-12-01 11:03:39,963 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 11:03:39,964 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_001_stats.json
+2025-12-01 11:03:39,965 - fedguard_server - INFO - ============================================================
+
+2025-12-01 11:04:01,487 - fedguard_server - INFO - 
+[Round 2] Received message from key: Malicious-Attacker-01
+2025-12-01 11:04:01,488 - fedguard_server - INFO -   Metadata: update #2, loss: N/A
+2025-12-01 11:04:01,540 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-12-01 11:04:01,541 - fedguard_server - INFO -   Updates collected: 1/4
+2025-12-01 11:04:09,240 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:09,240 - fedguard_server - INFO -   Metadata: update #1, loss: 0.011931385844945908
+2025-12-01 11:04:09,298 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:09,298 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:04:13,590 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:13,590 - fedguard_server - INFO -   Metadata: update #2, loss: 0.006850024219602346
+2025-12-01 11:04:13,647 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:13,648 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:04:17,501 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:17,502 - fedguard_server - INFO -   Metadata: update #3, loss: 0.005326028913259506
+2025-12-01 11:04:17,573 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:17,574 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:04:22,016 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:22,016 - fedguard_server - INFO -   Metadata: update #4, loss: 0.004324014764279127
+2025-12-01 11:04:22,080 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:22,080 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:04:23,145 - fedguard_server - INFO - 
+[Round 2] Received message from key: Malicious-Attacker-01
+2025-12-01 11:04:23,146 - fedguard_server - INFO -   Metadata: update #3, loss: N/A
+2025-12-01 11:04:23,248 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-12-01 11:04:23,249 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:04:26,342 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:26,342 - fedguard_server - INFO -   Metadata: update #5, loss: 0.0034551825374364853
+2025-12-01 11:04:26,395 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:26,395 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:04:32,256 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:32,256 - fedguard_server - INFO -   Metadata: update #6, loss: 0.003324988530948758
+2025-12-01 11:04:32,365 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:32,367 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:04:32,849 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-02
+2025-12-01 11:04:32,849 - fedguard_server - INFO -   Metadata: update #1, loss: 0.013192439451813698
+2025-12-01 11:04:32,969 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:04:32,971 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:39,335 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:39,335 - fedguard_server - INFO -   Metadata: update #7, loss: 0.0030674668960273266
+2025-12-01 11:04:39,417 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:39,417 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:39,821 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-02
+2025-12-01 11:04:39,822 - fedguard_server - INFO -   Metadata: update #2, loss: 0.010133253410458565
+2025-12-01 11:04:39,891 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:04:39,891 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:45,772 - fedguard_server - INFO - 
+[Round 2] Received message from key: Malicious-Attacker-01
+2025-12-01 11:04:45,773 - fedguard_server - INFO -   Metadata: update #4, loss: N/A
+2025-12-01 11:04:45,902 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-12-01 11:04:45,902 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:46,151 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:46,152 - fedguard_server - INFO -   Metadata: update #8, loss: 0.0031950012780725956
+2025-12-01 11:04:46,245 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:46,246 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:46,620 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-02
+2025-12-01 11:04:46,620 - fedguard_server - INFO -   Metadata: update #3, loss: 0.008564766496419907
+2025-12-01 11:04:46,694 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:04:46,694 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:52,336 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:52,336 - fedguard_server - INFO -   Metadata: update #9, loss: 0.003163588233292103
+2025-12-01 11:04:52,401 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:52,401 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:52,520 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-02
+2025-12-01 11:04:52,521 - fedguard_server - INFO -   Metadata: update #4, loss: 0.006905646063387394
+2025-12-01 11:04:52,582 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:04:52,583 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:58,507 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-01
+2025-12-01 11:04:58,507 - fedguard_server - INFO -   Metadata: update #10, loss: 0.0023041069507598877
+2025-12-01 11:04:58,573 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:04:58,574 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:04:58,910 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-02
+2025-12-01 11:04:58,910 - fedguard_server - INFO -   Metadata: update #5, loss: 0.006501432042568922
+2025-12-01 11:04:58,964 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:04:58,964 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:00,164 - fedguard_server - INFO - 
+[Round 2] Received message from key: Client-03
+2025-12-01 11:05:00,165 - fedguard_server - INFO -   Metadata: update #1, loss: 0.018728654831647873
+2025-12-01 11:05:00,387 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:05:00,388 - fedguard_server - INFO -   Updates collected: 4/4
+2025-12-01 11:05:00,388 - fedguard_server - INFO - 
+============================================================
+2025-12-01 11:05:00,389 - fedguard_server - INFO - ROUND 2 - AGGREGATION
+2025-12-01 11:05:00,389 - fedguard_server - INFO - ============================================================
+2025-12-01 11:05:00,391 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-12-01 11:05:00,701 - fedguard_server - INFO - 
+Client Security Scores:
+2025-12-01 11:05:00,707 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -1973.848761581757 - [MALICIOUS]
+2025-12-01 11:05:00,707 - fedguard_server - INFO -   Client-01                      MAD Score: -0.47096639734044776 - [HONEST]
+2025-12-01 11:05:00,708 - fedguard_server - INFO -   Client-02                      MAD Score: 0.4709663973401181 - [HONEST]
+2025-12-01 11:05:00,713 - fedguard_server - INFO -   Client-03                      MAD Score: 0.8780336026595522 - [HONEST]
+2025-12-01 11:05:00,715 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-12-01 11:05:00,727 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-12-01 11:05:00,870 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-12-01 11:05:00,871 - fedguard_server - INFO -   L2 distance: 1.896872
+2025-12-01 11:05:00,872 - fedguard_server - INFO -   Cosine similarity: 0.999181
+2025-12-01 11:05:01,156 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 11:05:01,161 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_002_stats.json
+2025-12-01 11:05:01,162 - fedguard_server - INFO - ============================================================
+
+2025-12-01 11:05:05,182 - fedguard_server - INFO - 
+[Round 3] Received message from key: Client-01
+2025-12-01 11:05:05,182 - fedguard_server - INFO -   Metadata: update #11, loss: 0.0017017227364704013
+2025-12-01 11:05:05,253 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:05:05,254 - fedguard_server - INFO -   Updates collected: 1/4
+2025-12-01 11:05:05,273 - fedguard_server - INFO - 
+[Round 3] Received message from key: Client-02
+2025-12-01 11:05:05,274 - fedguard_server - INFO -   Metadata: update #6, loss: 0.006116811651736498
+2025-12-01 11:05:05,342 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:05:05,342 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:05:05,691 - fedguard_server - INFO - 
+[Round 3] Received message from key: Client-03
+2025-12-01 11:05:05,691 - fedguard_server - INFO -   Metadata: update #2, loss: 0.012212772853672504
+2025-12-01 11:05:05,765 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:05:05,765 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:10,382 - fedguard_server - INFO - 
+[Round 3] Received message from key: Malicious-Attacker-01
+2025-12-01 11:05:10,383 - fedguard_server - INFO -   Metadata: update #5, loss: N/A
+2025-12-01 11:05:10,456 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-12-01 11:05:10,457 - fedguard_server - INFO -   Updates collected: 4/4
+2025-12-01 11:05:10,457 - fedguard_server - INFO - 
+============================================================
+2025-12-01 11:05:10,457 - fedguard_server - INFO - ROUND 3 - AGGREGATION
+2025-12-01 11:05:10,458 - fedguard_server - INFO - ============================================================
+2025-12-01 11:05:10,458 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-12-01 11:05:10,530 - fedguard_server - INFO - 
+Client Security Scores:
+2025-12-01 11:05:10,531 - fedguard_server - INFO -   Client-01                      MAD Score: -0.38494844197963074 - [HONEST]
+2025-12-01 11:05:10,531 - fedguard_server - INFO -   Client-02                      MAD Score: 0.38494844197931494 - [HONEST]
+2025-12-01 11:05:10,531 - fedguard_server - INFO -   Client-03                      MAD Score: 0.9640515580203692 - [HONEST]
+2025-12-01 11:05:10,532 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -1891.8221395778378 - [MALICIOUS]
+2025-12-01 11:05:10,532 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-12-01 11:05:10,532 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-12-01 11:05:10,563 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-12-01 11:05:10,563 - fedguard_server - INFO -   L2 distance: 2.135540
+2025-12-01 11:05:10,563 - fedguard_server - INFO -   Cosine similarity: 0.998964
+2025-12-01 11:05:10,673 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 11:05:10,675 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_003_stats.json
+2025-12-01 11:05:10,675 - fedguard_server - INFO - ============================================================
+
+2025-12-01 11:05:11,751 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-02
+2025-12-01 11:05:11,752 - fedguard_server - INFO -   Metadata: update #7, loss: 0.005680329632014036
+2025-12-01 11:05:11,821 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:05:11,821 - fedguard_server - INFO -   Updates collected: 1/4
+2025-12-01 11:05:11,846 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-01
+2025-12-01 11:05:11,847 - fedguard_server - INFO -   Metadata: update #12, loss: 0.0017205658368766308
+2025-12-01 11:05:11,921 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:05:11,922 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:05:12,394 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-03
+2025-12-01 11:05:12,394 - fedguard_server - INFO -   Metadata: update #3, loss: 0.010254128836095333
+2025-12-01 11:05:12,464 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:05:12,465 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:18,914 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-01
+2025-12-01 11:05:18,916 - fedguard_server - INFO -   Metadata: update #13, loss: 0.002072711009532213
+2025-12-01 11:05:19,008 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:05:19,009 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:19,188 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-02
+2025-12-01 11:05:19,189 - fedguard_server - INFO -   Metadata: update #8, loss: 0.005767449736595154
+2025-12-01 11:05:19,310 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:05:19,310 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:19,893 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-03
+2025-12-01 11:05:19,893 - fedguard_server - INFO -   Metadata: update #4, loss: 0.007824474945664406
+2025-12-01 11:05:20,150 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:05:20,153 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:27,098 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-01
+2025-12-01 11:05:27,098 - fedguard_server - INFO -   Metadata: update #14, loss: 0.002245139330625534
+2025-12-01 11:05:27,175 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:05:27,175 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:27,465 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-02
+2025-12-01 11:05:27,465 - fedguard_server - INFO -   Metadata: update #9, loss: 0.005643303506076336
+2025-12-01 11:05:27,533 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:05:27,534 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:27,884 - fedguard_server - INFO - 
+[Round 4] Received message from key: Client-03
+2025-12-01 11:05:27,885 - fedguard_server - INFO -   Metadata: update #5, loss: 0.00691189244389534
+2025-12-01 11:05:28,083 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:05:28,084 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:33,441 - fedguard_server - INFO - 
+[Round 4] Received message from key: Malicious-Attacker-01
+2025-12-01 11:05:33,442 - fedguard_server - INFO -   Metadata: update #6, loss: N/A
+2025-12-01 11:05:33,515 - fedguard_server - INFO -   Received weights (layers: 30) from Malicious-Attacker-01
+2025-12-01 11:05:33,516 - fedguard_server - INFO -   Updates collected: 4/4
+2025-12-01 11:05:33,516 - fedguard_server - INFO - 
+============================================================
+2025-12-01 11:05:33,517 - fedguard_server - INFO - ROUND 4 - AGGREGATION
+2025-12-01 11:05:33,517 - fedguard_server - INFO - ============================================================
+2025-12-01 11:05:33,517 - fedguard_server - INFO - 
+[SECURITY] Running FedGuard security check...
+2025-12-01 11:05:33,587 - fedguard_server - INFO - 
+Client Security Scores:
+2025-12-01 11:05:33,587 - fedguard_server - INFO -   Client-02                      MAD Score: 0.15690102970347464 - [HONEST]
+2025-12-01 11:05:33,588 - fedguard_server - INFO -   Client-01                      MAD Score: -0.1569010297031115 - [HONEST]
+2025-12-01 11:05:33,588 - fedguard_server - INFO -   Client-03                      MAD Score: 1.1920989702965255 - [HONEST]
+2025-12-01 11:05:33,588 - fedguard_server - INFO -   Malicious-Attacker-01          MAD Score: -2173.537469837878 - [MALICIOUS]
+2025-12-01 11:05:33,589 - fedguard_server - INFO - 
+Verdict: 3 honest, 1 malicious
+2025-12-01 11:05:33,589 - fedguard_server - WARNING - [WARNING] Blocked malicious/invalid clients: Malicious-Attacker-01
+2025-12-01 11:05:33,619 - fedguard_server - INFO - 
+Model divergence from initial:
+2025-12-01 11:05:33,620 - fedguard_server - INFO -   L2 distance: 2.590702
+2025-12-01 11:05:33,620 - fedguard_server - INFO -   Cosine similarity: 0.998482
+2025-12-01 11:05:33,725 - fedguard_server - INFO - 
+[OK] Global model updated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_secured.h5
+2025-12-01 11:05:33,726 - fedguard_server - INFO - Round statistics saved to: C:\Users\Nandini Devi\FedGuard-Project\results\metrics\round_004_stats.json
+2025-12-01 11:05:33,726 - fedguard_server - INFO - ============================================================
+
+2025-12-01 11:05:33,951 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-01
+2025-12-01 11:05:33,952 - fedguard_server - INFO -   Metadata: update #15, loss: 0.0021337091457098722
+2025-12-01 11:05:34,027 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:05:34,027 - fedguard_server - INFO -   Updates collected: 1/4
+2025-12-01 11:05:34,491 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-02
+2025-12-01 11:05:34,491 - fedguard_server - INFO -   Metadata: update #10, loss: 0.005434139631688595
+2025-12-01 11:05:34,559 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:05:34,560 - fedguard_server - INFO -   Updates collected: 2/4
+2025-12-01 11:05:34,645 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-03
+2025-12-01 11:05:34,645 - fedguard_server - INFO -   Metadata: update #6, loss: 0.006605800241231918
+2025-12-01 11:05:34,736 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:05:34,737 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:40,704 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-01
+2025-12-01 11:05:40,704 - fedguard_server - INFO -   Metadata: update #16, loss: 0.002244061091914773
+2025-12-01 11:05:40,783 - fedguard_server - INFO -   Received weights (layers: 30) from Client-01
+2025-12-01 11:05:40,783 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:41,157 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-02
+2025-12-01 11:05:41,157 - fedguard_server - INFO -   Metadata: update #11, loss: 0.005386902019381523
+2025-12-01 11:05:41,228 - fedguard_server - INFO -   Received weights (layers: 30) from Client-02
+2025-12-01 11:05:41,228 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:41,300 - fedguard_server - INFO - 
+[Round 5] Received message from key: Client-03
+2025-12-01 11:05:41,301 - fedguard_server - INFO -   Metadata: update #7, loss: 0.005985287018120289
+2025-12-01 11:05:41,381 - fedguard_server - INFO -   Received weights (layers: 30) from Client-03
+2025-12-01 11:05:41,381 - fedguard_server - INFO -   Updates collected: 3/4
+2025-12-01 11:05:41,709 - fedguard_server - INFO - Keyboard interrupt - stopping server
+2025-12-01 11:05:41,710 - fedguard_server - INFO - 
+============================================================
+2025-12-01 11:05:41,711 - fedguard_server - INFO - SERVER SHUTDOWN SUMMARY
+2025-12-01 11:05:41,711 - fedguard_server - INFO - ============================================================
+2025-12-01 11:05:41,712 - fedguard_server - INFO - Total rounds completed: 4
+2025-12-01 11:05:41,712 - fedguard_server - INFO - Total updates received: 50
+2025-12-01 11:05:41,712 - fedguard_server - INFO - Total attacks blocked: 4
+2025-12-01 11:05:41,713 - fedguard_server - INFO - Attack detection rate: 8.0%
+2025-12-01 11:05:41,713 - fedguard_server - INFO - ============================================================
+2025-12-01 11:05:41,727 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 11:05:41,727 - kafka.coordinator - INFO - Leaving consumer group (fedguard-server).
+2025-12-01 11:05:41,760 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:05:41,764 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 11:05:41,771 - kafka.consumer.fetcher - ERROR - Fetch to node 1 failed: Cancelled: <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>

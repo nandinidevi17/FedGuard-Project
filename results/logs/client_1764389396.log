@@ -1,0 +1,292 @@
+2025-11-29 09:39:56,901 - fedguard_client - INFO - ============================================================
+2025-11-29 09:39:56,901 - fedguard_client - INFO - FEDERATED CLIENT: Client-03
+2025-11-29 09:39:56,901 - fedguard_client - INFO - ============================================================
+2025-11-29 09:39:56,902 - fedguard_client - INFO - Loading model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-11-29 09:40:02,472 - fedguard_client - INFO - [OK] Model loaded successfully
+2025-11-29 09:40:02,472 - fedguard_client - INFO - Connecting to Kafka at localhost:9092 (topic: model-updates)...
+2025-11-29 09:40:02,478 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-29 09:40:02,479 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-11-29 09:40:02,483 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-29 09:40:02,609 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-11-29 09:40:02,609 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-11-29 09:40:02,612 - fedguard_client - INFO - [OK] Kafka producer initialized
+2025-11-29 09:40:02,612 - fedguard_client - INFO - Loading frames from: C:\Users\Nandini Devi\Downloads\uropds\UCSD_Anomaly_Dataset.v1p2\UCSDped1\Train\Train003
+2025-11-29 09:40:02,616 - fedguard_client - INFO - [OK] Found 200 frames
+2025-11-29 09:40:02,616 - fedguard_client - INFO - Frames per update: 16, Train batch size: 4, Image size: 128
+2025-11-29 09:40:03,066 - fedguard_client - INFO - 
+[Update #1] Collected 16 frames
+2025-11-29 09:40:03,067 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:40:06,927 - fedguard_client - INFO - [OK] Training complete - Loss: 0.016402, Time: 3.86s
+2025-11-29 09:40:07,644 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505581 bytes, status: trained)...
+2025-11-29 09:40:07,652 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-11-29 09:40:07,653 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-11-29 09:40:07,655 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-29 09:40:09,101 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 1.46s)
+2025-11-29 09:40:09,104 - fedguard_client - INFO - Total updates sent: 1
+2025-11-29 09:40:09,104 - fedguard_client - INFO - Avg training time: 3.86s
+2025-11-29 09:40:09,454 - fedguard_client - INFO - 
+[Update #2] Collected 16 frames
+2025-11-29 09:40:09,455 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:40:11,381 - fedguard_client - INFO - [OK] Training complete - Loss: 0.010856, Time: 1.93s
+2025-11-29 09:40:12,693 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505584 bytes, status: trained)...
+2025-11-29 09:40:16,264 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.56s)
+2025-11-29 09:40:16,264 - fedguard_client - INFO - Total updates sent: 2
+2025-11-29 09:40:16,265 - fedguard_client - INFO - Avg training time: 2.89s
+2025-11-29 09:40:16,717 - fedguard_client - INFO - 
+[Update #3] Collected 16 frames
+2025-11-29 09:40:16,719 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:40:19,370 - fedguard_client - INFO - [OK] Training complete - Loss: 0.009465, Time: 2.65s
+2025-11-29 09:40:20,788 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505663 bytes, status: trained)...
+2025-11-29 09:40:23,792 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.00s)
+2025-11-29 09:40:23,793 - fedguard_client - INFO - Total updates sent: 3
+2025-11-29 09:40:23,793 - fedguard_client - INFO - Avg training time: 2.81s
+2025-11-29 09:40:24,285 - fedguard_client - INFO - 
+[Update #4] Collected 16 frames
+2025-11-29 09:40:24,287 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:40:26,973 - fedguard_client - INFO - [OK] Training complete - Loss: 0.007330, Time: 2.69s
+2025-11-29 09:40:28,402 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505670 bytes, status: trained)...
+2025-11-29 09:40:31,513 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.11s)
+2025-11-29 09:40:31,514 - fedguard_client - INFO - Total updates sent: 4
+2025-11-29 09:40:31,515 - fedguard_client - INFO - Avg training time: 2.78s
+2025-11-29 09:40:32,011 - fedguard_client - INFO - 
+[Update #5] Collected 16 frames
+2025-11-29 09:40:32,013 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:40:35,046 - fedguard_client - INFO - [OK] Training complete - Loss: 0.006918, Time: 3.03s
+2025-11-29 09:40:36,458 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505559 bytes, status: trained)...
+2025-11-29 09:40:39,718 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.26s)
+2025-11-29 09:40:39,719 - fedguard_client - INFO - Total updates sent: 5
+2025-11-29 09:40:39,720 - fedguard_client - INFO - Avg training time: 2.83s
+2025-11-29 09:40:40,088 - fedguard_client - INFO - 
+[Update #6] Collected 16 frames
+2025-11-29 09:40:40,090 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:40:42,898 - fedguard_client - INFO - [OK] Training complete - Loss: 0.006140, Time: 2.81s
+2025-11-29 09:40:44,509 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505375 bytes, status: trained)...
+2025-11-29 09:40:48,103 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.59s)
+2025-11-29 09:40:48,103 - fedguard_client - INFO - Total updates sent: 6
+2025-11-29 09:40:48,104 - fedguard_client - INFO - Avg training time: 2.83s
+2025-11-29 09:40:48,450 - fedguard_client - INFO - 
+[Update #7] Collected 16 frames
+2025-11-29 09:40:48,451 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:40:51,042 - fedguard_client - INFO - [OK] Training complete - Loss: 0.005788, Time: 2.59s
+2025-11-29 09:40:52,320 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505591 bytes, status: trained)...
+2025-11-29 09:40:55,487 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.16s)
+2025-11-29 09:40:55,488 - fedguard_client - INFO - Total updates sent: 7
+2025-11-29 09:40:55,489 - fedguard_client - INFO - Avg training time: 2.79s
+2025-11-29 09:40:55,965 - fedguard_client - INFO - 
+[Update #8] Collected 16 frames
+2025-11-29 09:40:55,967 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:40:58,807 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004883, Time: 2.84s
+2025-11-29 09:41:00,100 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505716 bytes, status: trained)...
+2025-11-29 09:41:03,714 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.61s)
+2025-11-29 09:41:03,715 - fedguard_client - INFO - Total updates sent: 8
+2025-11-29 09:41:03,716 - fedguard_client - INFO - Avg training time: 2.80s
+2025-11-29 09:41:04,153 - fedguard_client - INFO - 
+[Update #9] Collected 16 frames
+2025-11-29 09:41:04,155 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:41:06,890 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004716, Time: 2.74s
+2025-11-29 09:41:08,488 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505726 bytes, status: trained)...
+2025-11-29 09:41:12,505 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.02s)
+2025-11-29 09:41:12,507 - fedguard_client - INFO - Total updates sent: 9
+2025-11-29 09:41:12,508 - fedguard_client - INFO - Avg training time: 2.79s
+2025-11-29 09:41:12,932 - fedguard_client - INFO - 
+[Update #10] Collected 16 frames
+2025-11-29 09:41:12,933 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:41:15,583 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004440, Time: 2.65s
+2025-11-29 09:41:17,130 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505828 bytes, status: trained)...
+2025-11-29 09:41:20,817 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.69s)
+2025-11-29 09:41:20,819 - fedguard_client - INFO - Total updates sent: 10
+2025-11-29 09:41:20,819 - fedguard_client - INFO - Avg training time: 2.78s
+2025-11-29 09:41:21,156 - fedguard_client - INFO - 
+[Update #11] Collected 16 frames
+2025-11-29 09:41:21,157 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:41:23,475 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004137, Time: 2.32s
+2025-11-29 09:41:24,942 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505649 bytes, status: trained)...
+2025-11-29 09:41:28,616 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.67s)
+2025-11-29 09:41:28,617 - fedguard_client - INFO - Total updates sent: 11
+2025-11-29 09:41:28,619 - fedguard_client - INFO - Avg training time: 2.74s
+2025-11-29 09:41:29,063 - fedguard_client - INFO - 
+[Update #12] Collected 16 frames
+2025-11-29 09:41:29,064 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:41:31,755 - fedguard_client - INFO - [OK] Training complete - Loss: 0.003679, Time: 2.69s
+2025-11-29 09:41:33,318 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505584 bytes, status: trained)...
+2025-11-29 09:41:37,303 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.98s)
+2025-11-29 09:41:37,306 - fedguard_client - INFO - Total updates sent: 12
+2025-11-29 09:41:37,307 - fedguard_client - INFO - Avg training time: 2.73s
+2025-11-29 09:41:37,685 - fedguard_client - INFO - 
+[Update #13] Collected 16 frames
+2025-11-29 09:41:37,686 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:41:40,395 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004404, Time: 2.71s
+2025-11-29 09:41:41,968 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505849 bytes, status: trained)...
+2025-11-29 09:41:45,518 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.55s)
+2025-11-29 09:41:45,520 - fedguard_client - INFO - Total updates sent: 13
+2025-11-29 09:41:45,520 - fedguard_client - INFO - Avg training time: 2.73s
+2025-11-29 09:41:45,771 - fedguard_client - INFO - 
+[Update #14] Collected 16 frames
+2025-11-29 09:41:45,774 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:41:48,433 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004722, Time: 2.66s
+2025-11-29 09:41:49,963 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505745 bytes, status: trained)...
+2025-11-29 09:41:53,462 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.50s)
+2025-11-29 09:41:53,462 - fedguard_client - INFO - Total updates sent: 14
+2025-11-29 09:41:53,463 - fedguard_client - INFO - Avg training time: 2.73s
+2025-11-29 09:41:53,716 - fedguard_client - INFO - 
+[Update #15] Collected 16 frames
+2025-11-29 09:41:53,718 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:41:56,428 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004485, Time: 2.71s
+2025-11-29 09:41:57,836 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505828 bytes, status: trained)...
+2025-11-29 09:42:00,895 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.06s)
+2025-11-29 09:42:00,896 - fedguard_client - INFO - Total updates sent: 15
+2025-11-29 09:42:00,897 - fedguard_client - INFO - Avg training time: 2.72s
+2025-11-29 09:42:01,143 - fedguard_client - INFO - 
+[Update #16] Collected 16 frames
+2025-11-29 09:42:01,145 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:42:03,886 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004585, Time: 2.74s
+2025-11-29 09:42:05,435 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505947 bytes, status: trained)...
+2025-11-29 09:42:09,830 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.39s)
+2025-11-29 09:42:09,831 - fedguard_client - INFO - Total updates sent: 16
+2025-11-29 09:42:09,831 - fedguard_client - INFO - Avg training time: 2.73s
+2025-11-29 09:42:10,076 - fedguard_client - INFO - 
+[Update #17] Collected 16 frames
+2025-11-29 09:42:10,078 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:42:12,751 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004811, Time: 2.67s
+2025-11-29 09:42:14,311 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506019 bytes, status: trained)...
+2025-11-29 09:42:18,761 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.45s)
+2025-11-29 09:42:18,764 - fedguard_client - INFO - Total updates sent: 17
+2025-11-29 09:42:18,765 - fedguard_client - INFO - Avg training time: 2.72s
+2025-11-29 09:42:19,007 - fedguard_client - INFO - 
+[Update #18] Collected 16 frames
+2025-11-29 09:42:19,009 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:42:21,700 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004568, Time: 2.69s
+2025-11-29 09:42:23,175 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505898 bytes, status: trained)...
+2025-11-29 09:42:27,551 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.37s)
+2025-11-29 09:42:27,552 - fedguard_client - INFO - Total updates sent: 18
+2025-11-29 09:42:27,552 - fedguard_client - INFO - Avg training time: 2.72s
+2025-11-29 09:42:27,794 - fedguard_client - INFO - 
+[Update #19] Collected 16 frames
+2025-11-29 09:42:27,796 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:42:30,703 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004589, Time: 2.91s
+2025-11-29 09:42:32,102 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505936 bytes, status: trained)...
+2025-11-29 09:42:36,406 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.30s)
+2025-11-29 09:42:36,408 - fedguard_client - INFO - Total updates sent: 19
+2025-11-29 09:42:36,408 - fedguard_client - INFO - Avg training time: 2.73s
+2025-11-29 09:42:36,653 - fedguard_client - INFO - 
+[Update #20] Collected 16 frames
+2025-11-29 09:42:36,655 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:42:39,531 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004250, Time: 2.88s
+2025-11-29 09:42:40,941 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506033 bytes, status: trained)...
+2025-11-29 09:42:44,995 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.05s)
+2025-11-29 09:42:45,003 - fedguard_client - INFO - Total updates sent: 20
+2025-11-29 09:42:45,005 - fedguard_client - INFO - Avg training time: 2.74s
+2025-11-29 09:42:45,246 - fedguard_client - INFO - 
+[Update #21] Collected 16 frames
+2025-11-29 09:42:45,250 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:42:47,963 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004055, Time: 2.71s
+2025-11-29 09:42:49,266 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506139 bytes, status: trained)...
+2025-11-29 09:42:52,922 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.66s)
+2025-11-29 09:42:52,922 - fedguard_client - INFO - Total updates sent: 21
+2025-11-29 09:42:52,924 - fedguard_client - INFO - Avg training time: 2.74s
+2025-11-29 09:42:53,206 - fedguard_client - INFO - 
+[Update #22] Collected 16 frames
+2025-11-29 09:42:53,215 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:42:56,285 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004050, Time: 3.07s
+2025-11-29 09:42:57,717 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506047 bytes, status: trained)...
+2025-11-29 09:43:01,270 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.55s)
+2025-11-29 09:43:01,272 - fedguard_client - INFO - Total updates sent: 22
+2025-11-29 09:43:01,273 - fedguard_client - INFO - Avg training time: 2.75s
+2025-11-29 09:43:01,535 - fedguard_client - INFO - 
+[Update #23] Collected 16 frames
+2025-11-29 09:43:01,536 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:43:05,173 - fedguard_client - INFO - [OK] Training complete - Loss: 0.003648, Time: 3.63s
+2025-11-29 09:43:06,558 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506017 bytes, status: trained)...
+2025-11-29 09:43:09,674 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.11s)
+2025-11-29 09:43:09,675 - fedguard_client - INFO - Total updates sent: 23
+2025-11-29 09:43:09,676 - fedguard_client - INFO - Avg training time: 2.79s
+2025-11-29 09:43:09,926 - fedguard_client - INFO - 
+[Update #24] Collected 16 frames
+2025-11-29 09:43:09,927 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:43:13,729 - fedguard_client - INFO - [OK] Training complete - Loss: 0.003391, Time: 3.80s
+2025-11-29 09:43:15,243 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505827 bytes, status: trained)...
+2025-11-29 09:43:19,507 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.26s)
+2025-11-29 09:43:19,507 - fedguard_client - INFO - Total updates sent: 24
+2025-11-29 09:43:19,508 - fedguard_client - INFO - Avg training time: 2.83s
+2025-11-29 09:43:19,745 - fedguard_client - INFO - 
+[Update #25] Collected 16 frames
+2025-11-29 09:43:19,746 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:43:24,303 - fedguard_client - INFO - [OK] Training complete - Loss: 0.003215, Time: 4.56s
+2025-11-29 09:43:26,114 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506235 bytes, status: trained)...
+2025-11-29 09:43:29,529 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.42s)
+2025-11-29 09:43:29,529 - fedguard_client - INFO - Total updates sent: 25
+2025-11-29 09:43:29,530 - fedguard_client - INFO - Avg training time: 2.90s
+2025-11-29 09:43:29,783 - fedguard_client - INFO - 
+[Update #26] Collected 16 frames
+2025-11-29 09:43:29,784 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:43:33,426 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004483, Time: 3.64s
+2025-11-29 09:43:35,816 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505907 bytes, status: trained)...
+2025-11-29 09:43:39,570 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.75s)
+2025-11-29 09:43:39,571 - fedguard_client - INFO - Total updates sent: 26
+2025-11-29 09:43:39,572 - fedguard_client - INFO - Avg training time: 2.93s
+2025-11-29 09:43:39,818 - fedguard_client - INFO - 
+[Update #27] Collected 16 frames
+2025-11-29 09:43:39,820 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:43:43,393 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004218, Time: 3.57s
+2025-11-29 09:43:45,704 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505822 bytes, status: trained)...
+2025-11-29 09:43:49,329 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.62s)
+2025-11-29 09:43:49,329 - fedguard_client - INFO - Total updates sent: 27
+2025-11-29 09:43:49,330 - fedguard_client - INFO - Avg training time: 2.95s
+2025-11-29 09:43:49,583 - fedguard_client - INFO - 
+[Update #28] Collected 16 frames
+2025-11-29 09:43:49,584 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:43:52,727 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004190, Time: 3.14s
+2025-11-29 09:43:55,280 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506160 bytes, status: trained)...
+2025-11-29 09:43:59,485 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.20s)
+2025-11-29 09:43:59,487 - fedguard_client - INFO - Total updates sent: 28
+2025-11-29 09:43:59,487 - fedguard_client - INFO - Avg training time: 2.96s
+2025-11-29 09:43:59,740 - fedguard_client - INFO - 
+[Update #29] Collected 16 frames
+2025-11-29 09:43:59,742 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:44:03,103 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004202, Time: 3.36s
+2025-11-29 09:44:05,458 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505974 bytes, status: trained)...
+2025-11-29 09:44:09,277 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.82s)
+2025-11-29 09:44:09,278 - fedguard_client - INFO - Total updates sent: 29
+2025-11-29 09:44:09,278 - fedguard_client - INFO - Avg training time: 2.97s
+2025-11-29 09:44:09,517 - fedguard_client - INFO - 
+[Update #30] Collected 16 frames
+2025-11-29 09:44:09,519 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:44:13,290 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004351, Time: 3.77s
+2025-11-29 09:44:15,671 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506394 bytes, status: trained)...
+2025-11-29 09:44:19,668 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 3.99s)
+2025-11-29 09:44:19,673 - fedguard_client - INFO - Total updates sent: 30
+2025-11-29 09:44:19,675 - fedguard_client - INFO - Avg training time: 3.00s
+2025-11-29 09:44:19,935 - fedguard_client - INFO - 
+[Update #31] Collected 16 frames
+2025-11-29 09:44:19,937 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:44:23,058 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004289, Time: 3.12s
+2025-11-29 09:44:25,031 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506234 bytes, status: trained)...
+2025-11-29 09:44:29,492 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.46s)
+2025-11-29 09:44:29,493 - fedguard_client - INFO - Total updates sent: 31
+2025-11-29 09:44:29,493 - fedguard_client - INFO - Avg training time: 3.00s
+2025-11-29 09:44:29,741 - fedguard_client - INFO - 
+[Update #32] Collected 16 frames
+2025-11-29 09:44:29,742 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:44:32,707 - fedguard_client - INFO - [OK] Training complete - Loss: 0.004012, Time: 2.96s
+2025-11-29 09:44:34,628 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6505992 bytes, status: trained)...
+2025-11-29 09:44:39,108 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.48s)
+2025-11-29 09:44:39,108 - fedguard_client - INFO - Total updates sent: 32
+2025-11-29 09:44:39,109 - fedguard_client - INFO - Avg training time: 3.00s
+2025-11-29 09:44:39,363 - fedguard_client - INFO - 
+[Update #33] Collected 16 frames
+2025-11-29 09:44:39,365 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:44:42,761 - fedguard_client - INFO - [OK] Training complete - Loss: 0.003664, Time: 3.40s
+2025-11-29 09:44:44,436 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506289 bytes, status: trained)...
+2025-11-29 09:44:48,819 - fedguard_client - INFO - [OK] Update sent successfully (Send time: 4.38s)
+2025-11-29 09:44:48,819 - fedguard_client - INFO - Total updates sent: 33
+2025-11-29 09:44:48,820 - fedguard_client - INFO - Avg training time: 3.01s
+2025-11-29 09:44:49,070 - fedguard_client - INFO - 
+[Update #34] Collected 16 frames
+2025-11-29 09:44:49,072 - fedguard_client - INFO - Performing local training...
+2025-11-29 09:44:52,434 - fedguard_client - INFO - [OK] Training complete - Loss: 0.003747, Time: 3.36s
+2025-11-29 09:44:54,000 - fedguard_client - INFO - Sending update to Kafka topic: 'model-updates' (payload size: 6506473 bytes, status: trained)...
+2025-11-29 09:44:57,997 - fedguard_client - INFO - Keyboard interrupt - shutting down client
+2025-11-29 09:44:57,998 - fedguard_client - INFO - Cleaning up client...
+2025-11-29 09:44:58,022 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-11-29 09:44:58,024 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-11-29 09:44:58,024 - fedguard_client - INFO - Client Client-03 shut down successfully

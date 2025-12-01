@@ -1,38 +1,69 @@
+# evaluate_model.py
 """
-Comprehensive Model Evaluation with Multiple Metrics.
-Compares secure vs attacked models on test data.
+Comprehensive Model Evaluation with Multiple Metrics (robust).
+- Loads two models: secure (global_model_secured.h5) and insecure (global_model_insecured.h5)
+- Runs reconstruction on test frames, computes MSE per-frame
+- Computes threshold by percentile, classification metrics, AUC when possible
+- Saves results to METRICS_DIR/evaluation_results.json
 """
+
 import os
 import sys
+import json
+import logging
+from datetime import datetime
+from typing import List, Tuple, Dict, Any
+
 import numpy as np
 import tensorflow as tf
-import logging
-import json
-from datetime import datetime
 
+# Try to import sklearn metrics if available (for AUC)
+try:
+    from sklearn.metrics import roc_auc_score, precision_score, recall_score, f1_score, accuracy_score
+    SKLEARN_AVAILABLE = True
+except Exception:
+    SKLEARN_AVAILABLE = False
+
+# Add project root to path so imports work
 project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, project_root)
 
-from config import *
-from utils.data_loader import load_test_frames, get_ground_truth_labels
-from utils.metrics import calculate_reconstruction_error, evaluate_anomaly_detection
+# Import project config and loaders
+try:
+    from config import *
+except Exception as e:
+    # If config import fails, raise to surface problem to user
+    raise
 
+# utils.data_loader should provide load_test_frames and get_ground_truth_labels
+try:
+    from utils.data_loader import load_test_frames, get_ground_truth_labels
+except Exception as e:
+    raise ImportError(f"Failed to import data loader utilities: {e}")
+
+# Try to import metrics helpers if they exist; otherwise fallback to local implementations
+try:
+    from utils.metrics import calculate_reconstruction_error as imported_calc_recon, evaluate_anomaly_detection as imported_eval_det
+    HAVE_IMPORTED_METRICS = True
+except Exception:
+    HAVE_IMPORTED_METRICS = False
+    imported_calc_recon = None
+    imported_eval_det = None
+
+# Setup logging
 os.makedirs(LOGS_DIR, exist_ok=True)
 os.makedirs(METRICS_DIR, exist_ok=True)
 logging.basicConfig(
-    level=getattr(logging, LOG_LEVEL),
-    format=LOG_FORMAT,
+    level=getattr(logging, LOG_LEVEL, logging.INFO),
+    format=LOG_FORMAT if 'LOG_FORMAT' in globals() else "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     handlers=[
         logging.FileHandler(os.path.join(LOGS_DIR, 'evaluation.log'), encoding='utf-8'),
         logging.StreamHandler(sys.stdout)
     ]
 )
-if sys.stdout.encoding != 'utf-8':
-    import io
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 logger = logging.getLogger(__name__)
 
-# GPU memory growth
+# GPU memory growth (if GPUs present)
 gpus = tf.config.list_physical_devices('GPU')
 if gpus:
     try:
@@ -41,7 +72,135 @@ if gpus:
     except Exception:
         logger.warning("Could not set GPU memory growth")
 
-def evaluate_single_model(model_path, test_folder, model_name="Model"):
+# -------------------------
+# Fallback local implementations
+# -------------------------
+def calculate_reconstruction_error(frames: np.ndarray, reconstructed: np.ndarray) -> List[float]:
+    """
+    Compute per-frame MSE between original frames and reconstructed frames.
+    frames: (N, H, W, C)  reconstructed: (N, H, W, C)
+    Returns list of N floats.
+    """
+    if frames is None or reconstructed is None:
+        return []
+    if len(frames) == 0:
+        return []
+    # ensure shapes align
+    n = min(len(frames), len(reconstructed))
+    diffs = (frames[:n].astype(np.float32) - reconstructed[:n].astype(np.float32)) ** 2
+    per_frame_mse = np.mean(diffs.reshape(diffs.shape[0], -1), axis=1)
+    return per_frame_mse.tolist()
+
+def evaluate_anomaly_detection(errors: List[float], ground_truth: List[int], percentile: float = 99.0) -> Dict[str, Any]:
+    """
+    errors: list of floats (per-frame MSE)
+    ground_truth: list/array of 0/1 labels (1=anomaly)
+    percentile: threshold percentile on errors for binary decision
+    Returns dictionary with threshold, accuracy, precision, recall, f1_score, auc (or None), plus fpr/tpr/thresholds if available.
+    """
+    results = {
+        'threshold': None,
+        'accuracy': None,
+        'precision': None,
+        'recall': None,
+        'f1_score': None,
+        'auc': None,
+        'fpr': [],
+        'tpr': [],
+    }
+
+    if not isinstance(errors, (list, np.ndarray)):
+        errors = list(errors or [])
+    if len(errors) == 0:
+        # nothing to compute
+        results.update({
+            'threshold': 0.0,
+            'accuracy': 0.0,
+            'precision': 0.0,
+            'recall': 0.0,
+            'f1_score': 0.0,
+            'auc': None
+        })
+        return results
+
+    errors_arr = np.array(errors, dtype=np.float32)
+    # compute threshold by percentile
+    try:
+        thr = float(np.percentile(errors_arr, percentile))
+    except Exception:
+        thr = float(np.max(errors_arr))
+    results['threshold'] = thr
+
+    # prepare ground truth: if missing or wrong shape -> assume all zeros
+    if ground_truth is None:
+        y_true = np.zeros_like(errors_arr, dtype=int)
+    else:
+        y_true = np.array(ground_truth, dtype=int)
+        # if length mismatch, trim/pad with zeros
+        if len(y_true) < len(errors_arr):
+            pad = np.zeros(len(errors_arr) - len(y_true), dtype=int)
+            y_true = np.concatenate([y_true, pad])
+        elif len(y_true) > len(errors_arr):
+            y_true = y_true[:len(errors_arr)]
+
+    # predicted anomalies
+    y_pred = (errors_arr >= thr).astype(int)
+
+    # Compute classic metrics (fall back to manual if sklearn unavailable)
+    try:
+        if SKLEARN_AVAILABLE:
+            acc = float(accuracy_score(y_true, y_pred))
+            prec = float(precision_score(y_true, y_pred, zero_division=0))
+            rec = float(recall_score(y_true, y_pred, zero_division=0))
+            f1 = float(f1_score(y_true, y_pred, zero_division=0))
+        else:
+            # manual computation
+            tp = int(np.sum((y_true == 1) & (y_pred == 1)))
+            tn = int(np.sum((y_true == 0) & (y_pred == 0)))
+            fp = int(np.sum((y_true == 0) & (y_pred == 1)))
+            fn = int(np.sum((y_true == 1) & (y_pred == 0)))
+            total = tp + tn + fp + fn
+            acc = float((tp + tn) / total) if total > 0 else 0.0
+            prec = float(tp / (tp + fp)) if (tp + fp) > 0 else 0.0
+            rec = float(tp / (tp + fn)) if (tp + fn) > 0 else 0.0
+            f1 = float((2 * prec * rec) / (prec + rec)) if (prec + rec) > 0 else 0.0
+    except Exception:
+        acc = prec = rec = f1 = 0.0
+
+    results['accuracy'] = acc
+    results['precision'] = prec
+    results['recall'] = rec
+    results['f1_score'] = f1
+
+    # AUC: try to compute if we have both classes present and sklearn available
+    auc_val = None
+    try:
+        if SKLEARN_AVAILABLE and len(np.unique(y_true)) > 1:
+            # use errors as scores (higher => more likely anomaly)
+            auc_val = float(roc_auc_score(y_true, errors_arr))
+            results['auc'] = auc_val
+        else:
+            results['auc'] = None
+    except Exception:
+        results['auc'] = None
+
+    return results
+
+# Choose which implementations to use (imported ones if available)
+if HAVE_IMPORTED_METRICS and imported_calc_recon is not None:
+    calculate_reconstruction_error_fn = imported_calc_recon
+else:
+    calculate_reconstruction_error_fn = calculate_reconstruction_error
+
+if HAVE_IMPORTED_METRICS and imported_eval_det is not None:
+    evaluate_anomaly_detection_fn = imported_eval_det
+else:
+    evaluate_anomaly_detection_fn = evaluate_anomaly_detection
+
+# -------------------------
+# Evaluation functions
+# -------------------------
+def evaluate_single_model(model_path: str, test_folder: str, model_name: str = "Model") -> Tuple[List[float], Dict[str, Any]]:
     logger.info(f"\n{'='*60}")
     logger.info(f"Evaluating: {model_name}")
     logger.info(f"Model path: {model_path}")
@@ -51,14 +210,18 @@ def evaluate_single_model(model_path, test_folder, model_name="Model"):
         model = tf.keras.models.load_model(model_path)
         logger.info("✓ Model loaded successfully")
     except Exception as e:
-        logger.error(f"Failed to load model: {str(e)}")
+        logger.error(f"Failed to load model: {e}")
         return None, None
 
+    # load frames
     frames, frame_names = load_test_frames(test_folder, img_size=IMG_SIZE)
     logger.info(f"✓ Loaded {len(frames)} frames")
 
     ground_truth = get_ground_truth_labels(test_folder)
-    logger.info(f"✓ Ground truth loaded ({int(np.sum(ground_truth))} anomalies)")
+    if ground_truth is None:
+        logger.warning(f"Ground truth not found or empty for {test_folder}")
+        ground_truth = []
+    logger.info(f"✓ Ground truth loaded ({int(np.sum(ground_truth)) if len(ground_truth)>0 else 0} anomalies)")
 
     logger.info("Calculating reconstruction errors...")
     errors = []
@@ -75,8 +238,6 @@ def evaluate_single_model(model_path, test_folder, model_name="Model"):
             batch = frames[start:end]
             preds = model.predict(batch, batch_size=min(32, len(batch)), verbose=0)
             reconstructed_all.append(preds)
-            if (start // CHUNK + 1) % 10 == 0:
-                logger.info(f"  Predicted {end}/{n_frames} frames")
         reconstructed_all = np.concatenate(reconstructed_all, axis=0)
     except Exception:
         logger.exception("Batch prediction failed, falling back to per-frame")
@@ -91,32 +252,48 @@ def evaluate_single_model(model_path, test_folder, model_name="Model"):
                 reconstructed_all.append(np.zeros_like(frame))
         reconstructed_all = np.array(reconstructed_all)
 
+    # Align shapes (trim to shortest length if mismatch)
+    if reconstructed_all.shape[0] != n_frames:
+        logger.warning("Predicted frames count mismatch; trimming to common length")
+        n_common = min(reconstructed_all.shape[0], n_frames)
+        frames = frames[:n_common]
+        reconstructed_all = reconstructed_all[:n_common]
+
+    # compute per-frame MSE
     try:
-        if reconstructed_all.shape[0] != n_frames:
-            logger.warning("Predicted frames count mismatch; trimming to common length")
-            n_common = min(reconstructed_all.shape[0], n_frames)
-            frames = frames[:n_common]
-            reconstructed_all = reconstructed_all[:n_common]
+        errors = calculate_reconstruction_error_fn(frames, reconstructed_all)
+    except Exception:
+        logger.exception("Error computing reconstruction errors; falling back to manual MSE")
         diffs = (frames - reconstructed_all) ** 2
         errors = np.mean(diffs.reshape(diffs.shape[0], -1), axis=1).tolist()
-    except Exception:
-        logger.exception("Vectorized MSE failed, falling back to per-frame MSE")
-        errors = []
-        for i in range(min(len(frames), len(reconstructed_all))):
-            errors.append(float(np.mean((frames[i] - reconstructed_all[i]) ** 2)))
 
     logger.info("✓ Reconstruction errors calculated")
 
-    metrics = evaluate_anomaly_detection(errors, ground_truth, percentile=ANOMALY_PERCENTILE)
-    logger.info("\nRESULTS")
-    logger.info(f"Threshold (MSE): {metrics['threshold']:.6f}")
-    logger.info(f"Accuracy: {metrics['accuracy']:.2%}")
-    logger.info(f"Precision: {metrics['precision']:.2%}")
-    logger.info(f"Recall: {metrics['recall']:.2%}")
-    logger.info(f"F1-Score: {metrics['f1_score']:.4f}")
-    logger.info(f"AUC-ROC: {metrics['auc']:.4f}")
+    # Evaluate anomaly detection metrics
+    try:
+        metrics = evaluate_anomaly_detection_fn(errors, ground_truth, percentile=ANOMALY_PERCENTILE)
+    except Exception:
+        logger.exception("Error evaluating anomaly detection; returning minimal metrics")
+        metrics = evaluate_anomaly_detection(errors, ground_truth, percentile=ANOMALY_PERCENTILE)
 
-    return errors, metrics
+    # Print results (handle AUC None)
+    logger.info("\nRESULTS")
+    thr = metrics.get('threshold', 0.0)
+    logger.info(f"Threshold (MSE): {thr:.6f}")
+    logger.info(f"Accuracy: {metrics.get('accuracy', 0.0):.2%}")
+    logger.info(f"Precision: {metrics.get('precision', 0.0):.2%}")
+    logger.info(f"Recall: {metrics.get('recall', 0.0):.2%}")
+    logger.info(f"F1-Score: {metrics.get('f1_score', 0.0):.4f}")
+    auc_val = metrics.get('auc', None)
+    if auc_val is None:
+        logger.info("AUC-ROC: N/A")
+    else:
+        logger.info(f"AUC-ROC: {auc_val:.4f}")
+
+    # Make sure returned errors are plain python floats
+    errors_out = [float(e) for e in errors]
+
+    return errors_out, metrics
 
 def compare_models():
     logger.info("\nFEDGUARD MODEL COMPARISON")
@@ -138,40 +315,59 @@ def compare_models():
 
     secure_errors, secure_metrics = evaluate_single_model(secure_model_path, test_folder, model_name="FedGuard (Secure)")
     if secure_errors is None:
-        logger.error("Failed to evaluate secure model"); return
+        logger.error("Failed to evaluate secure model")
+        return
 
     attacked_errors, attacked_metrics = evaluate_single_model(insecure_model_path, test_folder, model_name="Attacked (No Defense)")
     if attacked_errors is None:
-        logger.error("Failed to evaluate attacked model"); return
+        logger.error("Failed to evaluate attacked model")
+        return
+
+    # Prepare comparison; if AUC None -> use 0.0 to avoid division by zero (but mark accordingly)
+    def safe_val(mdict, key):
+        v = mdict.get(key)
+        return float(v) if (v is not None) else 0.0
 
     metrics_comparison = {
-        'Accuracy': (secure_metrics['accuracy'], attacked_metrics['accuracy']),
-        'Precision': (secure_metrics['precision'], attacked_metrics['precision']),
-        'Recall': (secure_metrics['recall'], attacked_metrics['recall']),
-        'F1-Score': (secure_metrics['f1_score'], attacked_metrics['f1_score']),
-        'AUC-ROC': (secure_metrics['auc'], attacked_metrics['auc'])
+        'Accuracy': (safe_val(secure_metrics, 'accuracy'), safe_val(attacked_metrics, 'accuracy')),
+        'Precision': (safe_val(secure_metrics, 'precision'), safe_val(attacked_metrics, 'precision')),
+        'Recall': (safe_val(secure_metrics, 'recall'), safe_val(attacked_metrics, 'recall')),
+        'F1-Score': (safe_val(secure_metrics, 'f1_score'), safe_val(attacked_metrics, 'f1_score')),
+        'AUC-ROC': (safe_val(secure_metrics, 'auc'), safe_val(attacked_metrics, 'auc')),
     }
 
     for metric_name, (secure_val, attacked_val) in metrics_comparison.items():
-        improvement = ((secure_val - attacked_val) / (attacked_val + 1e-8)) * 100
-        logger.info(f"\n{metric_name}: Secure={secure_val:.4f}, Attacked={attacked_val:.4f}, Improvement={improvement:+.2f}%")
+        if attacked_val == 0:
+            improvement = float('inf') if secure_val > 0 else 0.0
+            # avoid printing inf nicely
+            improvement_str = "inf" if improvement == float('inf') else f"{improvement:+.2f}%"
+        else:
+            improvement = ((secure_val - attacked_val) / (attacked_val + 1e-12)) * 100.0
+            improvement_str = f"{improvement:+.2f}%"
+        logger.info(f"\n{metric_name}: Secure={secure_val:.4f}, Attacked={attacked_val:.4f}, Improvement={improvement_str}")
 
     results = {
         'evaluation_date': datetime.now().isoformat(),
         'test_folder': test_folder,
-        'secure_model': {'path': secure_model_path, 'errors': [float(e) for e in secure_errors], 'metrics': secure_metrics},
-        'attacked_model': {'path': insecure_model_path, 'errors': [float(e) for e in attacked_errors], 'metrics': attacked_metrics},
-        'comparison': {metric: {'secure': float(vals[0]), 'attacked': float(vals[1]), 'improvement_percent': float(((vals[0] - vals[1]) / (vals[1] + 1e-8)) * 100)} for metric, vals in metrics_comparison.items()}
+        'secure_model': {'path': secure_model_path, 'errors': secure_errors, 'metrics': secure_metrics},
+        'attacked_model': {'path': insecure_model_path, 'errors': attacked_errors, 'metrics': attacked_metrics},
+        'comparison': {
+            metric: {
+                'secure': float(vals[0]),
+                'attacked': float(vals[1]),
+                'improvement_percent': (float(((vals[0] - vals[1]) / (vals[1] + 1e-12)) * 100.0) if vals[1] != 0 else None)
+            } for metric, vals in metrics_comparison.items()
+        }
     }
 
     results_file = os.path.join(METRICS_DIR, 'evaluation_results.json')
-    with open(results_file, 'w') as f:
+    with open(results_file, 'w', encoding='utf-8') as f:
         json.dump(results, f, indent=2)
     logger.info(f"Detailed results saved to: {results_file}")
     return {'secure_errors': secure_errors, 'attacked_errors': attacked_errors, 'secure_metrics': secure_metrics, 'attacked_metrics': attacked_metrics}
 
 if __name__ == "__main__":
-    results = compare_models()
-    if results:
+    res = compare_models()
+    if res:
         print("\n✅ Evaluation complete!")
         print(f"Results saved in: {METRICS_DIR}")
