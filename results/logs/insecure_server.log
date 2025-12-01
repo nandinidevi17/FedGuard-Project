@@ -166,3 +166,1406 @@ Keyboard interrupt - stopping server
 2025-12-01 14:33:03,874 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
 2025-12-01 14:33:03,874 - __main__ - WARNING - 
 Insecure server stopped after 2 rounds
+2025-12-01 14:59:48,169 - __main__ - WARNING - ============================================================
+2025-12-01 14:59:48,170 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 14:59:48,170 - __main__ - WARNING - ============================================================
+2025-12-01 14:59:48,170 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 14:59:48,170 - __main__ - WARNING - Expected clients: 4
+2025-12-01 14:59:48,170 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 14:59:48,760 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 14:59:48,778 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 14:59:48,779 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 14:59:48,779 - __main__ - INFO - Weight shapes: [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]... (showing first 3)
+2025-12-01 14:59:48,786 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 14:59:48,788 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 14:59:48,789 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 14:59:48,901 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 14:59:48,902 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 14:59:48,902 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 14:59:48,902 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 14:59:48,903 - __main__ - INFO - 
+============================================================
+2025-12-01 14:59:48,903 - __main__ - INFO - INSECURE SERVER RUNNING
+2025-12-01 14:59:48,903 - __main__ - INFO - Accepts ALL client updates (no security checks)
+2025-12-01 14:59:48,903 - __main__ - INFO - ============================================================
+
+2025-12-01 14:59:48,906 - kafka.cluster - INFO - Group coordinator for insecure-server-group is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 14:59:48,906 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group
+2025-12-01 14:59:48,907 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 14:59:48,907 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group
+2025-12-01 14:59:48,908 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 14:59:48,909 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 14:59:48,909 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 14:59:49,010 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group
+2025-12-01 14:59:49,011 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 14:59:49,013 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 14:59:52,031 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 14:59:52,032 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 14:59:52,059 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 14:59:52,059 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 14:59:52,060 - kafka.coordinator - INFO - Successfully joined group insecure-server-group with generation 13
+2025-12-01 14:59:52,061 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 14:59:52,061 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group
+2025-12-01 14:59:52,591 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 14:59:52,647 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01
+2025-12-01 14:59:52,648 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:13,851 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:00:13,957 - __main__ - INFO -   Received 30 weight layers from Client-03
+2025-12-01 15:00:13,958 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:16,060 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:00:16,471 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01
+2025-12-01 15:00:16,472 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:21,537 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:00:21,674 - __main__ - INFO -   Received 30 weight layers from Client-03
+2025-12-01 15:00:21,674 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:29,086 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:00:29,219 - __main__ - INFO -   Received 30 weight layers from Client-03
+2025-12-01 15:00:29,220 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:37,845 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:00:37,991 - __main__ - INFO -   Received 30 weight layers from Client-03
+2025-12-01 15:00:37,992 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:38,261 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:00:38,380 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01
+2025-12-01 15:00:38,380 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:40,051 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 15:00:40,445 - __main__ - INFO -   Received 30 weight layers from Client-02
+2025-12-01 15:00:40,446 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:46,809 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:00:46,927 - __main__ - INFO -   Received 30 weight layers from Client-03
+2025-12-01 15:00:46,927 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:49,234 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 15:00:49,950 - __main__ - INFO -   Received 30 weight layers from Client-02
+2025-12-01 15:00:49,958 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:56,296 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 15:00:56,382 - __main__ - INFO -   Received 30 weight layers from Client-01
+2025-12-01 15:00:56,383 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:56,561 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:00:56,657 - __main__ - INFO -   Received 30 weight layers from Client-03
+2025-12-01 15:00:56,658 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:00:57,462 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 15:00:58,153 - __main__ - INFO -   Received 30 weight layers from Client-02
+2025-12-01 15:00:58,155 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:03,460 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:01:03,554 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01
+2025-12-01 15:01:03,555 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:04,630 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 15:01:04,714 - __main__ - INFO -   Received 30 weight layers from Client-01
+2025-12-01 15:01:04,715 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:04,882 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:01:04,967 - __main__ - INFO -   Received 30 weight layers from Client-03
+2025-12-01 15:01:04,968 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:06,050 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 15:01:06,645 - __main__ - INFO -   Received 30 weight layers from Client-02
+2025-12-01 15:01:06,653 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:12,911 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 15:01:13,007 - __main__ - INFO -   Received 30 weight layers from Client-01
+2025-12-01 15:01:13,007 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:13,211 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:01:13,308 - __main__ - INFO -   Received 30 weight layers from Client-03
+2025-12-01 15:01:13,309 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:13,978 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 15:01:14,304 - __main__ - INFO -   Received 30 weight layers from Client-02
+2025-12-01 15:01:14,314 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:18,789 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 15:01:18,850 - __main__ - INFO -   Received 30 weight layers from Client-01
+2025-12-01 15:01:18,850 - __main__ - WARNING -   Shape mismatch at layer 2 - skipping
+2025-12-01 15:01:25,430 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 15:01:25,445 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 15:01:25,446 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group).
+2025-12-01 15:01:25,477 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:01:25,478 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:01:25,479 - __main__ - WARNING - 
+Insecure server stopped after 0 rounds
+2025-12-01 15:14:48,985 - __main__ - WARNING - ============================================================
+2025-12-01 15:14:48,986 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 15:14:48,986 - __main__ - WARNING - ============================================================
+2025-12-01 15:14:48,986 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 15:14:48,986 - __main__ - WARNING - Expected clients: 4
+2025-12-01 15:14:48,986 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 15:14:49,333 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 15:14:49,350 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 15:14:49,351 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 15:14:49,351 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 15:14:49,351 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 15:14:49,358 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:14:49,358 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 15:14:49,359 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:14:49,468 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 15:14:49,469 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 15:14:49,470 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 15:14:49,470 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 15:14:49,470 - __main__ - INFO - 
+============================================================
+2025-12-01 15:14:49,471 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 15:14:49,471 - __main__ - INFO - ============================================================
+
+2025-12-01 15:14:49,473 - kafka.cluster - INFO - Group coordinator for insecure-server-group is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 15:14:49,474 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group
+2025-12-01 15:14:49,474 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 15:14:49,476 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group
+2025-12-01 15:14:49,479 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:14:49,481 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:14:49,482 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:14:49,592 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group
+2025-12-01 15:14:49,595 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:14:49,598 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:14:52,598 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 15:14:52,601 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:14:52,602 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:14:52,602 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:14:52,613 - kafka.coordinator - INFO - Successfully joined group insecure-server-group with generation 15
+2025-12-01 15:14:52,614 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 15:14:52,615 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group
+2025-12-01 15:15:04,983 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:15:05,055 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 15:15:05,056 - __main__ - WARNING -   Shape mismatch at layer 2 expected (3, 3, 32, 32) got (3, 3, 128, 128) - skipping
+2025-12-01 15:15:05,119 - __main__ - INFO -   Saved invalid payload to: C:\Users\Nandini Devi\FedGuard-Project\results\logs\invalid_payloads\20251201T151505_Malicious-Attacker-01_c113dfa1.pkl
+2025-12-01 15:22:41,752 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 15:22:41,768 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 15:22:41,769 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group).
+2025-12-01 15:22:41,785 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:22:41,786 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:22:41,787 - kafka.consumer.fetcher - ERROR - Fetch to node 1 failed: Cancelled: <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>
+2025-12-01 15:22:41,788 - __main__ - WARNING - 
+Insecure server stopped after 0 rounds
+2025-12-01 15:50:52,565 - __main__ - WARNING - ============================================================
+2025-12-01 15:50:52,630 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 15:50:52,630 - __main__ - WARNING - ============================================================
+2025-12-01 15:50:52,630 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 15:50:52,630 - __main__ - WARNING - Expected clients: 4
+2025-12-01 15:50:52,631 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 15:50:53,723 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 15:50:53,770 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 15:50:53,770 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 15:50:53,771 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 15:50:53,771 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 15:50:53,785 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:50:53,788 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 15:50:53,790 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:50:53,907 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 15:50:53,907 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 15:50:53,908 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 15:50:53,908 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 15:50:53,909 - __main__ - INFO - 
+============================================================
+2025-12-01 15:50:53,909 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 15:50:53,909 - __main__ - INFO - ============================================================
+
+2025-12-01 15:50:53,913 - kafka.cluster - INFO - Group coordinator for insecure-server-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 15:50:53,913 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group-v2
+2025-12-01 15:50:53,913 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 15:50:53,915 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group-v2
+2025-12-01 15:50:53,917 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:50:53,919 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:50:53,921 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:50:54,029 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group-v2
+2025-12-01 15:50:54,031 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:50:54,032 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:50:57,111 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 15:50:57,113 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:50:57,116 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:50:57,116 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:50:57,191 - kafka.coordinator - INFO - Successfully joined group insecure-server-group-v2 with generation 1
+2025-12-01 15:50:57,192 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 15:50:57,192 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group-v2
+2025-12-01 15:50:59,673 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:50:59,742 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 15:50:59,742 - __main__ - WARNING -   Shape mismatch at layer 2 expected (3, 3, 32, 32) got (3, 3, 128, 128) - skipping
+2025-12-01 15:50:59,863 - __main__ - INFO -   Saved invalid payload to: C:\Users\Nandini Devi\FedGuard-Project\results\logs\invalid_payloads\20251201T155059_Malicious-Attacker-01_65f6bf1c.pkl
+2025-12-01 15:51:20,297 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 15:51:20,314 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 15:51:20,314 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group-v2).
+2025-12-01 15:51:20,328 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:51:20,330 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:51:20,330 - __main__ - WARNING - 
+Insecure server stopped after 0 rounds
+2025-12-01 15:58:20,940 - __main__ - WARNING - ============================================================
+2025-12-01 15:58:20,940 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 15:58:20,941 - __main__ - WARNING - ============================================================
+2025-12-01 15:58:20,941 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 15:58:20,941 - __main__ - WARNING - Expected clients: 4
+2025-12-01 15:58:20,941 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 15:58:21,346 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 15:58:21,362 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 15:58:21,363 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 15:58:21,363 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 15:58:21,363 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 15:58:21,370 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:58:21,370 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 15:58:21,373 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:58:21,483 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 15:58:21,483 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 15:58:21,484 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 15:58:21,485 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 15:58:21,485 - __main__ - INFO - 
+============================================================
+2025-12-01 15:58:21,485 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 15:58:21,485 - __main__ - INFO - ============================================================
+
+2025-12-01 15:58:21,487 - kafka.cluster - INFO - Group coordinator for insecure-server-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 15:58:21,487 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group-v2
+2025-12-01 15:58:21,488 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 15:58:21,488 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group-v2
+2025-12-01 15:58:21,490 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:58:21,491 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:58:21,492 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:58:21,607 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group-v2
+2025-12-01 15:58:21,610 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:58:21,612 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:58:24,626 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 15:58:24,632 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 15:58:24,633 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 15:58:24,638 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 15:58:24,655 - kafka.coordinator - INFO - Successfully joined group insecure-server-group-v2 with generation 3
+2025-12-01 15:58:24,656 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 15:58:24,656 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group-v2
+2025-12-01 15:58:24,824 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:58:24,872 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 15:58:24,876 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 15:58:42,413 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:58:42,508 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 15:58:42,512 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 15:58:56,408 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 15:58:56,501 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 15:58:56,504 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 15:59:03,918 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 15:59:04,024 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 15:59:04,027 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 15:59:04,679 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:59:04,802 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 15:59:04,806 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 15:59:12,254 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 15:59:12,359 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 15:59:12,362 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:12,584 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 15:59:12,702 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 15:59:12,706 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:22,307 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 15:59:22,412 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 15:59:22,415 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:22,632 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 15:59:22,748 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 15:59:22,752 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:28,671 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 15:59:28,776 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 15:59:28,779 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:29,872 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 15:59:29,953 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 15:59:29,955 - __main__ - INFO -   Updates collected: 4/4
+2025-12-01 15:59:29,956 - __main__ - WARNING - 
+============================================================
+2025-12-01 15:59:29,956 - __main__ - WARNING - ROUND 1 - INSECURE AGGREGATION
+2025-12-01 15:59:29,956 - __main__ - WARNING - ============================================================
+2025-12-01 15:59:29,957 - __main__ - INFO -   Aggregating 4 updates (NO SECURITY FILTERING)
+2025-12-01 15:59:29,957 - __main__ - INFO -   Clients: Malicious-Attacker-01, Client-01, Client-02, Client-03
+2025-12-01 15:59:30,096 - __main__ - INFO - [OK] Model saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 15:59:32,649 - __main__ - INFO - 
+[Round 2] Received update from: Client-02
+2025-12-01 15:59:32,749 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 15:59:32,754 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 15:59:33,027 - __main__ - INFO - 
+[Round 2] Received update from: Client-01
+2025-12-01 15:59:33,127 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 15:59:33,131 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 15:59:39,778 - __main__ - INFO - 
+[Round 2] Received update from: Client-03
+2025-12-01 15:59:39,910 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 15:59:39,913 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:41,748 - __main__ - INFO - 
+[Round 2] Received update from: Client-02
+2025-12-01 15:59:42,038 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 15:59:42,049 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:42,452 - __main__ - INFO - 
+[Round 2] Received update from: Client-01
+2025-12-01 15:59:42,563 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 15:59:42,566 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:49,589 - __main__ - INFO - 
+[Round 2] Received update from: Client-03
+2025-12-01 15:59:49,711 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 15:59:49,715 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:51,364 - __main__ - INFO - 
+[Round 2] Received update from: Client-02
+2025-12-01 15:59:51,594 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 15:59:51,603 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:52,037 - __main__ - INFO - 
+[Round 2] Received update from: Client-01
+2025-12-01 15:59:52,164 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 15:59:52,170 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 15:59:52,381 - __main__ - INFO - 
+[Round 2] Received update from: Malicious-Attacker-01
+2025-12-01 15:59:52,494 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 15:59:52,497 - __main__ - INFO -   Updates collected: 4/4
+2025-12-01 15:59:52,497 - __main__ - WARNING - 
+============================================================
+2025-12-01 15:59:52,499 - __main__ - WARNING - ROUND 2 - INSECURE AGGREGATION
+2025-12-01 15:59:52,499 - __main__ - WARNING - ============================================================
+2025-12-01 15:59:52,500 - __main__ - INFO -   Aggregating 4 updates (NO SECURITY FILTERING)
+2025-12-01 15:59:52,500 - __main__ - INFO -   Clients: Client-02, Client-01, Client-03, Malicious-Attacker-01
+2025-12-01 15:59:52,983 - __main__ - INFO - [OK] Model saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 15:59:59,483 - __main__ - INFO - 
+[Round 3] Received update from: Client-03
+2025-12-01 15:59:59,576 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 15:59:59,579 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:00:01,271 - __main__ - INFO - 
+[Round 3] Received update from: Client-02
+2025-12-01 16:00:01,435 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:00:01,446 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:00:02,119 - __main__ - INFO - 
+[Round 3] Received update from: Client-01
+2025-12-01 16:00:02,220 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 16:00:02,223 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:00:09,416 - __main__ - INFO - 
+[Round 3] Received update from: Client-03
+2025-12-01 16:00:09,505 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:00:09,533 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:00:11,769 - __main__ - INFO - 
+[Round 3] Received update from: Client-02
+2025-12-01 16:00:11,973 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:00:11,981 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:00:12,360 - __main__ - INFO - 
+[Round 3] Received update from: Client-01
+2025-12-01 16:00:12,460 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 16:00:12,464 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:00:16,635 - __main__ - INFO - 
+[Round 3] Received update from: Malicious-Attacker-01
+2025-12-01 16:00:16,774 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 16:00:16,778 - __main__ - INFO -   Updates collected: 4/4
+2025-12-01 16:00:16,778 - __main__ - WARNING - 
+============================================================
+2025-12-01 16:00:16,779 - __main__ - WARNING - ROUND 3 - INSECURE AGGREGATION
+2025-12-01 16:00:16,779 - __main__ - WARNING - ============================================================
+2025-12-01 16:00:16,780 - __main__ - INFO -   Aggregating 4 updates (NO SECURITY FILTERING)
+2025-12-01 16:00:16,782 - __main__ - INFO -   Clients: Client-03, Client-02, Client-01, Malicious-Attacker-01
+2025-12-01 16:00:16,969 - __main__ - INFO - [OK] Model saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 16:00:17,993 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 16:00:18,010 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 16:00:18,011 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group-v2).
+2025-12-01 16:00:18,072 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:00:18,073 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:00:18,074 - __main__ - WARNING - 
+Insecure server stopped after 3 rounds
+2025-12-01 16:31:33,381 - __main__ - WARNING - ============================================================
+2025-12-01 16:31:33,382 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 16:31:33,382 - __main__ - WARNING - ============================================================
+2025-12-01 16:31:33,382 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 16:31:33,382 - __main__ - WARNING - Expected clients: 4
+2025-12-01 16:31:33,382 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 16:31:33,701 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 16:31:33,718 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 16:31:33,718 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 16:31:33,719 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 16:31:33,719 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 16:31:33,724 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:31:33,725 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 16:31:33,726 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:31:33,839 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 16:31:33,839 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 16:31:33,840 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 16:31:33,840 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 16:31:33,840 - __main__ - INFO - 
+============================================================
+2025-12-01 16:31:33,841 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 16:31:33,841 - __main__ - INFO - ============================================================
+
+2025-12-01 16:31:33,842 - kafka.cluster - INFO - Group coordinator for insecure-server-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 16:31:33,843 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group-v2
+2025-12-01 16:31:33,843 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 16:31:33,844 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group-v2
+2025-12-01 16:31:33,845 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:31:33,845 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:31:33,846 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:31:33,961 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group-v2
+2025-12-01 16:31:36,973 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 16:31:36,974 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:31:36,975 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:31:36,990 - kafka.coordinator - INFO - Successfully joined group insecure-server-group-v2 with generation 5
+2025-12-01 16:31:36,990 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 16:31:36,990 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group-v2
+2025-12-01 16:31:37,129 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:31:37,186 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:31:37,190 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:31:37,315 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:31:37,372 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:31:37,374 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:31:37,583 - __main__ - INFO - 
+[Round 1] Received update from: Client-01
+2025-12-01 16:31:37,641 - __main__ - INFO -   Received 30 weight layers from Client-01 (reshape_used=False)
+2025-12-01 16:31:37,643 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:31:37,767 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:31:37,827 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:31:37,829 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:31:37,960 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:31:38,020 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:31:38,023 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:31:46,747 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:31:46,807 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:31:46,809 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:31:51,019 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:31:51,081 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:31:51,084 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:31:55,542 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:31:55,596 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:31:55,599 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:31:59,442 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:31:59,506 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:31:59,508 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:03,572 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:03,632 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:03,635 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:08,145 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:08,206 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:08,208 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:12,627 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:12,691 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:12,694 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:18,579 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:18,659 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:18,662 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:23,774 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:23,840 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:23,843 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:28,541 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:28,606 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:28,609 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:34,748 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:34,837 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:34,841 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:41,604 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:41,695 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:41,698 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:47,222 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:47,281 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:47,283 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:53,469 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:53,558 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:53,561 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:32:59,412 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:32:59,490 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:32:59,493 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:33:06,116 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:33:06,215 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:33:06,218 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:33:12,295 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:33:12,367 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:33:12,370 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:33:42,889 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 16:33:42,994 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 16:33:42,996 - __main__ - INFO -   Updates collected: 4/4
+2025-12-01 16:33:42,997 - __main__ - WARNING - 
+============================================================
+2025-12-01 16:33:42,997 - __main__ - WARNING - ROUND 1 - INSECURE AGGREGATION
+2025-12-01 16:33:42,998 - __main__ - WARNING - ============================================================
+2025-12-01 16:33:42,998 - __main__ - INFO -   Aggregating 4 updates (NO SECURITY FILTERING)
+2025-12-01 16:33:42,998 - __main__ - INFO -   Clients: Client-03, Client-02, Client-01, Malicious-Attacker-01
+2025-12-01 16:33:43,175 - __main__ - INFO - [OK] Model saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 16:33:48,230 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 16:33:48,246 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 16:33:48,246 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group-v2).
+2025-12-01 16:33:48,262 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:33:48,262 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:33:48,262 - __main__ - WARNING - 
+Insecure server stopped after 1 rounds
+2025-12-01 16:34:21,882 - __main__ - WARNING - ============================================================
+2025-12-01 16:34:21,883 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 16:34:21,883 - __main__ - WARNING - ============================================================
+2025-12-01 16:34:21,884 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 16:34:21,884 - __main__ - WARNING - Expected clients: 4
+2025-12-01 16:34:21,885 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 16:34:22,822 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 16:34:22,868 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 16:34:22,868 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 16:34:22,869 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 16:34:22,869 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 16:34:22,884 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:34:22,886 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 16:34:22,888 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:34:23,005 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 16:34:23,006 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 16:34:23,007 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 16:34:23,007 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 16:34:23,007 - __main__ - INFO - 
+============================================================
+2025-12-01 16:34:23,008 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 16:34:23,008 - __main__ - INFO - ============================================================
+
+2025-12-01 16:34:23,011 - kafka.cluster - INFO - Group coordinator for insecure-server-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 16:34:23,011 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group-v2
+2025-12-01 16:34:23,012 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 16:34:23,014 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group-v2
+2025-12-01 16:34:23,017 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:34:23,020 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:34:23,021 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:34:23,127 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group-v2
+2025-12-01 16:34:26,143 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 16:34:26,145 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:34:26,147 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:34:26,158 - kafka.coordinator - INFO - Successfully joined group insecure-server-group-v2 with generation 7
+2025-12-01 16:34:26,158 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 16:34:26,158 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group-v2
+2025-12-01 16:34:32,722 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:34:32,786 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:34:32,789 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:34:38,171 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:34:38,249 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:34:38,252 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:34:44,581 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:34:44,675 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:34:44,679 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:34:50,330 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:34:50,402 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:34:50,405 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:34:57,792 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:34:57,926 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:34:57,931 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:35:06,447 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:35:06,587 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:35:06,594 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:35:15,269 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:35:15,416 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:35:15,421 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:35:23,678 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:35:23,801 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:35:23,806 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:35:31,909 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:35:32,398 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:35:32,431 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:35:40,608 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:35:40,759 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:35:40,764 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:35:41,710 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:35:42,063 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:35:42,073 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:35:50,464 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:35:50,593 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:35:50,598 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:35:51,259 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:35:51,375 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:35:51,388 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:36:00,824 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:36:00,948 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:36:00,954 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:36:01,478 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:36:01,600 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:36:01,604 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:36:07,040 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:36:07,195 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:36:07,199 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:11,934 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:36:12,080 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:36:12,084 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:12,758 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:36:12,951 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:36:12,959 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:18,696 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:36:18,891 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:36:18,896 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:23,624 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:36:23,760 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:36:23,763 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:24,087 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:36:24,216 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:36:24,220 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:28,794 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:36:28,910 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:36:28,914 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:32,807 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:36:32,921 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:36:32,925 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:33,205 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:36:33,308 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:36:33,312 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:37,993 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:36:38,144 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:36:38,148 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:36:38,655 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 16:36:38,670 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 16:36:38,671 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group-v2).
+2025-12-01 16:36:38,687 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:36:38,688 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:36:38,689 - __main__ - WARNING - 
+Insecure server stopped after 0 rounds
+2025-12-01 16:41:56,408 - __main__ - WARNING - ============================================================
+2025-12-01 16:41:56,409 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 16:41:56,409 - __main__ - WARNING - ============================================================
+2025-12-01 16:41:56,409 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 16:41:56,409 - __main__ - WARNING - Expected clients: 4
+2025-12-01 16:41:56,410 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 16:41:57,549 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 16:41:57,646 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 16:41:57,648 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 16:41:57,649 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 16:41:57,650 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 16:41:57,670 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:41:57,672 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 16:41:57,674 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:41:57,794 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 16:41:57,796 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 16:41:57,808 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 16:41:57,810 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 16:41:57,811 - __main__ - INFO - 
+============================================================
+2025-12-01 16:41:57,813 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 16:41:57,814 - __main__ - INFO - ============================================================
+
+2025-12-01 16:41:57,824 - kafka.cluster - INFO - Group coordinator for insecure-server-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 16:41:57,824 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group-v2
+2025-12-01 16:41:57,826 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 16:41:57,839 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group-v2
+2025-12-01 16:41:57,842 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:41:57,845 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:41:57,846 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:41:57,956 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group-v2
+2025-12-01 16:42:00,971 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 16:42:00,974 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:42:00,976 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:42:00,987 - kafka.coordinator - INFO - Successfully joined group insecure-server-group-v2 with generation 9
+2025-12-01 16:42:00,988 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 16:42:00,989 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group-v2
+2025-12-01 16:42:01,170 - __main__ - INFO - 
+[Round 1] Received update from: Client-02
+2025-12-01 16:42:01,284 - __main__ - INFO -   Received 30 weight layers from Client-02 (reshape_used=False)
+2025-12-01 16:42:01,289 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:42:01,722 - __main__ - INFO - 
+[Round 1] Received update from: Client-03
+2025-12-01 16:42:01,991 - __main__ - INFO -   Received 30 weight layers from Client-03 (reshape_used=False)
+2025-12-01 16:42:02,007 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:42:02,750 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:42:02,853 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:42:02,856 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:42:03,044 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:42:03,133 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:42:03,136 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:42:05,128 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:42:05,202 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:42:05,205 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:42:09,535 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:42:09,606 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:42:09,609 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:42:13,799 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:42:13,865 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:42:13,869 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:42:20,576 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:42:20,651 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:42:20,654 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:42:42,621 - __main__ - INFO - 
+[Round 1] Received update from: Malicious-Attacker-01
+2025-12-01 16:42:42,695 - __main__ - INFO -   Received 30 weight layers from Malicious-Attacker-01 (reshape_used=False)
+2025-12-01 16:42:42,698 - __main__ - INFO -   Updates collected: 4/4
+2025-12-01 16:42:42,698 - __main__ - WARNING - 
+============================================================
+2025-12-01 16:42:42,698 - __main__ - WARNING - ROUND 1 - INSECURE AGGREGATION
+2025-12-01 16:42:42,699 - __main__ - WARNING - ============================================================
+2025-12-01 16:42:42,699 - __main__ - INFO -   Aggregating 4 updates (NO SECURITY FILTERING)
+2025-12-01 16:42:42,699 - __main__ - INFO -   Clients: Client-02, Client-03, Client-1, Malicious-Attacker-01
+2025-12-01 16:42:42,843 - __main__ - INFO - [OK] Model saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 16:42:43,350 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 16:42:43,366 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 16:42:43,367 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group-v2).
+2025-12-01 16:42:43,383 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:42:43,384 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:42:43,385 - __main__ - WARNING - 
+Insecure server stopped after 1 rounds
+2025-12-01 16:43:13,064 - __main__ - WARNING - ============================================================
+2025-12-01 16:43:13,065 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 16:43:13,065 - __main__ - WARNING - ============================================================
+2025-12-01 16:43:13,066 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 16:43:13,066 - __main__ - WARNING - Expected clients: 4
+2025-12-01 16:43:13,066 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 16:43:13,799 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 16:43:13,834 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 16:43:13,834 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 16:43:13,835 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 16:43:13,835 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 16:43:13,846 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:43:13,848 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 16:43:13,850 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:43:13,961 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 16:43:13,961 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 16:43:13,963 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 16:43:13,963 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 16:43:13,964 - __main__ - INFO - 
+============================================================
+2025-12-01 16:43:13,964 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 16:43:13,965 - __main__ - INFO - ============================================================
+
+2025-12-01 16:43:13,967 - kafka.cluster - INFO - Group coordinator for insecure-server-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 16:43:13,968 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group-v2
+2025-12-01 16:43:13,969 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 16:43:13,970 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group-v2
+2025-12-01 16:43:13,973 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:43:13,974 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:43:13,975 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:43:14,082 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group-v2
+2025-12-01 16:43:14,086 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:43:14,088 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:43:17,085 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 16:43:17,091 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:43:17,092 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:43:17,093 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:43:17,102 - kafka.coordinator - INFO - Successfully joined group insecure-server-group-v2 with generation 11
+2025-12-01 16:43:17,103 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 16:43:17,104 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group-v2
+2025-12-01 16:43:27,288 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:43:27,341 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:43:27,343 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:43:31,788 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:43:31,854 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:43:31,857 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:43:38,450 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:43:38,568 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:43:38,571 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:43:45,434 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:43:45,520 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:43:45,523 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:43:51,401 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:43:51,522 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:43:51,526 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:43:58,328 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:43:58,443 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:43:58,447 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:44:05,871 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:44:05,981 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:44:05,985 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:44:13,273 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:44:13,380 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:44:13,384 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:44:17,999 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 16:44:18,016 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 16:44:18,017 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group-v2).
+2025-12-01 16:44:18,034 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:44:18,035 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:44:18,036 - __main__ - WARNING - 
+Insecure server stopped after 0 rounds
+2025-12-01 16:50:36,622 - __main__ - WARNING - ============================================================
+2025-12-01 16:50:36,623 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 16:50:36,623 - __main__ - WARNING - ============================================================
+2025-12-01 16:50:36,623 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 16:50:36,624 - __main__ - WARNING - Expected clients: 4
+2025-12-01 16:50:36,624 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 16:50:37,352 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 16:50:37,385 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 16:50:37,386 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 16:50:37,386 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 16:50:37,387 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 16:50:37,397 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:50:37,398 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 16:50:37,400 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:50:37,503 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 16:50:37,503 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 16:50:37,505 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 16:50:37,505 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 16:50:37,506 - __main__ - INFO - 
+============================================================
+2025-12-01 16:50:37,506 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 16:50:37,506 - __main__ - INFO - ============================================================
+
+2025-12-01 16:50:37,508 - kafka.cluster - INFO - Group coordinator for insecure-server-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 16:50:37,509 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group-v2
+2025-12-01 16:50:37,509 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 16:50:37,511 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group-v2
+2025-12-01 16:50:37,513 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:50:37,514 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:50:37,515 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:50:37,627 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group-v2
+2025-12-01 16:50:37,629 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:50:37,630 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:50:40,634 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 16:50:40,636 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:50:40,637 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:50:40,637 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:50:40,650 - kafka.coordinator - INFO - Successfully joined group insecure-server-group-v2 with generation 13
+2025-12-01 16:50:40,651 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 16:50:40,651 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group-v2
+2025-12-01 16:50:40,843 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:50:40,910 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:50:40,914 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:50:41,115 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:41,201 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:41,205 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:41,489 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:41,570 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:41,574 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:41,750 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:41,832 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:41,835 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:42,014 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:42,103 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:42,106 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:42,288 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:42,375 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:42,379 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:42,562 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:42,646 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:42,649 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:42,823 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:42,908 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:42,912 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:43,096 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:43,184 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:43,188 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:43,369 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:43,455 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:43,460 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:43,771 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:43,866 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:43,870 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:44,057 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:44,139 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:44,143 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:44,326 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:44,406 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:44,410 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:44,583 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:44,670 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:44,674 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:44,864 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:44,953 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:44,956 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:45,151 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:45,254 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:45,258 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:45,462 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:45,567 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:45,571 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:45,907 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:46,006 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:46,009 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:46,199 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:46,289 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:46,293 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:46,494 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:46,583 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:46,586 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:46,769 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:46,861 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:46,864 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:47,087 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:47,193 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:47,202 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:48,400 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:48,487 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:48,490 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:50,289 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:50,386 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:50,390 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:51,650 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:51,731 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:51,735 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:53,275 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:53,364 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:53,368 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:54,803 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:54,917 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:54,920 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:56,733 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:56,823 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:56,827 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:50:58,664 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:50:58,746 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:50:58,750 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:51:00,033 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:00,115 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:00,118 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:51:01,797 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:01,891 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:01,896 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:51:03,879 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:03,990 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:03,994 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:51:07,429 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:07,547 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:07,551 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:51:08,466 - __main__ - INFO - 
+[Round 1] Received update from: Client-2
+2025-12-01 16:51:08,575 - __main__ - INFO -   Received 30 weight layers from Client-2 (reshape_used=False)
+2025-12-01 16:51:08,578 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:10,216 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:10,508 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:10,513 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:12,869 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:12,957 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:12,960 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:13,381 - __main__ - INFO - 
+[Round 1] Received update from: Client-2
+2025-12-01 16:51:13,475 - __main__ - INFO -   Received 30 weight layers from Client-2 (reshape_used=False)
+2025-12-01 16:51:13,479 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:15,951 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:16,192 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:16,197 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:18,217 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:18,334 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:18,338 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:20,194 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:20,278 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:20,282 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:20,461 - __main__ - INFO - 
+[Round 1] Received update from: Client-2
+2025-12-01 16:51:20,546 - __main__ - INFO -   Received 30 weight layers from Client-2 (reshape_used=False)
+2025-12-01 16:51:20,549 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:22,993 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:23,099 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:23,103 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:24,954 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:25,042 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:25,045 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:26,524 - __main__ - INFO - 
+[Round 1] Received update from: Client-2
+2025-12-01 16:51:26,613 - __main__ - INFO -   Received 30 weight layers from Client-2 (reshape_used=False)
+2025-12-01 16:51:26,616 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:26,815 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:26,894 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:26,897 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:29,771 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:29,886 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:29,890 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:31,977 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:32,080 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:32,084 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:33,084 - __main__ - INFO - 
+[Round 1] Received update from: Client-2
+2025-12-01 16:51:33,189 - __main__ - INFO -   Received 30 weight layers from Client-2 (reshape_used=False)
+2025-12-01 16:51:33,194 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:33,947 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:34,077 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:34,082 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:35,731 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:35,826 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:35,829 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:37,401 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:37,487 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:37,490 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:39,101 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:39,192 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:39,195 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:40,359 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:40,438 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:40,441 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:41,886 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:41,965 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:41,968 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:43,623 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:43,700 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:43,703 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:45,256 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:51:45,341 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:51:45,344 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:51:48,406 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 16:51:48,423 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 16:51:48,424 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group-v2).
+2025-12-01 16:51:48,438 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:51:48,438 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:51:48,439 - __main__ - WARNING - 
+Insecure server stopped after 0 rounds
+2025-12-01 16:56:39,732 - __main__ - WARNING - ============================================================
+2025-12-01 16:56:39,732 - __main__ - WARNING - [WARNING] INSECURE SERVER (NO DEFENSE)
+2025-12-01 16:56:39,732 - __main__ - WARNING - ============================================================
+2025-12-01 16:56:39,732 - __main__ - WARNING - This server accepts ALL client updates without security checks.
+2025-12-01 16:56:39,733 - __main__ - WARNING - Expected clients: 4
+2025-12-01 16:56:39,733 - __main__ - INFO - Loading baseline model from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-01 16:56:40,057 - __main__ - INFO - [OK] Baseline model loaded successfully
+2025-12-01 16:56:40,073 - __main__ - INFO - Model architecture: 20 layers
+2025-12-01 16:56:40,073 - __main__ - INFO - Expected weight tensors: 30
+2025-12-01 16:56:40,074 - __main__ - INFO - Total parameter count (scalar): 1753025
+2025-12-01 16:56:40,074 - __main__ - INFO - Weight shapes (first 3): [(3, 3, 1, 32), (32,), (3, 3, 32, 32)]
+2025-12-01 16:56:40,079 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:56:40,080 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 16:56:40,080 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:56:40,192 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 16:56:40,193 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 16:56:40,194 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 16:56:40,195 - __main__ - INFO - [OK] Connected to Kafka at localhost:9092 (topic=model-updates)
+2025-12-01 16:56:40,195 - __main__ - INFO - 
+============================================================
+2025-12-01 16:56:40,196 - __main__ - INFO - INSECURE SERVER RUNNING - with reshape fallback + diagnostics
+2025-12-01 16:56:40,197 - __main__ - INFO - ============================================================
+
+2025-12-01 16:56:40,199 - kafka.cluster - INFO - Group coordinator for insecure-server-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 16:56:40,200 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group insecure-server-group-v2
+2025-12-01 16:56:40,201 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 16:56:40,202 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group insecure-server-group-v2
+2025-12-01 16:56:40,205 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:56:40,208 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:56:40,209 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:56:40,315 - kafka.coordinator - INFO - (Re-)joining group insecure-server-group-v2
+2025-12-01 16:56:43,329 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 16:56:43,330 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 16:56:43,331 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 16:56:43,342 - kafka.coordinator - INFO - Successfully joined group insecure-server-group-v2 with generation 15
+2025-12-01 16:56:43,343 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 16:56:43,345 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group insecure-server-group-v2
+2025-12-01 16:57:05,825 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:05,879 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:05,882 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:06,856 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:06,920 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:06,923 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:07,917 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:07,984 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:07,987 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:09,036 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:09,102 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:09,105 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:09,986 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:10,052 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:10,055 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:11,089 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:11,158 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:11,161 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:12,221 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:12,318 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:12,323 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:13,915 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:14,035 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:14,039 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:15,797 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:15,893 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:15,897 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:17,671 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:17,811 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:17,816 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:20,204 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:20,329 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:20,333 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:22,205 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:22,328 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:22,332 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:24,142 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:24,256 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:24,261 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:26,065 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:26,157 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:26,161 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:27,881 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:27,984 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:27,988 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:29,231 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:29,431 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:29,459 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:32,037 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:32,138 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:32,142 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:33,619 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:33,731 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:33,735 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:57:34,550 - __main__ - INFO - 
+[Round 1] Received update from: Client-3
+2025-12-01 16:57:34,650 - __main__ - INFO -   Received 30 weight layers from Client-3 (reshape_used=False)
+2025-12-01 16:57:34,652 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:35,238 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:35,324 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:35,327 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:37,839 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:37,935 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:37,938 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:39,632 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:39,718 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:39,721 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:40,356 - __main__ - INFO - 
+[Round 1] Received update from: Client-3
+2025-12-01 16:57:40,450 - __main__ - INFO -   Received 30 weight layers from Client-3 (reshape_used=False)
+2025-12-01 16:57:40,453 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:41,270 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:41,520 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:41,532 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:44,213 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:44,319 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:44,323 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:46,559 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:46,667 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:46,670 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:47,202 - __main__ - INFO - 
+[Round 1] Received update from: Client-3
+2025-12-01 16:57:47,297 - __main__ - INFO -   Received 30 weight layers from Client-3 (reshape_used=False)
+2025-12-01 16:57:47,300 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:48,745 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:49,117 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:49,133 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:52,200 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:52,308 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:52,312 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:54,007 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:54,116 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:54,120 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:54,545 - __main__ - INFO - 
+[Round 1] Received update from: Client-3
+2025-12-01 16:57:54,669 - __main__ - INFO -   Received 30 weight layers from Client-3 (reshape_used=False)
+2025-12-01 16:57:54,674 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:57:57,709 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:57:57,837 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:57:57,842 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:00,797 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:00,929 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:00,933 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:02,837 - __main__ - INFO - 
+[Round 1] Received update from: Client-3
+2025-12-01 16:58:03,019 - __main__ - INFO -   Received 30 weight layers from Client-3 (reshape_used=False)
+2025-12-01 16:58:03,026 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:03,309 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:03,457 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:03,462 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:07,613 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:07,776 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:07,781 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:10,475 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:10,598 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:10,602 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:11,460 - __main__ - INFO - 
+[Round 1] Received update from: Client-3
+2025-12-01 16:58:11,608 - __main__ - INFO -   Received 30 weight layers from Client-3 (reshape_used=False)
+2025-12-01 16:58:11,613 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:14,265 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:14,663 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:14,676 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:17,482 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:17,662 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:17,666 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:19,710 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:19,877 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:19,883 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:20,901 - __main__ - INFO - 
+[Round 1] Received update from: Client-3
+2025-12-01 16:58:21,277 - __main__ - INFO -   Received 30 weight layers from Client-3 (reshape_used=False)
+2025-12-01 16:58:21,283 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:24,886 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:25,024 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:25,028 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:26,919 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:27,030 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:27,034 - __main__ - INFO -   Updates collected: 2/4
+2025-12-01 16:58:27,508 - __main__ - INFO - 
+[Round 1] Received update from: Client-2
+2025-12-01 16:58:27,611 - __main__ - INFO -   Received 30 weight layers from Client-2 (reshape_used=False)
+2025-12-01 16:58:27,614 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:58:29,830 - __main__ - INFO - 
+[Round 1] Received update from: Client-3
+2025-12-01 16:58:30,255 - __main__ - INFO -   Received 30 weight layers from Client-3 (reshape_used=False)
+2025-12-01 16:58:30,268 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:58:31,326 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:31,477 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:31,481 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:58:34,914 - __main__ - INFO - 
+[Round 1] Received update from: DDoS-Bot-01
+2025-12-01 16:58:35,049 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:35,053 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:58:36,691 - __main__ - INFO - 
+[Round 1] Received update from: Client-2
+2025-12-01 16:58:36,798 - __main__ - INFO -   Received 30 weight layers from Client-2 (reshape_used=False)
+2025-12-01 16:58:36,801 - __main__ - INFO -   Updates collected: 3/4
+2025-12-01 16:58:37,030 - __main__ - INFO - 
+[Round 1] Received update from: Client-1
+2025-12-01 16:58:37,138 - __main__ - INFO -   Received 30 weight layers from Client-1 (reshape_used=False)
+2025-12-01 16:58:37,142 - __main__ - INFO -   Updates collected: 4/4
+2025-12-01 16:58:37,142 - __main__ - WARNING - 
+============================================================
+2025-12-01 16:58:37,143 - __main__ - WARNING - ROUND 1 - INSECURE AGGREGATION
+2025-12-01 16:58:37,143 - __main__ - WARNING - ============================================================
+2025-12-01 16:58:37,143 - __main__ - INFO -   Aggregating 4 updates (NO SECURITY FILTERING)
+2025-12-01 16:58:37,144 - __main__ - INFO -   Clients: DDoS-Bot-01, Client-3, Client-2, Client-1
+2025-12-01 16:58:37,364 - __main__ - INFO - [OK] Model saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_insecured.h5
+2025-12-01 16:58:37,604 - __main__ - INFO - 
+[Round 2] Received update from: DDoS-Bot-01
+2025-12-01 16:58:37,938 - __main__ - INFO -   Received 30 weight layers from DDoS-Bot-01 (reshape_used=False)
+2025-12-01 16:58:37,949 - __main__ - INFO -   Updates collected: 1/4
+2025-12-01 16:58:38,991 - __main__ - INFO - 
+[Round 2] Received update from: Client-3
+2025-12-01 16:58:39,091 - __main__ - INFO - 
+Keyboard interrupt - stopping server
+2025-12-01 16:58:39,117 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 16:58:39,121 - kafka.coordinator - INFO - Leaving consumer group (insecure-server-group-v2).
+2025-12-01 16:58:39,151 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:58:39,162 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 16:58:39,172 - __main__ - WARNING - 
+Insecure server stopped after 1 rounds

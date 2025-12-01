@@ -1,0 +1,60 @@
+2025-12-01 17:22:44,839 - insecure_server_ddos - WARNING - ============================================================
+2025-12-01 17:22:44,840 - insecure_server_ddos - WARNING - 🔥🔥 INSECURE SERVER (DDoS EXPERIMENT) 🔥🔥
+2025-12-01 17:22:44,840 - insecure_server_ddos - WARNING - Logging to: ddos_experiment.log
+2025-12-01 17:22:44,841 - insecure_server_ddos - WARNING - This server is isolated for Availability testing.
+2025-12-01 17:22:44,842 - insecure_server_ddos - WARNING - ============================================================
+2025-12-01 17:22:44,970 - insecure_server_ddos - INFO - [OK] Connected to Kafka (Topic: model-updates)
+2025-12-01 17:22:44,971 - insecure_server_ddos - INFO - Waiting for updates...
+2025-12-01 17:23:01,418 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:23:01,418 - insecure_server_ddos - INFO -    Unique clients seen: 1/4
+2025-12-01 17:23:06,256 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:23:06,256 - insecure_server_ddos - INFO -    Unique clients seen: 1/4
+2025-12-01 17:23:13,564 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:23:13,565 - insecure_server_ddos - INFO -    Unique clients seen: 1/4
+2025-12-01 17:23:20,266 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:23:20,266 - insecure_server_ddos - INFO -    Unique clients seen: 1/4
+2025-12-01 17:23:27,768 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:23:27,768 - insecure_server_ddos - INFO -    Unique clients seen: 1/4
+2025-12-01 17:23:36,021 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:23:36,022 - insecure_server_ddos - INFO -    Unique clients seen: 1/4
+2025-12-01 17:23:40,505 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-2
+2025-12-01 17:23:40,505 - insecure_server_ddos - INFO -    Unique clients seen: 2/4
+2025-12-01 17:23:43,661 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:23:43,662 - insecure_server_ddos - INFO -    Unique clients seen: 2/4
+2025-12-01 17:23:50,257 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-2
+2025-12-01 17:23:50,257 - insecure_server_ddos - INFO -    Unique clients seen: 2/4
+2025-12-01 17:23:52,778 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:23:52,778 - insecure_server_ddos - INFO -    Unique clients seen: 2/4
+2025-12-01 17:23:55,687 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-3
+2025-12-01 17:23:55,688 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:23:59,229 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-2
+2025-12-01 17:23:59,229 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:01,879 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:24:01,881 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:05,725 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-3
+2025-12-01 17:24:05,726 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:09,459 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-2
+2025-12-01 17:24:09,459 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:11,696 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:24:11,697 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:15,842 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-3
+2025-12-01 17:24:15,843 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:19,028 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-2
+2025-12-01 17:24:19,029 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:20,555 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-1
+2025-12-01 17:24:20,561 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:24,639 - insecure_server_ddos - INFO - [Round 1] Received update from: Client-3
+2025-12-01 17:24:24,639 - insecure_server_ddos - INFO -    Unique clients seen: 3/4
+2025-12-01 17:24:25,834 - insecure_server_ddos - INFO - [Round 1] Received update from: DDoS-Bot-01
+2025-12-01 17:24:25,838 - insecure_server_ddos - INFO -    Unique clients seen: 4/4
+2025-12-01 17:24:25,840 - insecure_server_ddos - INFO - 
+============================================================
+2025-12-01 17:24:25,851 - insecure_server_ddos - INFO - ROUND 1 AGGREGATION (Simulated)
+2025-12-01 17:24:25,853 - insecure_server_ddos - INFO - ============================================================
+
+2025-12-01 17:24:27,927 - insecure_server_ddos - INFO - [Round 2] Received update from: Client-2
+2025-12-01 17:24:27,927 - insecure_server_ddos - INFO -    Unique clients seen: 1/4
+2025-12-01 17:24:29,711 - insecure_server_ddos - INFO - [Round 2] Received update from: Client-1
+2025-12-01 17:24:29,713 - insecure_server_ddos - INFO -    Unique clients seen: 2/4
+2025-12-01 17:24:29,864 - insecure_server_ddos - INFO - [Round 2] Received update from: DDoS-Bot-01
+2025-12-01 17:24:29,872 - insecure_server_ddos - INFO -    Unique clients seen: 3/4

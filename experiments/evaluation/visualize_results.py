@@ -10,7 +10,11 @@ import seaborn as sns
 import json
 from datetime import datetime
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add project root to path (go up 3 levels from file: evaluation -> experiments -> project_root)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(current_dir))
+sys.path.append(project_root)
+
 from config import *
 
 sns.set_style("whitegrid")

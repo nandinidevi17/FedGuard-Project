@@ -1,0 +1,95 @@
+2025-12-01 17:40:01,066 - fedguard_ddos_shield - INFO - ============================================================
+2025-12-01 17:40:01,067 - fedguard_ddos_shield - INFO - FEDGUARD SERVER - DDOS PROTECTION ENABLED
+2025-12-01 17:40:01,067 - fedguard_ddos_shield - INFO - ============================================================
+2025-12-01 17:40:01,067 - fedguard_ddos_shield - INFO - Rate Limit: 1 request every 5.0 seconds
+2025-12-01 17:40:05,699 - fedguard_ddos_shield - INFO - [OK] Model loaded successfully
+2025-12-01 17:40:05,706 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 17:40:05,707 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-01 17:40:05,708 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 17:40:05,820 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-01 17:40:05,820 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-01 17:40:05,822 - kafka.consumer.subscription_state - INFO - Updating subscribed topics to: ('model-updates',)
+2025-12-01 17:40:05,822 - fedguard_ddos_shield - INFO - [OK] Kafka Consumer Started
+2025-12-01 17:40:05,822 - fedguard_ddos_shield - INFO - 
+Waiting for updates...
+
+2025-12-01 17:40:05,825 - kafka.cluster - INFO - Group coordinator for fedguard-ddos-shield-group-v2 is BrokerMetadata(nodeId='coordinator-1', host='localhost', port=9092, rack=None)
+2025-12-01 17:40:05,825 - kafka.coordinator - INFO - Discovered coordinator coordinator-1 for group fedguard-ddos-shield-group-v2
+2025-12-01 17:40:05,826 - kafka.coordinator - INFO - Starting new heartbeat thread
+2025-12-01 17:40:05,827 - kafka.coordinator.consumer - INFO - Revoking previously assigned partitions set() for group fedguard-ddos-shield-group-v2
+2025-12-01 17:40:05,829 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 17:40:05,830 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 17:40:05,830 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 17:40:05,944 - kafka.coordinator - INFO - (Re-)joining group fedguard-ddos-shield-group-v2
+2025-12-01 17:40:08,954 - kafka.coordinator - INFO - Elected group leader -- performing partition assignments using range
+2025-12-01 17:40:08,958 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-01 17:40:08,960 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-01 17:40:08,969 - kafka.coordinator - INFO - Successfully joined group fedguard-ddos-shield-group-v2 with generation 3
+2025-12-01 17:40:08,970 - kafka.consumer.subscription_state - INFO - Updated partition assignment: [TopicPartition(topic='model-updates', partition=0)]
+2025-12-01 17:40:08,970 - kafka.coordinator.consumer - INFO - Setting newly assigned partitions {TopicPartition(topic='model-updates', partition=0)} for group fedguard-ddos-shield-group-v2
+2025-12-01 17:40:19,426 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:40:19,493 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:19,493 - fedguard_ddos_shield - INFO -    Updates collected: 1/4
+2025-12-01 17:40:25,869 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:40:25,962 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:25,963 - fedguard_ddos_shield - INFO -    Updates collected: 1/4
+2025-12-01 17:40:32,313 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:40:32,399 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:32,399 - fedguard_ddos_shield - INFO -    Updates collected: 1/4
+2025-12-01 17:40:40,228 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:40:40,315 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:40,315 - fedguard_ddos_shield - INFO -    Updates collected: 1/4
+2025-12-01 17:40:43,670 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-2
+2025-12-01 17:40:43,770 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:43,770 - fedguard_ddos_shield - INFO -    Updates collected: 2/4
+2025-12-01 17:40:47,994 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:40:48,093 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:48,093 - fedguard_ddos_shield - INFO -    Updates collected: 2/4
+2025-12-01 17:40:51,283 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-2
+2025-12-01 17:40:51,388 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:51,388 - fedguard_ddos_shield - INFO -    Updates collected: 2/4
+2025-12-01 17:40:55,149 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:40:55,225 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:55,225 - fedguard_ddos_shield - INFO -    Updates collected: 2/4
+2025-12-01 17:40:58,922 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-2
+2025-12-01 17:40:59,030 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:40:59,031 - fedguard_ddos_shield - INFO -    Updates collected: 2/4
+2025-12-01 17:41:04,706 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:41:04,802 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:41:04,803 - fedguard_ddos_shield - INFO -    Updates collected: 2/4
+2025-12-01 17:41:07,442 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-1
+2025-12-01 17:41:07,577 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:41:07,578 - fedguard_ddos_shield - INFO -    Updates collected: 3/4
+2025-12-01 17:41:08,303 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-2
+2025-12-01 17:41:08,415 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:41:08,416 - fedguard_ddos_shield - INFO -    Updates collected: 3/4
+2025-12-01 17:41:13,498 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:41:13,582 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:41:13,583 - fedguard_ddos_shield - INFO -    Updates collected: 3/4
+2025-12-01 17:41:15,992 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-1
+2025-12-01 17:41:16,131 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:41:16,131 - fedguard_ddos_shield - INFO -    Updates collected: 3/4
+2025-12-01 17:41:16,985 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-2
+2025-12-01 17:41:17,247 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:41:17,252 - fedguard_ddos_shield - INFO -    Updates collected: 3/4
+2025-12-01 17:41:19,288 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from DDoS-Bot-01
+2025-12-01 17:41:19,582 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:41:19,583 - fedguard_ddos_shield - INFO -    Updates collected: 4/4
+2025-12-01 17:41:19,583 - fedguard_ddos_shield - INFO - 
+============================================================
+2025-12-01 17:41:19,584 - fedguard_ddos_shield - INFO - ROUND 1 AGGREGATION
+2025-12-01 17:41:19,584 - fedguard_ddos_shield - INFO - ============================================================
+2025-12-01 17:41:20,184 - fedguard_ddos_shield - INFO - [OK] Model aggregated and saved to: C:\Users\Nandini Devi\FedGuard-Project\results\models\global_model_ddos_secured.h5
+2025-12-01 17:41:20,187 - fedguard_ddos_shield - INFO -      Round 1 complete.
+2025-12-01 17:41:20,187 - fedguard_ddos_shield - INFO - ============================================================
+
+2025-12-01 17:41:22,742 - fedguard_ddos_shield - INFO - ✅ [ACCEPTED] Processing update from Client-3
+2025-12-01 17:41:22,836 - fedguard_ddos_shield - INFO -    Shape verified. Stored update.
+2025-12-01 17:41:22,837 - fedguard_ddos_shield - INFO -    Updates collected: 1/4
+2025-12-01 17:41:22,867 - fedguard_ddos_shield - WARNING - ⛔ [BLOCKED] DDoS/Flood detected from DDoS-Bot-01 (Too fast!)
+2025-12-01 17:41:24,118 - fedguard_ddos_shield - INFO - Stopping server...
+2025-12-01 17:41:24,135 - kafka.coordinator - INFO - Stopping heartbeat thread
+2025-12-01 17:41:24,137 - kafka.coordinator - INFO - Leaving consumer group (fedguard-ddos-shield-group-v2).
+2025-12-01 17:41:24,154 - kafka.conn - INFO - <BrokerConnection node_id=coordinator-1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 17:41:24,155 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-01 17:41:24,157 - kafka.consumer.fetcher - ERROR - Fetch to node 1 failed: Cancelled: <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>

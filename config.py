@@ -52,8 +52,8 @@ MIN_HONEST_CLIENTS = 1
 # ============ EVALUATION ============
 ANOMALY_PERCENTILE = 95
 TEST_FOLDERS = {
-    'ped1': 'Test001',
-    'ped2': 'Test001'
+    'ped1': 'Test003',
+    'ped2': 'Test003'
 }
 
 # ============ LOGGING ============

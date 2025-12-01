@@ -282,7 +282,7 @@ def evaluate_single_model(model_path: str, test_folder: str, model_name: str = "
 def compare_models():
     """Compare secure vs insecure models."""
     logger.info("\nFEDGUARD MODEL COMPARISON")
-    test_folder = os.path.join(UCSD_PED1_TEST, TEST_FOLDERS.get('ped1', 'Test001'))
+    test_folder = os.path.join(UCSD_PED1_TEST, TEST_FOLDERS.get('ped1', 'Test003'))
 
     if not os.path.exists(test_folder):
         logger.error(f"Test folder not found: {test_folder}")
