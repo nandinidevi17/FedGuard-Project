@@ -322,3 +322,1717 @@ Keyboard interrupt - stopping attacks
 2025-12-01 16:42:51,552 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
 2025-12-01 16:42:51,553 - malicious_client - WARNING - 
 Malicious client stopped after 1 attacks
+2025-12-06 00:25:43,897 - malicious_client - WARNING - ============================================================
+2025-12-06 00:25:43,897 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:25:43,897 - malicious_client - WARNING - ============================================================
+2025-12-06 00:25:43,898 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-06 00:25:43,898 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:25:43,898 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:25:43,898 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:25:55,319 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:25:55,319 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:25:55,323 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:25:55,324 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:25:57,342 - malicious_client - ERROR - 
+
+ERROR: NoBrokersAvailable
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 211, in main
+    producer = KafkaProducer(
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\kafka.py", line 381, in __init__
+    client = KafkaClient(metrics=self._metrics, metric_group_prefix='producer',
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\client_async.py", line 244, in __init__
+    self.config['api_version'] = self.check_version(timeout=check_timeout)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\client_async.py", line 927, in check_version
+    raise Errors.NoBrokersAvailable()
+kafka.errors.NoBrokersAvailable: NoBrokersAvailable
+2025-12-06 00:25:57,364 - malicious_client - WARNING - 
+Malicious client stopped after 0 attacks
+2025-12-06 00:28:43,065 - malicious_client - WARNING - ============================================================
+2025-12-06 00:28:43,065 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:28:43,065 - malicious_client - WARNING - ============================================================
+2025-12-06 00:28:43,065 - malicious_client - WARNING - Client ID: Malicious-Attacker-02
+2025-12-06 00:28:43,066 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:28:43,066 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:28:43,066 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:28:47,010 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:28:47,011 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:28:47,016 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:28:47,016 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:28:47,017 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:28:47,140 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:28:47,140 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:28:47,145 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:28:47,146 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:28:47,147 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:28:47,147 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:28:47,148 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:28:47,215 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:28:47,675 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524502 headers_present=True
+2025-12-06 00:28:47,682 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:28:47,683 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:28:47,683 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:28:49,145 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:29:09,210 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:29:09,610 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524545 headers_present=True
+2025-12-06 00:29:10,804 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:29:12,101 - malicious_client - WARNING - ============================================================
+2025-12-06 00:29:12,101 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:29:12,101 - malicious_client - WARNING - ============================================================
+2025-12-06 00:29:12,101 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-06 00:29:12,101 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:29:12,102 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:29:12,102 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:29:15,912 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:29:15,912 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:29:15,918 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:29:15,918 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:29:15,919 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:29:16,039 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:29:16,040 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:29:16,044 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:29:16,045 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:29:16,046 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:29:16,046 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:29:16,047 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:29:16,100 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:29:16,522 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524054 headers_present=True
+2025-12-06 00:29:16,529 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:29:16,530 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:29:16,530 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:29:17,586 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:29:30,848 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 00:29:31,243 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524518 headers_present=True
+2025-12-06 00:29:32,086 - malicious_client - WARNING - ============================================================
+2025-12-06 00:29:32,086 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:29:32,086 - malicious_client - WARNING - ============================================================
+2025-12-06 00:29:32,086 - malicious_client - WARNING - Client ID: Malicious-Attacker-03
+2025-12-06 00:29:32,087 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:29:32,087 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:29:32,087 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:29:32,639 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:29:35,702 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:29:35,703 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:29:35,707 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:29:35,708 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:29:35,709 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:29:35,822 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:29:35,822 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:29:35,824 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:29:35,824 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:29:35,824 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:29:35,824 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:29:35,824 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:29:35,861 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:29:36,344 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524528 headers_present=True
+2025-12-06 00:29:36,353 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:29:36,353 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:29:36,354 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:29:37,647 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:29:37,851 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:29:38,319 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524670 headers_present=True
+2025-12-06 00:29:39,525 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:29:52,696 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 00:29:53,111 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524548 headers_present=True
+2025-12-06 00:29:54,454 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:29:57,894 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:29:58,300 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524303 headers_present=True
+2025-12-06 00:29:59,588 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 00:29:59,621 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:29:59,993 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524279 headers_present=True
+2025-12-06 00:30:01,256 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:30:14,497 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-12-06 00:30:14,971 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524559 headers_present=True
+2025-12-06 00:30:16,332 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:30:19,714 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 00:30:20,753 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524444 headers_present=True
+2025-12-06 00:30:21,305 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 00:30:21,846 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524203 headers_present=True
+2025-12-06 00:30:21,876 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:30:23,024 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:30:36,207 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:30:36,208 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:30:36,209 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:30:36,210 - malicious_client - WARNING - 
+Malicious client stopped after 5 attacks
+2025-12-06 00:30:39,054 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:30:39,054 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:30:39,055 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:30:39,056 - malicious_client - WARNING - 
+Malicious client stopped after 4 attacks
+2025-12-06 00:30:41,952 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 00:30:42,685 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524090 headers_present=True
+2025-12-06 00:30:46,037 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:30:47,979 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:30:47,980 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:30:47,981 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:30:47,981 - malicious_client - WARNING - 
+Malicious client stopped after 4 attacks
+2025-12-06 00:39:06,257 - malicious_client - WARNING - ============================================================
+2025-12-06 00:39:06,258 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:39:06,258 - malicious_client - WARNING - ============================================================
+2025-12-06 00:39:06,259 - malicious_client - WARNING - Client ID: Malicious-Attacker-03
+2025-12-06 00:39:06,259 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:39:06,261 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:39:06,261 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:39:14,722 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:39:14,723 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:39:14,731 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:39:14,732 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:39:14,734 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:39:14,851 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:39:14,851 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:39:14,855 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:39:14,855 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:39:14,856 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:39:14,856 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:39:14,857 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:39:14,921 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:39:15,738 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524478 headers_present=True
+2025-12-06 00:39:15,753 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:39:15,754 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:39:15,755 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:39:16,639 - malicious_client - WARNING - ============================================================
+2025-12-06 00:39:16,640 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:39:16,640 - malicious_client - WARNING - ============================================================
+2025-12-06 00:39:16,641 - malicious_client - WARNING - Client ID: Malicious-Attacker-02
+2025-12-06 00:39:16,642 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:39:16,643 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:39:16,643 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:39:18,267 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:39:25,935 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:39:25,936 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:39:25,944 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:39:25,945 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:39:25,946 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:39:26,051 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:39:26,052 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:39:26,056 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:39:26,057 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:39:26,057 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:39:26,061 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:39:26,061 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:39:26,135 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:39:26,958 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524344 headers_present=True
+2025-12-06 00:39:26,970 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:39:26,972 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:39:26,973 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:39:27,869 - malicious_client - WARNING - ============================================================
+2025-12-06 00:39:27,870 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:39:27,870 - malicious_client - WARNING - ============================================================
+2025-12-06 00:39:27,871 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-06 00:39:27,871 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:39:27,872 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:39:27,873 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:39:29,048 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:39:36,223 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:39:36,224 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:39:36,233 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:39:36,235 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:39:36,236 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:39:36,356 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:39:36,357 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:39:36,360 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:39:36,362 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:39:36,362 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:39:36,362 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:39:36,363 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:39:36,432 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:39:37,298 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524042 headers_present=True
+2025-12-06 00:39:37,313 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:39:37,314 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:39:37,315 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:39:38,345 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:39:39,269 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:39:39,427 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524566 headers_present=True
+2025-12-06 00:39:41,962 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:39:49,105 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:39:49,903 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524513 headers_present=True
+2025-12-06 00:39:51,939 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:39:59,466 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:40:01,312 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524338 headers_present=True
+2025-12-06 00:40:02,050 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 00:40:02,987 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524462 headers_present=True
+2025-12-06 00:40:03,072 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:40:04,886 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:40:10,048 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:40:10,049 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:40:10,051 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:40:10,054 - malicious_client - WARNING - 
+Malicious client stopped after 3 attacks
+2025-12-06 00:40:12,129 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 00:40:13,146 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:40:13,148 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:40:13,150 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:40:13,151 - malicious_client - WARNING - 
+Malicious client stopped after 3 attacks
+2025-12-06 00:40:16,187 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:40:16,192 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:40:16,194 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:40:16,196 - malicious_client - WARNING - 
+Malicious client stopped after 2 attacks
+2025-12-06 00:57:36,799 - malicious_client - WARNING - ============================================================
+2025-12-06 00:57:36,800 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:57:36,800 - malicious_client - WARNING - ============================================================
+2025-12-06 00:57:36,800 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-06 00:57:36,800 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:57:36,800 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:57:36,801 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:57:43,972 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:57:43,972 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:57:43,981 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:57:43,982 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:57:43,983 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:57:44,094 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:57:44,094 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:57:44,097 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:57:44,097 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:57:44,098 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:57:44,098 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:57:44,101 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:57:44,165 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:57:45,070 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524366 headers_present=True
+2025-12-06 00:57:45,083 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:57:45,085 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:57:45,085 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:57:45,971 - malicious_client - WARNING - ============================================================
+2025-12-06 00:57:45,972 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:57:45,972 - malicious_client - WARNING - ============================================================
+2025-12-06 00:57:45,972 - malicious_client - WARNING - Client ID: Malicious-Attacker-02
+2025-12-06 00:57:45,973 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:57:45,973 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:57:45,973 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:57:46,950 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:57:53,149 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:57:53,150 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:57:53,158 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:57:53,160 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:57:53,164 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:57:53,280 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:57:53,281 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:57:53,283 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:57:53,284 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:57:53,285 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:57:53,285 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:57:53,285 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:57:53,354 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:57:54,123 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524828 headers_present=True
+2025-12-06 00:57:54,138 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:57:54,139 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:57:54,140 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:57:54,665 - malicious_client - WARNING - ============================================================
+2025-12-06 00:57:54,665 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 00:57:54,666 - malicious_client - WARNING - ============================================================
+2025-12-06 00:57:54,666 - malicious_client - WARNING - Client ID: Malicious-Attacker-03
+2025-12-06 00:57:54,666 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 00:57:54,667 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 00:57:54,667 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 00:57:56,270 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:58:01,009 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 00:58:01,009 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 00:58:01,015 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:58:01,016 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 00:58:01,017 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:58:01,129 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 00:58:01,129 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 00:58:01,133 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 00:58:01,133 - malicious_client - WARNING - 
+============================================================
+2025-12-06 00:58:01,134 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 00:58:01,134 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 00:58:01,134 - malicious_client - WARNING - ============================================================
+
+2025-12-06 00:58:01,186 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 00:58:01,799 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524296 headers_present=True
+2025-12-06 00:58:01,810 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 00:58:01,811 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 00:58:01,811 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:58:03,099 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:58:07,008 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:58:07,415 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524435 headers_present=True
+2025-12-06 00:58:08,336 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:58:16,320 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:58:16,734 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524523 headers_present=True
+2025-12-06 00:58:17,752 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:58:23,174 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 00:58:23,572 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524001 headers_present=True
+2025-12-06 00:58:24,737 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:58:28,389 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 00:58:28,785 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524372 headers_present=True
+2025-12-06 00:58:30,052 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 00:58:31,068 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:58:31,069 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:58:31,070 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:58:31,071 - malicious_client - WARNING - 
+Malicious client stopped after 3 attacks
+2025-12-06 00:58:33,366 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:58:33,367 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:58:33,368 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:58:33,368 - malicious_client - WARNING - 
+Malicious client stopped after 2 attacks
+2025-12-06 00:58:35,831 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 00:58:35,832 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 00:58:35,834 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 00:58:35,834 - malicious_client - WARNING - 
+Malicious client stopped after 2 attacks
+2025-12-06 01:00:40,329 - malicious_client - WARNING - ============================================================
+2025-12-06 01:00:40,329 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 01:00:40,329 - malicious_client - WARNING - ============================================================
+2025-12-06 01:00:40,330 - malicious_client - WARNING - Client ID: Malicious-Attacker-03
+2025-12-06 01:00:40,330 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 01:00:40,330 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 01:00:40,330 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 01:00:43,389 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 01:00:43,389 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 01:00:43,394 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 01:00:43,395 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 01:00:43,396 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 01:00:43,500 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 01:00:43,501 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 01:00:43,505 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 01:00:43,506 - malicious_client - WARNING - 
+============================================================
+2025-12-06 01:00:43,507 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 01:00:43,507 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 01:00:43,510 - malicious_client - WARNING - ============================================================
+
+2025-12-06 01:00:43,545 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 01:00:43,998 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524583 headers_present=True
+2025-12-06 01:00:44,006 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 01:00:44,008 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 01:00:44,008 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 01:00:45,131 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:00:54,773 - malicious_client - WARNING - ============================================================
+2025-12-06 01:00:54,773 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 01:00:54,774 - malicious_client - WARNING - ============================================================
+2025-12-06 01:00:54,774 - malicious_client - WARNING - Client ID: Malicious-Attacker-02
+2025-12-06 01:00:54,774 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 01:00:54,774 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 01:00:54,775 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 01:01:00,782 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 01:01:00,782 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 01:01:00,788 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 01:01:00,788 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 01:01:00,789 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 01:01:00,893 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 01:01:00,894 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 01:01:00,896 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 01:01:00,896 - malicious_client - WARNING - 
+============================================================
+2025-12-06 01:01:00,897 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 01:01:00,897 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 01:01:00,898 - malicious_client - WARNING - ============================================================
+
+2025-12-06 01:01:00,946 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 01:01:01,610 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524254 headers_present=True
+2025-12-06 01:01:01,620 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 01:01:01,621 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 01:01:01,622 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 01:01:03,049 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:01:05,176 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 01:01:05,602 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524318 headers_present=True
+2025-12-06 01:01:06,760 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:01:23,210 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 01:01:23,953 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524383 headers_present=True
+2025-12-06 01:01:25,405 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:01:26,807 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 01:01:27,999 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524191 headers_present=True
+2025-12-06 01:01:31,112 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:01:45,456 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 01:01:46,041 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524536 headers_present=True
+2025-12-06 01:01:47,433 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:01:51,187 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 01:01:52,016 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524591 headers_present=True
+2025-12-06 01:01:54,562 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:02:07,514 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 01:02:08,167 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524691 headers_present=True
+2025-12-06 01:02:10,137 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:02:14,651 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-12-06 01:02:15,698 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6523985 headers_present=True
+2025-12-06 01:02:19,825 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:02:30,207 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-12-06 01:02:31,771 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524345 headers_present=True
+2025-12-06 01:02:33,992 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:02:39,915 - malicious_client - WARNING - 
+[Attack #6] Building poisoned update...
+2025-12-06 01:02:40,753 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524727 headers_present=True
+2025-12-06 01:02:43,084 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:02:54,114 - malicious_client - WARNING - 
+[Attack #6] Building poisoned update...
+2025-12-06 01:02:55,140 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524570 headers_present=True
+2025-12-06 01:02:58,262 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:03:03,177 - malicious_client - WARNING - 
+[Attack #7] Building poisoned update...
+2025-12-06 01:03:04,300 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524108 headers_present=True
+2025-12-06 01:03:08,648 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:03:18,379 - malicious_client - WARNING - 
+[Attack #7] Building poisoned update...
+2025-12-06 01:03:19,562 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524243 headers_present=True
+2025-12-06 01:03:23,636 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:03:28,703 - malicious_client - WARNING - 
+[Attack #8] Building poisoned update...
+2025-12-06 01:03:29,472 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524719 headers_present=True
+2025-12-06 01:03:32,391 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:03:43,697 - malicious_client - WARNING - 
+[Attack #8] Building poisoned update...
+2025-12-06 01:03:44,279 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524431 headers_present=True
+2025-12-06 01:03:47,190 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:03:52,478 - malicious_client - WARNING - 
+[Attack #9] Building poisoned update...
+2025-12-06 01:03:53,311 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524351 headers_present=True
+2025-12-06 01:03:55,315 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:04:07,256 - malicious_client - WARNING - 
+[Attack #9] Building poisoned update...
+2025-12-06 01:04:08,061 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524362 headers_present=True
+2025-12-06 01:04:10,271 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:04:15,407 - malicious_client - WARNING - 
+[Attack #10] Building poisoned update...
+2025-12-06 01:04:16,373 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524555 headers_present=True
+2025-12-06 01:04:19,823 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:04:30,345 - malicious_client - WARNING - 
+[Attack #10] Building poisoned update...
+2025-12-06 01:04:31,313 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524496 headers_present=True
+2025-12-06 01:04:33,748 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:04:39,903 - malicious_client - WARNING - 
+[Attack #11] Building poisoned update...
+2025-12-06 01:04:40,823 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524417 headers_present=True
+2025-12-06 01:04:43,159 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:04:53,796 - malicious_client - WARNING - 
+[Attack #11] Building poisoned update...
+2025-12-06 01:04:54,642 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524916 headers_present=True
+2025-12-06 01:04:56,712 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:05:03,243 - malicious_client - WARNING - 
+[Attack #12] Building poisoned update...
+2025-12-06 01:05:04,109 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524270 headers_present=True
+2025-12-06 01:05:05,950 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:05:16,826 - malicious_client - WARNING - 
+[Attack #12] Building poisoned update...
+2025-12-06 01:05:17,755 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524196 headers_present=True
+2025-12-06 01:05:19,391 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:05:26,006 - malicious_client - WARNING - 
+[Attack #13] Building poisoned update...
+2025-12-06 01:05:26,672 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524338 headers_present=True
+2025-12-06 01:05:28,519 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:05:39,485 - malicious_client - WARNING - 
+[Attack #13] Building poisoned update...
+2025-12-06 01:05:40,441 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524215 headers_present=True
+2025-12-06 01:05:42,706 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:05:48,576 - malicious_client - WARNING - 
+[Attack #14] Building poisoned update...
+2025-12-06 01:05:49,482 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6523986 headers_present=True
+2025-12-06 01:05:51,395 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:06:02,797 - malicious_client - WARNING - 
+[Attack #14] Building poisoned update...
+2025-12-06 01:06:03,858 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524315 headers_present=True
+2025-12-06 01:06:06,219 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:06:11,459 - malicious_client - WARNING - 
+[Attack #15] Building poisoned update...
+2025-12-06 01:06:12,313 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524232 headers_present=True
+2025-12-06 01:06:15,306 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:06:26,275 - malicious_client - WARNING - 
+[Attack #15] Building poisoned update...
+2025-12-06 01:06:27,143 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524303 headers_present=True
+2025-12-06 01:06:29,407 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:06:35,434 - malicious_client - WARNING - 
+[Attack #16] Building poisoned update...
+2025-12-06 01:06:36,210 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524389 headers_present=True
+2025-12-06 01:06:40,565 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:06:49,515 - malicious_client - WARNING - 
+[Attack #16] Building poisoned update...
+2025-12-06 01:06:50,431 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6523913 headers_present=True
+2025-12-06 01:06:54,958 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:07:00,776 - malicious_client - WARNING - 
+[Attack #17] Building poisoned update...
+2025-12-06 01:07:03,804 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524056 headers_present=True
+2025-12-06 01:07:06,918 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:07:15,017 - malicious_client - WARNING - 
+[Attack #17] Building poisoned update...
+2025-12-06 01:07:15,801 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524568 headers_present=True
+2025-12-06 01:07:19,360 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:07:26,998 - malicious_client - WARNING - 
+[Attack #18] Building poisoned update...
+2025-12-06 01:07:27,898 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524365 headers_present=True
+2025-12-06 01:07:30,050 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:07:39,430 - malicious_client - WARNING - 
+[Attack #18] Building poisoned update...
+2025-12-06 01:07:39,993 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524607 headers_present=True
+2025-12-06 01:07:41,460 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:07:50,116 - malicious_client - WARNING - 
+[Attack #19] Building poisoned update...
+2025-12-06 01:07:50,970 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524353 headers_present=True
+2025-12-06 01:07:52,609 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:07:55,491 - malicious_client - WARNING - ============================================================
+2025-12-06 01:07:55,491 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 01:07:55,491 - malicious_client - WARNING - ============================================================
+2025-12-06 01:07:55,492 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-06 01:07:55,492 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 01:07:55,492 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 01:07:55,493 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 01:08:01,527 - malicious_client - WARNING - 
+[Attack #19] Building poisoned update...
+2025-12-06 01:08:02,292 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524609 headers_present=True
+2025-12-06 01:08:03,959 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 01:08:03,959 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 01:08:03,967 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 01:08:03,968 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 01:08:03,970 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 01:08:03,991 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:08:04,083 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 01:08:04,084 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 01:08:04,086 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 01:08:04,086 - malicious_client - WARNING - 
+============================================================
+2025-12-06 01:08:04,087 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 01:08:04,087 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 01:08:04,089 - malicious_client - WARNING - ============================================================
+
+2025-12-06 01:08:04,138 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 01:08:05,041 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524493 headers_present=True
+2025-12-06 01:08:05,056 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 01:08:05,057 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 01:08:05,058 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 01:08:07,178 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:08:12,706 - malicious_client - WARNING - 
+[Attack #20] Building poisoned update...
+2025-12-06 01:08:13,627 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6523821 headers_present=True
+2025-12-06 01:08:15,285 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:08:24,102 - malicious_client - WARNING - 
+[Attack #20] Building poisoned update...
+2025-12-06 01:08:24,880 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524227 headers_present=True
+2025-12-06 01:08:26,421 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:08:27,228 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 01:08:27,756 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524800 headers_present=True
+2025-12-06 01:08:29,616 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:08:35,378 - malicious_client - WARNING - 
+[Attack #21] Building poisoned update...
+2025-12-06 01:08:36,591 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524242 headers_present=True
+2025-12-06 01:08:39,425 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:08:46,508 - malicious_client - WARNING - 
+[Attack #21] Building poisoned update...
+2025-12-06 01:08:47,570 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524063 headers_present=True
+2025-12-06 01:08:49,886 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 01:08:51,692 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:08:51,809 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524471 headers_present=True
+2025-12-06 01:08:54,603 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:08:59,510 - malicious_client - WARNING - 
+[Attack #22] Building poisoned update...
+2025-12-06 01:09:00,083 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6523822 headers_present=True
+2025-12-06 01:09:01,834 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:09:11,768 - malicious_client - WARNING - 
+[Attack #22] Building poisoned update...
+2025-12-06 01:09:12,497 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524177 headers_present=True
+2025-12-06 01:09:14,787 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 01:09:15,333 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:09:16,874 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524345 headers_present=True
+2025-12-06 01:09:19,053 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:09:22,071 - malicious_client - WARNING - 
+[Attack #23] Building poisoned update...
+2025-12-06 01:09:23,629 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524428 headers_present=True
+2025-12-06 01:09:26,352 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:09:35,484 - malicious_client - WARNING - 
+[Attack #23] Building poisoned update...
+2025-12-06 01:09:36,270 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524356 headers_present=True
+2025-12-06 01:09:38,036 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:09:39,112 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-12-06 01:09:40,472 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524335 headers_present=True
+2025-12-06 01:09:42,633 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:09:46,457 - malicious_client - WARNING - 
+[Attack #24] Building poisoned update...
+2025-12-06 01:09:47,172 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524295 headers_present=True
+2025-12-06 01:09:49,035 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:09:58,119 - malicious_client - WARNING - 
+[Attack #24] Building poisoned update...
+2025-12-06 01:09:58,842 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524715 headers_present=True
+2025-12-06 01:10:00,614 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:10:02,769 - malicious_client - WARNING - 
+[Attack #6] Building poisoned update...
+2025-12-06 01:10:03,581 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524271 headers_present=True
+2025-12-06 01:10:05,319 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:10:09,124 - malicious_client - WARNING - 
+[Attack #25] Building poisoned update...
+2025-12-06 01:10:09,903 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524542 headers_present=True
+2025-12-06 01:10:11,979 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:10:20,708 - malicious_client - WARNING - 
+[Attack #25] Building poisoned update...
+2025-12-06 01:10:21,447 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524520 headers_present=True
+2025-12-06 01:10:23,325 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:10:25,459 - malicious_client - WARNING - 
+[Attack #7] Building poisoned update...
+2025-12-06 01:10:27,008 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524754 headers_present=True
+2025-12-06 01:10:28,936 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:10:32,078 - malicious_client - WARNING - 
+[Attack #26] Building poisoned update...
+2025-12-06 01:10:33,505 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524167 headers_present=True
+2025-12-06 01:10:35,841 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:10:43,411 - malicious_client - WARNING - 
+[Attack #26] Building poisoned update...
+2025-12-06 01:10:44,515 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524560 headers_present=True
+2025-12-06 01:10:47,905 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:10:49,023 - malicious_client - WARNING - 
+[Attack #8] Building poisoned update...
+2025-12-06 01:10:49,729 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524431 headers_present=True
+2025-12-06 01:10:52,573 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:10:55,902 - malicious_client - WARNING - 
+[Attack #27] Building poisoned update...
+2025-12-06 01:10:56,993 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524593 headers_present=True
+2025-12-06 01:10:59,110 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:11:08,074 - malicious_client - WARNING - 
+[Attack #27] Building poisoned update...
+2025-12-06 01:11:08,822 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524246 headers_present=True
+2025-12-06 01:11:10,833 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:11:12,673 - malicious_client - WARNING - 
+[Attack #9] Building poisoned update...
+2025-12-06 01:11:13,492 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524389 headers_present=True
+2025-12-06 01:11:15,165 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:11:19,251 - malicious_client - WARNING - 
+[Attack #28] Building poisoned update...
+2025-12-06 01:11:20,930 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524545 headers_present=True
+2025-12-06 01:11:22,716 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:11:30,879 - malicious_client - WARNING - 
+[Attack #28] Building poisoned update...
+2025-12-06 01:11:31,620 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524678 headers_present=True
+2025-12-06 01:11:33,443 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:11:35,219 - malicious_client - WARNING - 
+[Attack #10] Building poisoned update...
+2025-12-06 01:11:35,874 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524188 headers_present=True
+2025-12-06 01:11:37,620 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:11:42,781 - malicious_client - WARNING - 
+[Attack #29] Building poisoned update...
+2025-12-06 01:11:43,476 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524347 headers_present=True
+2025-12-06 01:11:45,780 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:11:53,514 - malicious_client - WARNING - 
+[Attack #29] Building poisoned update...
+2025-12-06 01:11:54,216 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-02 payload_bytes=6524079 headers_present=True
+2025-12-06 01:11:56,662 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:11:57,774 - malicious_client - WARNING - 
+[Attack #11] Building poisoned update...
+2025-12-06 01:11:58,925 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524511 headers_present=True
+2025-12-06 01:12:01,683 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 01:12:03,078 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 01:12:03,079 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 01:12:03,087 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 01:12:03,096 - malicious_client - WARNING - 
+Malicious client stopped after 29 attacks
+2025-12-06 01:12:05,808 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 01:12:05,814 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 01:12:05,816 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 01:12:05,818 - malicious_client - WARNING - 
+Malicious client stopped after 29 attacks
+2025-12-06 01:12:10,509 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 01:12:10,509 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 01:12:10,511 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 01:12:10,512 - malicious_client - WARNING - 
+Malicious client stopped after 11 attacks
+2025-12-06 16:15:56,292 - malicious_client - WARNING - ============================================================
+2025-12-06 16:15:56,293 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 16:15:56,293 - malicious_client - WARNING - ============================================================
+2025-12-06 16:15:56,294 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-06 16:15:56,294 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 16:15:56,294 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 16:15:56,294 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 16:16:11,311 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 16:16:11,311 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 16:16:11,317 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 16:16:11,320 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 16:16:11,320 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 16:16:11,454 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 16:16:11,456 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 16:16:11,457 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 16:16:11,457 - malicious_client - WARNING - 
+============================================================
+2025-12-06 16:16:11,461 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 16:16:11,464 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 16:16:11,465 - malicious_client - WARNING - ============================================================
+
+2025-12-06 16:16:11,508 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 16:16:12,131 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524638 headers_present=True
+2025-12-06 16:16:12,139 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 16:16:12,140 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 16:16:12,141 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 16:16:14,282 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:16:34,943 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 16:16:40,209 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524001 headers_present=True
+2025-12-06 16:16:43,914 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:17:03,991 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 16:17:04,712 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524637 headers_present=True
+2025-12-06 16:17:06,182 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:17:26,241 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 16:17:26,945 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524313 headers_present=True
+2025-12-06 16:17:27,622 - malicious_client - WARNING - ============================================================
+2025-12-06 16:17:27,622 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 16:17:27,622 - malicious_client - WARNING - ============================================================
+2025-12-06 16:17:27,623 - malicious_client - WARNING - Client ID: Malicious-Attacker-01
+2025-12-06 16:17:27,623 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 16:17:27,623 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 16:17:27,623 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 16:17:29,067 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:17:34,345 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 16:17:34,346 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 16:17:34,355 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 16:17:34,356 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 16:17:34,358 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 16:17:34,471 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 16:17:34,471 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 16:17:34,473 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 16:17:34,474 - malicious_client - WARNING - 
+============================================================
+2025-12-06 16:17:34,475 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 16:17:34,475 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 16:17:34,475 - malicious_client - WARNING - ============================================================
+
+2025-12-06 16:17:34,540 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 16:17:35,337 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524457 headers_present=True
+2025-12-06 16:17:35,348 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 16:17:35,350 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 16:17:35,350 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 16:17:37,263 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:17:49,123 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-12-06 16:17:49,684 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524375 headers_present=True
+2025-12-06 16:17:51,492 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:17:57,324 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 16:17:58,089 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524744 headers_present=True
+2025-12-06 16:17:59,887 - malicious_client - WARNING - ============================================================
+2025-12-06 16:17:59,888 - malicious_client - WARNING - [WARNING] MALICIOUS CLIENT STARTING
+2025-12-06 16:17:59,888 - malicious_client - WARNING - ============================================================
+2025-12-06 16:17:59,888 - malicious_client - WARNING - Client ID: Malicious-Attacker-03
+2025-12-06 16:17:59,889 - malicious_client - WARNING - Attack type: random_noise
+2025-12-06 16:17:59,889 - malicious_client - WARNING - Attack scale: 2.0
+2025-12-06 16:17:59,890 - malicious_client - INFO - Loading model structure from C:\Users\Nandini Devi\FedGuard-Project\results\models\ucsd_baseline.h5...
+2025-12-06 16:17:59,900 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:18:06,731 - malicious_client - INFO - [OK] Model structure loaded - 30 layers
+2025-12-06 16:18:06,732 - malicious_client - INFO - Connecting to Kafka at localhost:9092...
+2025-12-06 16:18:06,737 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 16:18:06,737 - kafka.conn - INFO - Probing node bootstrap-0 broker version
+2025-12-06 16:18:06,739 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 16:18:06,848 - kafka.conn - INFO - Broker version identified as 2.5.0
+2025-12-06 16:18:06,849 - kafka.conn - INFO - Set configuration api_version=(2, 5, 0) to skip auto check_version requests on startup
+2025-12-06 16:18:06,851 - malicious_client - INFO - [OK] Kafka connection established
+2025-12-06 16:18:06,852 - malicious_client - WARNING - 
+============================================================
+2025-12-06 16:18:06,852 - malicious_client - WARNING - ATTACK IN PROGRESS (simulated)
+2025-12-06 16:18:06,853 - malicious_client - WARNING - Sending poisoned updates every 20 seconds
+2025-12-06 16:18:06,855 - malicious_client - WARNING - ============================================================
+
+2025-12-06 16:18:06,903 - malicious_client - WARNING - 
+[Attack #1] Building poisoned update...
+2025-12-06 16:18:07,500 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524613 headers_present=True
+2025-12-06 16:18:07,509 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+2025-12-06 16:18:07,510 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Connection complete.
+2025-12-06 16:18:07,511 - kafka.conn - INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 16:18:09,432 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:18:11,543 - malicious_client - WARNING - 
+[Attack #6] Building poisoned update...
+2025-12-06 16:18:12,072 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524230 headers_present=True
+2025-12-06 16:18:13,451 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:18:19,972 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 16:18:20,827 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524386 headers_present=True
+2025-12-06 16:18:24,355 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:18:29,475 - malicious_client - WARNING - 
+[Attack #2] Building poisoned update...
+2025-12-06 16:18:30,016 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524676 headers_present=True
+2025-12-06 16:18:31,223 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:18:33,487 - malicious_client - WARNING - 
+[Attack #7] Building poisoned update...
+2025-12-06 16:18:34,050 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524394 headers_present=True
+2025-12-06 16:18:35,084 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:18:44,400 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 16:18:44,911 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524650 headers_present=True
+2025-12-06 16:18:45,967 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:18:51,318 - malicious_client - WARNING - 
+[Attack #3] Building poisoned update...
+2025-12-06 16:18:51,862 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524254 headers_present=True
+2025-12-06 16:18:53,323 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:18:55,141 - malicious_client - WARNING - 
+[Attack #8] Building poisoned update...
+2025-12-06 16:18:55,597 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524573 headers_present=True
+2025-12-06 16:18:56,654 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:06,015 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-12-06 16:19:06,485 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524570 headers_present=True
+2025-12-06 16:19:07,564 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:13,408 - malicious_client - WARNING - 
+[Attack #4] Building poisoned update...
+2025-12-06 16:19:13,990 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524583 headers_present=True
+2025-12-06 16:19:15,592 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:16,696 - malicious_client - WARNING - 
+[Attack #9] Building poisoned update...
+2025-12-06 16:19:17,179 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524212 headers_present=True
+2025-12-06 16:19:18,255 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:27,606 - malicious_client - WARNING - 
+[Attack #6] Building poisoned update...
+2025-12-06 16:19:28,075 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524276 headers_present=True
+2025-12-06 16:19:29,001 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:35,642 - malicious_client - WARNING - 
+[Attack #5] Building poisoned update...
+2025-12-06 16:19:36,051 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524523 headers_present=True
+2025-12-06 16:19:37,014 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:38,306 - malicious_client - WARNING - 
+[Attack #10] Building poisoned update...
+2025-12-06 16:19:38,770 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524190 headers_present=True
+2025-12-06 16:19:39,722 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:49,046 - malicious_client - WARNING - 
+[Attack #7] Building poisoned update...
+2025-12-06 16:19:49,497 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524372 headers_present=True
+2025-12-06 16:19:50,456 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:57,066 - malicious_client - WARNING - 
+[Attack #6] Building poisoned update...
+2025-12-06 16:19:57,519 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524215 headers_present=True
+2025-12-06 16:19:58,469 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:19:59,774 - malicious_client - WARNING - 
+[Attack #11] Building poisoned update...
+2025-12-06 16:20:00,342 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524449 headers_present=True
+2025-12-06 16:20:01,637 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:20:10,511 - malicious_client - WARNING - 
+[Attack #8] Building poisoned update...
+2025-12-06 16:20:11,114 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524291 headers_present=True
+2025-12-06 16:20:12,433 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:20:18,514 - malicious_client - WARNING - 
+[Attack #7] Building poisoned update...
+2025-12-06 16:20:18,962 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524205 headers_present=True
+2025-12-06 16:20:19,854 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:20:21,681 - malicious_client - WARNING - 
+[Attack #12] Building poisoned update...
+2025-12-06 16:20:22,201 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524639 headers_present=True
+2025-12-06 16:20:23,311 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:20:32,475 - malicious_client - WARNING - 
+[Attack #9] Building poisoned update...
+2025-12-06 16:20:32,938 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524805 headers_present=True
+2025-12-06 16:20:34,029 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:20:39,928 - malicious_client - WARNING - 
+[Attack #8] Building poisoned update...
+2025-12-06 16:20:40,425 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524768 headers_present=True
+2025-12-06 16:20:41,447 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:20:43,364 - malicious_client - WARNING - 
+[Attack #13] Building poisoned update...
+2025-12-06 16:20:43,822 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524458 headers_present=True
+2025-12-06 16:20:44,753 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:20:54,075 - malicious_client - WARNING - 
+[Attack #10] Building poisoned update...
+2025-12-06 16:20:54,522 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524169 headers_present=True
+2025-12-06 16:20:56,016 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:01,500 - malicious_client - WARNING - 
+[Attack #9] Building poisoned update...
+2025-12-06 16:21:01,985 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524338 headers_present=True
+2025-12-06 16:21:03,033 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:04,800 - malicious_client - WARNING - 
+[Attack #14] Building poisoned update...
+2025-12-06 16:21:05,369 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524104 headers_present=True
+2025-12-06 16:21:06,727 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:16,052 - malicious_client - WARNING - 
+[Attack #11] Building poisoned update...
+2025-12-06 16:21:16,602 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523956 headers_present=True
+2025-12-06 16:21:18,022 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:23,087 - malicious_client - WARNING - 
+[Attack #10] Building poisoned update...
+2025-12-06 16:21:23,558 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524426 headers_present=True
+2025-12-06 16:21:24,509 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:26,766 - malicious_client - WARNING - 
+[Attack #15] Building poisoned update...
+2025-12-06 16:21:27,276 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524800 headers_present=True
+2025-12-06 16:21:28,645 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:38,071 - malicious_client - WARNING - 
+[Attack #12] Building poisoned update...
+2025-12-06 16:21:38,525 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524153 headers_present=True
+2025-12-06 16:21:39,514 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:44,589 - malicious_client - WARNING - 
+[Attack #11] Building poisoned update...
+2025-12-06 16:21:45,048 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524496 headers_present=True
+2025-12-06 16:21:46,074 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:48,692 - malicious_client - WARNING - 
+[Attack #16] Building poisoned update...
+2025-12-06 16:21:49,146 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524484 headers_present=True
+2025-12-06 16:21:50,374 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:21:59,598 - malicious_client - WARNING - 
+[Attack #13] Building poisoned update...
+2025-12-06 16:22:00,170 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524484 headers_present=True
+2025-12-06 16:22:01,421 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:22:06,120 - malicious_client - WARNING - 
+[Attack #12] Building poisoned update...
+2025-12-06 16:22:06,575 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524536 headers_present=True
+2025-12-06 16:22:07,528 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:22:10,445 - malicious_client - WARNING - 
+[Attack #17] Building poisoned update...
+2025-12-06 16:22:10,970 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524460 headers_present=True
+2025-12-06 16:22:12,297 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:22:21,483 - malicious_client - WARNING - 
+[Attack #14] Building poisoned update...
+2025-12-06 16:22:22,033 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524080 headers_present=True
+2025-12-06 16:22:23,119 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:22:27,591 - malicious_client - WARNING - 
+[Attack #13] Building poisoned update...
+2025-12-06 16:22:28,256 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524506 headers_present=True
+2025-12-06 16:22:29,199 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:22:32,352 - malicious_client - WARNING - 
+[Attack #18] Building poisoned update...
+2025-12-06 16:22:32,946 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523518 headers_present=True
+2025-12-06 16:22:34,311 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:22:43,195 - malicious_client - WARNING - 
+[Attack #15] Building poisoned update...
+2025-12-06 16:22:43,714 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524428 headers_present=True
+2025-12-06 16:22:45,049 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:22:49,258 - malicious_client - WARNING - 
+[Attack #14] Building poisoned update...
+2025-12-06 16:22:49,788 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524371 headers_present=True
+2025-12-06 16:22:51,028 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:22:54,386 - malicious_client - WARNING - 
+[Attack #19] Building poisoned update...
+2025-12-06 16:22:54,956 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524824 headers_present=True
+2025-12-06 16:22:56,257 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:23:05,103 - malicious_client - WARNING - 
+[Attack #16] Building poisoned update...
+2025-12-06 16:23:05,676 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524044 headers_present=True
+2025-12-06 16:23:06,958 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:23:11,086 - malicious_client - WARNING - 
+[Attack #15] Building poisoned update...
+2025-12-06 16:23:11,610 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524389 headers_present=True
+2025-12-06 16:23:12,982 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:23:16,323 - malicious_client - WARNING - 
+[Attack #20] Building poisoned update...
+2025-12-06 16:23:16,883 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524642 headers_present=True
+2025-12-06 16:23:18,321 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:23:27,032 - malicious_client - WARNING - 
+[Attack #17] Building poisoned update...
+2025-12-06 16:23:27,564 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524299 headers_present=True
+2025-12-06 16:23:28,707 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:23:33,034 - malicious_client - WARNING - 
+[Attack #16] Building poisoned update...
+2025-12-06 16:23:33,560 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524385 headers_present=True
+2025-12-06 16:23:34,777 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:23:38,375 - malicious_client - WARNING - 
+[Attack #21] Building poisoned update...
+2025-12-06 16:23:39,032 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524299 headers_present=True
+2025-12-06 16:23:40,416 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:23:48,755 - malicious_client - WARNING - 
+[Attack #18] Building poisoned update...
+2025-12-06 16:23:49,246 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523979 headers_present=True
+2025-12-06 16:23:50,632 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:23:54,824 - malicious_client - WARNING - 
+[Attack #17] Building poisoned update...
+2025-12-06 16:23:55,279 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524975 headers_present=True
+2025-12-06 16:23:56,274 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:00,455 - malicious_client - WARNING - 
+[Attack #22] Building poisoned update...
+2025-12-06 16:24:00,978 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523945 headers_present=True
+2025-12-06 16:24:02,165 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:10,683 - malicious_client - WARNING - 
+[Attack #19] Building poisoned update...
+2025-12-06 16:24:11,231 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524447 headers_present=True
+2025-12-06 16:24:12,607 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:16,311 - malicious_client - WARNING - 
+[Attack #18] Building poisoned update...
+2025-12-06 16:24:16,778 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524243 headers_present=True
+2025-12-06 16:24:17,680 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:22,205 - malicious_client - WARNING - 
+[Attack #23] Building poisoned update...
+2025-12-06 16:24:22,678 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524244 headers_present=True
+2025-12-06 16:24:23,684 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:32,669 - malicious_client - WARNING - 
+[Attack #20] Building poisoned update...
+2025-12-06 16:24:33,161 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523876 headers_present=True
+2025-12-06 16:24:34,090 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:37,725 - malicious_client - WARNING - 
+[Attack #19] Building poisoned update...
+2025-12-06 16:24:38,255 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524191 headers_present=True
+2025-12-06 16:24:39,531 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:43,724 - malicious_client - WARNING - 
+[Attack #24] Building poisoned update...
+2025-12-06 16:24:44,203 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523940 headers_present=True
+2025-12-06 16:24:45,157 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:54,131 - malicious_client - WARNING - 
+[Attack #21] Building poisoned update...
+2025-12-06 16:24:54,617 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524530 headers_present=True
+2025-12-06 16:24:55,562 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:24:59,580 - malicious_client - WARNING - 
+[Attack #20] Building poisoned update...
+2025-12-06 16:25:00,093 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524525 headers_present=True
+2025-12-06 16:25:01,476 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:25:05,196 - malicious_client - WARNING - 
+[Attack #25] Building poisoned update...
+2025-12-06 16:25:05,647 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524075 headers_present=True
+2025-12-06 16:25:06,613 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:25:15,610 - malicious_client - WARNING - 
+[Attack #22] Building poisoned update...
+2025-12-06 16:25:16,063 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524154 headers_present=True
+2025-12-06 16:25:17,046 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:25:21,550 - malicious_client - WARNING - 
+[Attack #21] Building poisoned update...
+2025-12-06 16:25:22,036 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524256 headers_present=True
+2025-12-06 16:25:23,153 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:25:26,661 - malicious_client - WARNING - 
+[Attack #26] Building poisoned update...
+2025-12-06 16:25:27,173 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524836 headers_present=True
+2025-12-06 16:25:28,467 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:25:37,087 - malicious_client - WARNING - 
+[Attack #23] Building poisoned update...
+2025-12-06 16:25:37,642 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524258 headers_present=True
+2025-12-06 16:25:38,920 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:25:43,199 - malicious_client - WARNING - 
+[Attack #22] Building poisoned update...
+2025-12-06 16:25:43,649 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524481 headers_present=True
+2025-12-06 16:25:44,600 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:25:48,556 - malicious_client - WARNING - 
+[Attack #27] Building poisoned update...
+2025-12-06 16:25:49,037 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524166 headers_present=True
+2025-12-06 16:25:50,208 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:25:58,989 - malicious_client - WARNING - 
+[Attack #24] Building poisoned update...
+2025-12-06 16:25:59,469 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524033 headers_present=True
+2025-12-06 16:26:00,807 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:26:04,653 - malicious_client - WARNING - 
+[Attack #23] Building poisoned update...
+2025-12-06 16:26:05,113 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524377 headers_present=True
+2025-12-06 16:26:06,025 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:26:10,245 - malicious_client - WARNING - 
+[Attack #28] Building poisoned update...
+2025-12-06 16:26:10,758 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524151 headers_present=True
+2025-12-06 16:26:11,944 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:26:20,845 - malicious_client - WARNING - 
+[Attack #25] Building poisoned update...
+2025-12-06 16:26:21,366 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524212 headers_present=True
+2025-12-06 16:26:22,679 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:26:26,070 - malicious_client - WARNING - 
+[Attack #24] Building poisoned update...
+2025-12-06 16:26:26,527 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524566 headers_present=True
+2025-12-06 16:26:27,493 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:26:32,007 - malicious_client - WARNING - 
+[Attack #29] Building poisoned update...
+2025-12-06 16:26:32,505 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524294 headers_present=True
+2025-12-06 16:26:33,729 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:26:42,737 - malicious_client - WARNING - 
+[Attack #26] Building poisoned update...
+2025-12-06 16:26:43,292 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524367 headers_present=True
+2025-12-06 16:26:44,362 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:26:47,541 - malicious_client - WARNING - 
+[Attack #25] Building poisoned update...
+2025-12-06 16:26:47,995 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524715 headers_present=True
+2025-12-06 16:26:48,941 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:26:53,795 - malicious_client - WARNING - 
+[Attack #30] Building poisoned update...
+2025-12-06 16:26:54,317 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524626 headers_present=True
+2025-12-06 16:26:55,457 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:04,435 - malicious_client - WARNING - 
+[Attack #27] Building poisoned update...
+2025-12-06 16:27:04,925 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524439 headers_present=True
+2025-12-06 16:27:05,941 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:08,984 - malicious_client - WARNING - 
+[Attack #26] Building poisoned update...
+2025-12-06 16:27:09,431 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524438 headers_present=True
+2025-12-06 16:27:10,640 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:15,503 - malicious_client - WARNING - 
+[Attack #31] Building poisoned update...
+2025-12-06 16:27:15,960 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524375 headers_present=True
+2025-12-06 16:27:16,962 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:25,981 - malicious_client - WARNING - 
+[Attack #28] Building poisoned update...
+2025-12-06 16:27:26,436 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524356 headers_present=True
+2025-12-06 16:27:27,408 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:30,692 - malicious_client - WARNING - 
+[Attack #27] Building poisoned update...
+2025-12-06 16:27:31,175 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524351 headers_present=True
+2025-12-06 16:27:32,617 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:37,013 - malicious_client - WARNING - 
+[Attack #32] Building poisoned update...
+2025-12-06 16:27:37,463 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524509 headers_present=True
+2025-12-06 16:27:38,390 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:47,453 - malicious_client - WARNING - 
+[Attack #29] Building poisoned update...
+2025-12-06 16:27:47,903 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524348 headers_present=True
+2025-12-06 16:27:48,886 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:52,661 - malicious_client - WARNING - 
+[Attack #28] Building poisoned update...
+2025-12-06 16:27:53,124 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524196 headers_present=True
+2025-12-06 16:27:54,422 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:27:58,438 - malicious_client - WARNING - 
+[Attack #33] Building poisoned update...
+2025-12-06 16:27:59,013 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524678 headers_present=True
+2025-12-06 16:28:00,393 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:28:08,935 - malicious_client - WARNING - 
+[Attack #30] Building poisoned update...
+2025-12-06 16:28:09,417 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524014 headers_present=True
+2025-12-06 16:28:10,453 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:28:14,464 - malicious_client - WARNING - 
+[Attack #29] Building poisoned update...
+2025-12-06 16:28:15,019 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524198 headers_present=True
+2025-12-06 16:28:16,533 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:28:20,440 - malicious_client - WARNING - 
+[Attack #34] Building poisoned update...
+2025-12-06 16:28:21,170 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524406 headers_present=True
+2025-12-06 16:28:22,602 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:28:30,512 - malicious_client - WARNING - 
+[Attack #31] Building poisoned update...
+2025-12-06 16:28:31,047 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524163 headers_present=True
+2025-12-06 16:28:33,527 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:28:36,600 - malicious_client - WARNING - 
+[Attack #30] Building poisoned update...
+2025-12-06 16:28:37,142 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524147 headers_present=True
+2025-12-06 16:28:38,303 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:28:42,650 - malicious_client - WARNING - 
+[Attack #35] Building poisoned update...
+2025-12-06 16:28:43,127 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524405 headers_present=True
+2025-12-06 16:28:44,242 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:28:53,567 - malicious_client - WARNING - 
+[Attack #32] Building poisoned update...
+2025-12-06 16:28:54,059 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523828 headers_present=True
+2025-12-06 16:28:55,146 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:28:58,355 - malicious_client - WARNING - 
+[Attack #31] Building poisoned update...
+2025-12-06 16:28:58,834 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524703 headers_present=True
+2025-12-06 16:29:00,681 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:29:04,296 - malicious_client - WARNING - 
+[Attack #36] Building poisoned update...
+2025-12-06 16:29:04,845 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524677 headers_present=True
+2025-12-06 16:29:06,203 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:29:15,199 - malicious_client - WARNING - 
+[Attack #33] Building poisoned update...
+2025-12-06 16:29:15,790 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524536 headers_present=True
+2025-12-06 16:29:17,318 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:29:20,748 - malicious_client - WARNING - 
+[Attack #32] Building poisoned update...
+2025-12-06 16:29:21,351 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524802 headers_present=True
+2025-12-06 16:29:22,766 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:29:26,256 - malicious_client - WARNING - 
+[Attack #37] Building poisoned update...
+2025-12-06 16:29:27,004 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524252 headers_present=True
+2025-12-06 16:29:28,859 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:29:37,380 - malicious_client - WARNING - 
+[Attack #34] Building poisoned update...
+2025-12-06 16:29:38,209 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524242 headers_present=True
+2025-12-06 16:29:39,957 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:29:42,819 - malicious_client - WARNING - 
+[Attack #33] Building poisoned update...
+2025-12-06 16:29:43,373 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524197 headers_present=True
+2025-12-06 16:29:44,653 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:29:48,942 - malicious_client - WARNING - 
+[Attack #38] Building poisoned update...
+2025-12-06 16:29:49,674 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524673 headers_present=True
+2025-12-06 16:29:50,864 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:00,015 - malicious_client - WARNING - 
+[Attack #35] Building poisoned update...
+2025-12-06 16:30:00,573 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524354 headers_present=True
+2025-12-06 16:30:01,895 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:04,701 - malicious_client - WARNING - 
+[Attack #34] Building poisoned update...
+2025-12-06 16:30:05,205 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524398 headers_present=True
+2025-12-06 16:30:06,528 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:10,915 - malicious_client - WARNING - 
+[Attack #39] Building poisoned update...
+2025-12-06 16:30:11,438 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524565 headers_present=True
+2025-12-06 16:30:12,986 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:21,970 - malicious_client - WARNING - 
+[Attack #36] Building poisoned update...
+2025-12-06 16:30:22,503 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524471 headers_present=True
+2025-12-06 16:30:23,693 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:26,578 - malicious_client - WARNING - 
+[Attack #35] Building poisoned update...
+2025-12-06 16:30:27,052 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524603 headers_present=True
+2025-12-06 16:30:28,228 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:33,037 - malicious_client - WARNING - 
+[Attack #40] Building poisoned update...
+2025-12-06 16:30:33,523 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524514 headers_present=True
+2025-12-06 16:30:34,779 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:43,752 - malicious_client - WARNING - 
+[Attack #37] Building poisoned update...
+2025-12-06 16:30:44,209 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524372 headers_present=True
+2025-12-06 16:30:45,290 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:48,295 - malicious_client - WARNING - 
+[Attack #36] Building poisoned update...
+2025-12-06 16:30:48,861 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524474 headers_present=True
+2025-12-06 16:30:50,477 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:30:54,827 - malicious_client - WARNING - 
+[Attack #41] Building poisoned update...
+2025-12-06 16:30:55,343 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524609 headers_present=True
+2025-12-06 16:30:56,517 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:31:05,351 - malicious_client - WARNING - 
+[Attack #38] Building poisoned update...
+2025-12-06 16:31:05,998 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524245 headers_present=True
+2025-12-06 16:31:07,268 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:31:10,538 - malicious_client - WARNING - 
+[Attack #37] Building poisoned update...
+2025-12-06 16:31:11,196 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524655 headers_present=True
+2025-12-06 16:31:12,913 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:31:16,562 - malicious_client - WARNING - 
+[Attack #42] Building poisoned update...
+2025-12-06 16:31:17,105 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524135 headers_present=True
+2025-12-06 16:31:18,426 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:31:27,321 - malicious_client - WARNING - 
+[Attack #39] Building poisoned update...
+2025-12-06 16:31:27,821 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524454 headers_present=True
+2025-12-06 16:31:29,051 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:31:32,967 - malicious_client - WARNING - 
+[Attack #38] Building poisoned update...
+2025-12-06 16:31:33,492 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524184 headers_present=True
+2025-12-06 16:31:34,648 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:31:38,469 - malicious_client - WARNING - 
+[Attack #43] Building poisoned update...
+2025-12-06 16:31:38,935 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524405 headers_present=True
+2025-12-06 16:31:40,369 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:31:49,098 - malicious_client - WARNING - 
+[Attack #40] Building poisoned update...
+2025-12-06 16:31:49,567 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524528 headers_present=True
+2025-12-06 16:31:50,856 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:31:54,700 - malicious_client - WARNING - 
+[Attack #39] Building poisoned update...
+2025-12-06 16:31:55,175 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524549 headers_present=True
+2025-12-06 16:31:56,312 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:32:00,421 - malicious_client - WARNING - 
+[Attack #44] Building poisoned update...
+2025-12-06 16:32:00,894 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524942 headers_present=True
+2025-12-06 16:32:01,883 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:32:10,912 - malicious_client - WARNING - 
+[Attack #41] Building poisoned update...
+2025-12-06 16:32:11,397 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524272 headers_present=True
+2025-12-06 16:32:12,566 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:32:16,358 - malicious_client - WARNING - 
+[Attack #40] Building poisoned update...
+2025-12-06 16:32:16,841 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524354 headers_present=True
+2025-12-06 16:32:17,878 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:32:21,939 - malicious_client - WARNING - 
+[Attack #45] Building poisoned update...
+2025-12-06 16:32:22,434 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524777 headers_present=True
+2025-12-06 16:32:23,647 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:32:32,699 - malicious_client - WARNING - 
+[Attack #42] Building poisoned update...
+2025-12-06 16:32:34,142 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524774 headers_present=True
+2025-12-06 16:32:37,456 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:32:38,110 - malicious_client - WARNING - 
+[Attack #41] Building poisoned update...
+2025-12-06 16:32:39,560 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524161 headers_present=True
+2025-12-06 16:32:44,765 - malicious_client - WARNING - 
+[Attack #46] Building poisoned update...
+2025-12-06 16:32:49,668 - malicious_client - ERROR - Failed to send malicious update: KafkaTimeoutError: Timeout after waiting for 10 secs.
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 243, in main
+    fut.get(timeout=10)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\future.py", line 61, in get
+    raise Errors.KafkaTimeoutError(
+kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout after waiting for 10 secs.
+2025-12-06 16:32:50,680 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524249 headers_present=True
+2025-12-06 16:32:56,695 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:32:57,779 - malicious_client - WARNING - 
+[Attack #43] Building poisoned update...
+2025-12-06 16:33:01,376 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523928 headers_present=True
+2025-12-06 16:33:10,620 - malicious_client - WARNING - 
+[Attack #42] Building poisoned update...
+2025-12-06 16:33:11,515 - malicious_client - ERROR - Failed to send malicious update: KafkaTimeoutError: Timeout after waiting for 10 secs.
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 243, in main
+    fut.get(timeout=10)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\future.py", line 61, in get
+    raise Errors.KafkaTimeoutError(
+kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout after waiting for 10 secs.
+2025-12-06 16:33:13,579 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524240 headers_present=True
+2025-12-06 16:33:16,934 - malicious_client - WARNING - 
+[Attack #47] Building poisoned update...
+2025-12-06 16:33:17,484 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:33:18,546 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524575 headers_present=True
+2025-12-06 16:33:26,403 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:33:31,968 - malicious_client - WARNING - 
+[Attack #44] Building poisoned update...
+2025-12-06 16:33:33,854 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524364 headers_present=True
+2025-12-06 16:33:37,334 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:33:37,628 - malicious_client - WARNING - 
+[Attack #43] Building poisoned update...
+2025-12-06 16:33:44,321 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524215 headers_present=True
+2025-12-06 16:33:46,765 - malicious_client - WARNING - 
+[Attack #48] Building poisoned update...
+2025-12-06 16:33:49,489 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524080 headers_present=True
+2025-12-06 16:33:50,488 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:33:53,261 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:33:58,230 - malicious_client - WARNING - 
+[Attack #45] Building poisoned update...
+2025-12-06 16:34:04,986 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524128 headers_present=True
+2025-12-06 16:34:08,046 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:34:10,598 - malicious_client - WARNING - 
+[Attack #44] Building poisoned update...
+2025-12-06 16:34:14,485 - malicious_client - WARNING - 
+[Attack #49] Building poisoned update...
+2025-12-06 16:34:15,467 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524604 headers_present=True
+2025-12-06 16:34:22,812 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524555 headers_present=True
+2025-12-06 16:34:25,699 - malicious_client - ERROR - Failed to send malicious update: KafkaTimeoutError: Timeout after waiting for 10 secs.
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 243, in main
+    fut.get(timeout=10)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\future.py", line 61, in get
+    raise Errors.KafkaTimeoutError(
+kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout after waiting for 10 secs.
+2025-12-06 16:34:28,226 - malicious_client - WARNING - 
+[Attack #46] Building poisoned update...
+2025-12-06 16:34:30,578 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:34:30,889 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524706 headers_present=True
+2025-12-06 16:34:34,117 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:34:45,843 - malicious_client - WARNING - 
+[Attack #45] Building poisoned update...
+2025-12-06 16:34:47,697 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524502 headers_present=True
+2025-12-06 16:34:51,562 - malicious_client - WARNING - 
+[Attack #50] Building poisoned update...
+2025-12-06 16:34:55,288 - malicious_client - WARNING - 
+[Attack #47] Building poisoned update...
+2025-12-06 16:34:57,746 - malicious_client - ERROR - Failed to send malicious update: KafkaTimeoutError: Timeout after waiting for 10 secs.
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 243, in main
+    fut.get(timeout=10)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\future.py", line 61, in get
+    raise Errors.KafkaTimeoutError(
+kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout after waiting for 10 secs.
+2025-12-06 16:34:59,686 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524706 headers_present=True
+2025-12-06 16:35:00,981 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524153 headers_present=True
+2025-12-06 16:35:07,106 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:35:07,591 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:35:18,062 - malicious_client - WARNING - 
+[Attack #46] Building poisoned update...
+2025-12-06 16:35:19,309 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6523946 headers_present=True
+2025-12-06 16:35:22,392 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:35:27,958 - malicious_client - WARNING - 
+[Attack #51] Building poisoned update...
+2025-12-06 16:35:28,682 - malicious_client - WARNING - 
+[Attack #48] Building poisoned update...
+2025-12-06 16:35:36,628 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524685 headers_present=True
+2025-12-06 16:35:36,707 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524362 headers_present=True
+2025-12-06 16:35:42,713 - malicious_client - WARNING - 
+[Attack #47] Building poisoned update...
+2025-12-06 16:35:42,791 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:35:43,199 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:35:44,189 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524630 headers_present=True
+2025-12-06 16:35:47,399 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:36:03,644 - malicious_client - WARNING - 
+[Attack #52] Building poisoned update...
+2025-12-06 16:36:03,984 - malicious_client - WARNING - 
+[Attack #49] Building poisoned update...
+2025-12-06 16:36:07,581 - malicious_client - WARNING - 
+[Attack #48] Building poisoned update...
+2025-12-06 16:36:08,020 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524267 headers_present=True
+2025-12-06 16:36:08,074 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524366 headers_present=True
+2025-12-06 16:36:08,944 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524530 headers_present=True
+2025-12-06 16:36:12,187 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:36:12,250 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:36:13,043 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:36:33,174 - malicious_client - WARNING - 
+[Attack #53] Building poisoned update...
+2025-12-06 16:36:33,242 - malicious_client - WARNING - 
+[Attack #50] Building poisoned update...
+2025-12-06 16:36:34,102 - malicious_client - WARNING - 
+[Attack #49] Building poisoned update...
+2025-12-06 16:36:38,540 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524265 headers_present=True
+2025-12-06 16:36:38,560 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524618 headers_present=True
+2025-12-06 16:36:38,609 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524800 headers_present=True
+2025-12-06 16:36:46,255 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:36:46,270 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:36:46,297 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:37:06,504 - malicious_client - WARNING - 
+[Attack #54] Building poisoned update...
+2025-12-06 16:37:06,531 - malicious_client - WARNING - 
+[Attack #51] Building poisoned update...
+2025-12-06 16:37:06,554 - malicious_client - WARNING - 
+[Attack #50] Building poisoned update...
+2025-12-06 16:37:10,108 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524338 headers_present=True
+2025-12-06 16:37:10,134 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524272 headers_present=True
+2025-12-06 16:37:10,162 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524385 headers_present=True
+2025-12-06 16:37:16,405 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:37:16,412 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:37:16,428 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:37:37,632 - malicious_client - WARNING - 
+[Attack #52] Building poisoned update...
+2025-12-06 16:37:37,802 - malicious_client - WARNING - 
+[Attack #51] Building poisoned update...
+2025-12-06 16:37:37,806 - malicious_client - WARNING - 
+[Attack #55] Building poisoned update...
+2025-12-06 16:37:43,939 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524217 headers_present=True
+2025-12-06 16:37:43,982 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524557 headers_present=True
+2025-12-06 16:37:44,142 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524313 headers_present=True
+2025-12-06 16:37:50,774 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:37:50,809 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:37:50,814 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:38:11,155 - malicious_client - WARNING - 
+[Attack #56] Building poisoned update...
+2025-12-06 16:38:11,163 - malicious_client - WARNING - 
+[Attack #53] Building poisoned update...
+2025-12-06 16:38:11,170 - malicious_client - WARNING - 
+[Attack #52] Building poisoned update...
+2025-12-06 16:38:14,167 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524348 headers_present=True
+2025-12-06 16:38:14,209 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524318 headers_present=True
+2025-12-06 16:38:14,217 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524404 headers_present=True
+2025-12-06 16:38:21,851 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:38:21,914 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:38:22,023 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:38:42,945 - malicious_client - WARNING - 
+[Attack #57] Building poisoned update...
+2025-12-06 16:38:42,949 - malicious_client - WARNING - 
+[Attack #53] Building poisoned update...
+2025-12-06 16:38:43,080 - malicious_client - WARNING - 
+[Attack #54] Building poisoned update...
+2025-12-06 16:38:52,505 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524215 headers_present=True
+2025-12-06 16:38:52,570 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524496 headers_present=True
+2025-12-06 16:38:52,589 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6523989 headers_present=True
+2025-12-06 16:38:56,995 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:38:57,009 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:38:57,028 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:39:17,237 - malicious_client - WARNING - 
+[Attack #55] Building poisoned update...
+2025-12-06 16:39:17,262 - malicious_client - WARNING - 
+[Attack #58] Building poisoned update...
+2025-12-06 16:39:17,279 - malicious_client - WARNING - 
+[Attack #54] Building poisoned update...
+2025-12-06 16:39:19,425 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524515 headers_present=True
+2025-12-06 16:39:19,429 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524128 headers_present=True
+2025-12-06 16:39:19,442 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524253 headers_present=True
+2025-12-06 16:39:25,065 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:39:25,124 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:39:25,159 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:39:45,891 - malicious_client - WARNING - 
+[Attack #56] Building poisoned update...
+2025-12-06 16:39:45,924 - malicious_client - WARNING - 
+[Attack #55] Building poisoned update...
+2025-12-06 16:39:46,047 - malicious_client - WARNING - 
+[Attack #59] Building poisoned update...
+2025-12-06 16:39:53,816 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524350 headers_present=True
+2025-12-06 16:39:53,828 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524274 headers_present=True
+2025-12-06 16:39:53,842 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524424 headers_present=True
+2025-12-06 16:39:59,075 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:39:59,410 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:39:59,748 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:40:19,228 - malicious_client - WARNING - 
+[Attack #56] Building poisoned update...
+2025-12-06 16:40:19,615 - malicious_client - WARNING - 
+[Attack #57] Building poisoned update...
+2025-12-06 16:40:19,872 - malicious_client - WARNING - 
+[Attack #60] Building poisoned update...
+2025-12-06 16:40:20,586 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524549 headers_present=True
+2025-12-06 16:40:20,966 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524714 headers_present=True
+2025-12-06 16:40:21,218 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524242 headers_present=True
+2025-12-06 16:40:29,501 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:40:30,096 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:40:30,436 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:40:50,041 - malicious_client - WARNING - 
+[Attack #57] Building poisoned update...
+2025-12-06 16:40:50,686 - malicious_client - WARNING - 
+[Attack #58] Building poisoned update...
+2025-12-06 16:40:51,013 - malicious_client - WARNING - 
+[Attack #61] Building poisoned update...
+2025-12-06 16:40:53,929 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524573 headers_present=True
+2025-12-06 16:40:54,062 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524321 headers_present=True
+2025-12-06 16:40:54,109 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524229 headers_present=True
+2025-12-06 16:40:56,863 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:40:57,114 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:40:57,182 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:41:17,017 - malicious_client - WARNING - 
+[Attack #58] Building poisoned update...
+2025-12-06 16:41:17,224 - malicious_client - WARNING - 
+[Attack #59] Building poisoned update...
+2025-12-06 16:41:17,298 - malicious_client - WARNING - 
+[Attack #62] Building poisoned update...
+2025-12-06 16:41:19,759 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524679 headers_present=True
+2025-12-06 16:41:20,112 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524273 headers_present=True
+2025-12-06 16:41:20,300 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524575 headers_present=True
+2025-12-06 16:41:24,553 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:41:24,696 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:41:24,806 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:41:45,335 - malicious_client - WARNING - 
+[Attack #59] Building poisoned update...
+2025-12-06 16:41:45,444 - malicious_client - WARNING - 
+[Attack #60] Building poisoned update...
+2025-12-06 16:41:45,505 - malicious_client - WARNING - 
+[Attack #63] Building poisoned update...
+2025-12-06 16:41:50,044 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524591 headers_present=True
+2025-12-06 16:41:50,802 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524526 headers_present=True
+2025-12-06 16:41:51,137 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524267 headers_present=True
+2025-12-06 16:41:54,994 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:41:55,075 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:41:55,075 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:42:15,752 - malicious_client - WARNING - 
+[Attack #60] Building poisoned update...
+2025-12-06 16:42:16,340 - malicious_client - WARNING - 
+[Attack #61] Building poisoned update...
+2025-12-06 16:42:16,348 - malicious_client - WARNING - 
+[Attack #64] Building poisoned update...
+2025-12-06 16:42:22,969 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524575 headers_present=True
+2025-12-06 16:42:23,083 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524467 headers_present=True
+2025-12-06 16:42:23,149 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524786 headers_present=True
+2025-12-06 16:42:26,412 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:42:26,522 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:42:26,538 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:42:46,526 - malicious_client - WARNING - 
+[Attack #61] Building poisoned update...
+2025-12-06 16:42:46,630 - malicious_client - WARNING - 
+[Attack #62] Building poisoned update...
+2025-12-06 16:42:46,650 - malicious_client - WARNING - 
+[Attack #65] Building poisoned update...
+2025-12-06 16:42:48,335 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524519 headers_present=True
+2025-12-06 16:42:48,511 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524542 headers_present=True
+2025-12-06 16:42:48,595 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524382 headers_present=True
+2025-12-06 16:42:51,986 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:42:52,121 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:42:52,126 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:43:12,292 - malicious_client - WARNING - 
+[Attack #62] Building poisoned update...
+2025-12-06 16:43:12,528 - malicious_client - WARNING - 
+[Attack #66] Building poisoned update...
+2025-12-06 16:43:12,547 - malicious_client - WARNING - 
+[Attack #63] Building poisoned update...
+2025-12-06 16:43:14,130 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524384 headers_present=True
+2025-12-06 16:43:14,336 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524804 headers_present=True
+2025-12-06 16:43:14,366 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524178 headers_present=True
+2025-12-06 16:43:18,738 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:43:18,776 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:43:18,826 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:43:38,847 - malicious_client - WARNING - 
+[Attack #67] Building poisoned update...
+2025-12-06 16:43:38,898 - malicious_client - WARNING - 
+[Attack #63] Building poisoned update...
+2025-12-06 16:43:38,944 - malicious_client - WARNING - 
+[Attack #64] Building poisoned update...
+2025-12-06 16:43:40,351 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524294 headers_present=True
+2025-12-06 16:43:40,440 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524412 headers_present=True
+2025-12-06 16:43:40,488 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524026 headers_present=True
+2025-12-06 16:43:50,575 - malicious_client - ERROR - Failed to send malicious update: KafkaTimeoutError: Timeout after waiting for 10 secs.
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 243, in main
+    fut.get(timeout=10)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\future.py", line 61, in get
+    raise Errors.KafkaTimeoutError(
+kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout after waiting for 10 secs.
+2025-12-06 16:43:50,438 - malicious_client - ERROR - Failed to send malicious update: KafkaTimeoutError: Timeout after waiting for 10 secs.
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 243, in main
+    fut.get(timeout=10)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\future.py", line 61, in get
+    raise Errors.KafkaTimeoutError(
+kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout after waiting for 10 secs.
+2025-12-06 16:43:50,641 - malicious_client - ERROR - Failed to send malicious update: KafkaTimeoutError: Timeout after waiting for 10 secs.
+Traceback (most recent call last):
+  File "C:\Users\Nandini Devi\FedGuard-Project\federated\malicious_client.py", line 243, in main
+    fut.get(timeout=10)
+  File "C:\Users\Nandini Devi\FedGuard-Project\venv\lib\site-packages\kafka\producer\future.py", line 61, in get
+    raise Errors.KafkaTimeoutError(
+kafka.errors.KafkaTimeoutError: KafkaTimeoutError: Timeout after waiting for 10 secs.
+2025-12-06 16:44:11,019 - malicious_client - WARNING - 
+[Attack #64] Building poisoned update...
+2025-12-06 16:44:11,019 - malicious_client - WARNING - 
+[Attack #68] Building poisoned update...
+2025-12-06 16:44:11,051 - malicious_client - WARNING - 
+[Attack #65] Building poisoned update...
+2025-12-06 16:44:15,429 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524959 headers_present=True
+2025-12-06 16:44:15,436 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524292 headers_present=True
+2025-12-06 16:44:15,483 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524098 headers_present=True
+2025-12-06 16:44:18,323 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:44:18,412 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:44:18,431 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:44:35,328 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 16:44:35,331 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 16:44:35,350 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 16:44:35,354 - malicious_client - WARNING - 
+Malicious client stopped after 68 attacks
+2025-12-06 16:44:38,405 - malicious_client - WARNING - 
+[Attack #65] Building poisoned update...
+2025-12-06 16:44:38,563 - malicious_client - WARNING - 
+[Attack #66] Building poisoned update...
+2025-12-06 16:44:39,435 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-03 payload_bytes=6524346 headers_present=True
+2025-12-06 16:44:39,570 - malicious_client - WARNING - [SEND DEBUG] bootstrap=localhost:9092 topic=model-updates key=Malicious-Attacker-01 payload_bytes=6524206 headers_present=True
+2025-12-06 16:44:41,543 - malicious_client - WARNING - [OK] Malicious update sent to topic 'model-updates'
+2025-12-06 16:44:41,980 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 16:44:41,982 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 16:44:41,990 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 16:44:41,993 - malicious_client - WARNING - 
+Malicious client stopped after 66 attacks
+2025-12-06 16:44:43,412 - malicious_client - INFO - 
+
+Keyboard interrupt - stopping attacks
+2025-12-06 16:44:43,413 - kafka.producer.kafka - INFO - Closing the Kafka producer with 4294967.0 secs timeout.
+2025-12-06 16:44:43,421 - kafka.conn - INFO - <BrokerConnection node_id=1 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+2025-12-06 16:44:43,423 - malicious_client - WARNING - 
+Malicious client stopped after 65 attacks

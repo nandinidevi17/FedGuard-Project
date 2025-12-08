@@ -353,6 +353,392 @@ FedGuard Secure Server (Fixed - Architecture Compatible).
 
 CRITICAL: Uses same baseline model as insecure server for fair comparison.
 """
+# import os
+# import sys
+# import json
+# import numpy as np
+# import logging
+# import time
+# import io
+# import zlib
+# from datetime import datetime
+# from kafka import KafkaConsumer
+
+# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# from config import *
+# from utils.security import (
+#     detect_outliers_cosine,
+#     detect_outliers_mad,
+#     aggregate_median,
+#     aggregate_trimmed_mean,
+#     multi_krum,
+#     validate_weight_list,
+#     robust_mad
+# )
+# from utils.metrics import calculate_model_divergence
+
+# os.makedirs(LOGS_DIR, exist_ok=True)
+# logging.basicConfig(
+#     level=getattr(logging, LOG_LEVEL),
+#     format=LOG_FORMAT,
+#     handlers=[
+#         logging.FileHandler(os.path.join(LOGS_DIR, 'fedguard_server.log'), encoding='utf-8'),
+#         logging.StreamHandler()
+#     ]
+# )
+# logger = logging.getLogger("fedguard_server")
+
+# def deserialize_weights_from_bytes(b):
+#     """Deserialize zlib-compressed numpy weights."""
+#     if b is None or len(b) == 0:
+#         raise ValueError("Empty payload")
+
+#     # Try zlib + numpy
+#     try:
+#         decompressed = zlib.decompress(b)
+#         buf = io.BytesIO(decompressed)
+#         buf.seek(0)
+#         npz = np.load(buf, allow_pickle=True)
+#         arrays = [npz[f] for f in npz.files]
+#         return arrays
+#     except zlib.error:
+#         try:
+#             buf = io.BytesIO(b)
+#             buf.seek(0)
+#             npz = np.load(buf, allow_pickle=True)
+#             arrays = [npz[f] for f in npz.files]
+#             return arrays
+#         except Exception:
+#             pass
+#     except Exception:
+#         pass
+
+#     # JSON fallback
+#     try:
+#         payload = b.decode('utf-8')
+#         parsed = json.loads(payload)
+#         if isinstance(parsed, dict) and 'weights' in parsed:
+#             wlists = parsed['weights']
+#         elif isinstance(parsed, list):
+#             wlists = parsed
+#         else:
+#             raise ValueError("Unknown JSON payload structure")
+#         arrays = [np.array(w, dtype=np.float32) for w in wlists]
+#         return arrays
+#     except Exception as e:
+#         raise ValueError(f"Failed to deserialize: {e}")
+
+# def extract_metadata_from_headers(headers):
+#     """Extract metadata from Kafka message headers."""
+#     if not headers:
+#         return {}
+#     for k, v in headers:
+#         try:
+#             if k == 'metadata' and v is not None:
+#                 return json.loads(v.decode('utf-8'))
+#         except Exception:
+#             continue
+#     return {}
+
+# def shapes_match(weights_a, weights_b):
+#     """Check if two weight lists have matching shapes."""
+#     if weights_a is None or weights_b is None:
+#         return False
+#     if len(weights_a) != len(weights_b):
+#         return False
+#     for wa, wb in zip(weights_a, weights_b):
+#         if wa.shape != wb.shape:
+#             return False
+#     return True
+
+# def main():
+#     round_number = 0
+#     total_updates_received = 0
+#     total_attacks_blocked = 0
+#     consumer = None
+
+#     try:
+#         logger.info("="*60)
+#         logger.info("FEDGUARD SECURE SERVER")
+#         logger.info("="*60)
+#         logger.info(f"Defense method: {DEFENSE_METHOD}")
+#         logger.info(f"Aggregation method: {AGGREGATION_METHOD}")
+#         logger.info(f"Expected clients: {NUM_CLIENTS}")
+#         logger.info(f"Min honest clients: {MIN_HONEST_CLIENTS}")
+
+#         # Load baseline model (SAME as insecure server)
+#         model_path = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
+        
+#         if not os.path.exists(model_path):
+#             logger.error(f"Baseline model not found at {model_path}")
+#             logger.error("Please run 'python training/train_baseline_model.py' first!")
+#             return
+
+#         logger.info(f"Loading baseline model from {model_path}...")
+#         import tensorflow as tf
+        
+#         try:
+#             global_model = tf.keras.models.load_model(model_path)
+#             logger.info("[OK] Baseline model loaded successfully")
+#         except Exception as e:
+#             logger.warning(f"Direct load failed: {e}")
+#             logger.info("Attempting load with compile=False...")
+#             try:
+#                 global_model = tf.keras.models.load_model(model_path, compile=False)
+#                 global_model.compile(optimizer='adam', loss='mse')
+#                 logger.info("[OK] Model loaded (compile=False)")
+#             except Exception as e2:
+#                 logger.error(f"All model loading attempts failed: {e2}")
+#                 return
+
+#         initial_weights = global_model.get_weights()
+#         expected_shapes = [w.shape for w in initial_weights]
+        
+#         logger.info(f"Model architecture: {len(global_model.layers)} layers")
+#         logger.info(f"Expected weight tensors: {len(initial_weights)}")
+
+#         os.makedirs(LOGS_DIR, exist_ok=True)
+#         os.makedirs(METRICS_DIR, exist_ok=True)
+#         os.makedirs(MODELS_DIR, exist_ok=True)
+
+#         # Kafka consumer
+#         logger.info(f"Connecting to Kafka at {KAFKA_SERVER} (topic: {KAFKA_TOPIC})...")
+#         consumer_config = {
+#             'bootstrap_servers': KAFKA_SERVER,
+#             'value_deserializer': lambda m: m,
+#             'auto_offset_reset': 'earliest',
+#             'fetch_max_bytes': KAFKA_FETCH_MAX_BYTES,
+#             'max_partition_fetch_bytes': KAFKA_FETCH_MAX_BYTES,
+#             'enable_auto_commit': True,
+#             'group_id': 'fedguard-server'
+#         }
+#         if KAFKA_TIMEOUT is not None:
+#             consumer_config['consumer_timeout_ms'] = KAFKA_TIMEOUT
+        
+#         consumer = KafkaConsumer(KAFKA_TOPIC, **consumer_config)
+#         logger.info("[OK] Kafka consumer initialized")
+#         logger.info("\nSERVER RUNNING - Waiting for client updates\n")
+
+#         client_updates = {}
+#         updates_processed = False
+        
+#         for message in consumer:
+#             updates_processed = True
+#             try:
+#                 total_updates_received += 1
+#                 headers = message.headers if hasattr(message, 'headers') else None
+#                 metadata = extract_metadata_from_headers(headers)
+#                 key = message.key.decode('utf-8') if message.key else f"unknown_{total_updates_received}"
+                
+#                 logger.info(f"\n[Round {round_number + 1}] Received message from: {key}")
+
+#                 if metadata:
+#                     logger.info(f"  Metadata: update #{metadata.get('update_number', 'N/A')}, loss: {metadata.get('training_loss', 'N/A')}")
+
+#                 raw_bytes = message.value
+#                 if raw_bytes is None or len(raw_bytes) == 0:
+#                     logger.warning("  Empty payload (metadata only)")
+#                     client_updates[key] = {'weights': None, 'metadata': metadata}
+#                 else:
+#                     try:
+#                         received_weights = deserialize_weights_from_bytes(raw_bytes)
+#                         valid, reason, norms = validate_weight_list(received_weights)
+                        
+#                         if not valid:
+#                             logger.warning(f"  Update validation failed: {reason}")
+#                             client_updates[key] = {'weights': None, 'metadata': metadata, 'validation_reason': reason}
+#                         else:
+#                             # Shape check
+#                             if initial_weights is not None:
+#                                 if not shapes_match(received_weights, initial_weights):
+#                                     logger.warning(f"  Shape mismatch - rejecting update")
+#                                     client_updates[key] = {'weights': None, 'metadata': metadata, 'validation_reason': 'shape_mismatch'}
+#                                 else:
+#                                     client_updates[key] = {'weights': received_weights, 'metadata': metadata, 'norms': norms}
+#                                     logger.info(f"  ✓ Received {len(received_weights)} weight layers from {key}")
+#                             else:
+#                                 client_updates[key] = {'weights': received_weights, 'metadata': metadata, 'norms': norms}
+#                                 logger.info(f"  ✓ Received {len(received_weights)} weight layers from {key}")
+
+#                     except Exception as e:
+#                         logger.error(f"  Deserialization failed: {e}")
+#                         client_updates[key] = {'weights': None, 'metadata': metadata}
+
+#                 num_with_weights = len([1 for v in client_updates.values() if v and v.get('weights') is not None])
+#                 logger.info(f"  Updates collected: {num_with_weights}/{NUM_CLIENTS}")
+
+#                 # Aggregate when enough updates
+#                 if len(client_updates) >= NUM_CLIENTS:
+#                     round_number += 1
+#                     logger.info("\n" + "="*60)
+#                     logger.info(f"ROUND {round_number} - SECURE AGGREGATION")
+#                     logger.info("="*60)
+
+#                     client_ids = list(client_updates.keys())
+#                     client_weights_list = [client_updates[cid]['weights'] for cid in client_ids]
+
+#                     weightful_indices = [i for i, w in enumerate(client_weights_list) if w is not None]
+#                     if not weightful_indices:
+#                         logger.error("No valid weights - skipping round")
+#                         client_updates = {}
+#                         continue
+
+#                     selected_weights = [client_weights_list[i] for i in weightful_indices]
+
+#                     logger.info("\n[SECURITY] Running FedGuard defense...")
+                    
+#                     # Apply defense
+#                     if DEFENSE_METHOD == "cosine":
+#                         honest_indices_rel, scores = detect_outliers_cosine(selected_weights, threshold=SIMILARITY_THRESHOLD)
+#                         score_name = "Cosine Similarity"
+#                     elif DEFENSE_METHOD == "mad":
+#                         honest_indices_rel, scores = detect_outliers_mad(selected_weights, threshold=MAD_THRESHOLD)
+#                         score_name = "MAD Score"
+#                     elif DEFENSE_METHOD == "krum":
+#                         num_attackers = max(0, NUM_CLIENTS - MIN_HONEST_CLIENTS)
+#                         honest_indices_rel, scores = multi_krum(selected_weights, num_attackers=num_attackers)
+#                         score_name = "Krum Score"
+#                     else:
+#                         honest_indices_rel = list(range(len(selected_weights)))
+#                         scores = [1.0] * len(selected_weights)
+#                         score_name = "Score"
+
+#                     honest_indices = [weightful_indices[i] for i in honest_indices_rel]
+
+#                     logger.info("\nClient Security Scores:")
+#                     honest_clients = []
+#                     malicious_clients = []
+                    
+#                     for i, cid in enumerate(client_ids):
+#                         if i in weightful_indices:
+#                             j = weightful_indices.index(i)
+#                             score = scores[j] if j < len(scores) else None
+#                             is_honest = i in honest_indices
+#                             status = "[HONEST]" if is_honest else "[MALICIOUS]"
+#                             safe_score = float(score) if score is not None and np.isfinite(score) else None
+#                             logger.info(f"  {cid:30s} {score_name}: {safe_score} - {status}")
+                            
+#                             if is_honest:
+#                                 honest_clients.append(cid)
+#                             else:
+#                                 malicious_clients.append(cid)
+#                                 total_attacks_blocked += 1
+#                         else:
+#                             logger.info(f"  {cid:30s} No weights (skipped)")
+
+#                     logger.info(f"\nVerdict: {len(honest_clients)} honest, {len(malicious_clients)} malicious")
+                    
+#                     if malicious_clients:
+#                         logger.warning(f"[WARNING] Blocked: {', '.join(malicious_clients)}")
+
+#                     if len(honest_clients) < MIN_HONEST_CLIENTS:
+#                         logger.error(f"[ERROR] Insufficient honest clients - skipping round")
+#                         client_updates = {}
+#                         continue
+
+#                     honest_weights = [client_updates[cid]['weights'] for cid in honest_clients if client_updates[cid]['weights'] is not None]
+
+#                     # Aggregate
+#                     if AGGREGATION_METHOD == "mean":
+#                         averaged_weights = []
+#                         num_layers = len(honest_weights[0])
+#                         for li in range(num_layers):
+#                             layer_w = [cw[li] for cw in honest_weights]
+#                             averaged_layer = np.mean(layer_w, axis=0)
+#                             averaged_weights.append(averaged_layer)
+#                     elif AGGREGATION_METHOD == "median":
+#                         averaged_weights = aggregate_median(honest_weights)
+#                     elif AGGREGATION_METHOD == "trimmed_mean":
+#                         averaged_weights = aggregate_trimmed_mean(honest_weights, trim_ratio=0.2)
+#                     else:
+#                         raise ValueError(f"Unknown aggregation: {AGGREGATION_METHOD}")
+
+#                     # Update model
+#                     if global_model is not None and initial_weights is not None:
+#                         try:
+#                             divergence = calculate_model_divergence(initial_weights, averaged_weights)
+#                             logger.info(f"\nModel divergence:")
+#                             logger.info(f"  L2 distance: {divergence.get('l2_distance', 0):.6f}")
+#                             logger.info(f"  Cosine similarity: {divergence.get('cosine_similarity', 0):.6f}")
+#                         except Exception as e:
+#                             logger.error(f"Divergence calculation failed: {e}")
+
+#                         try:
+#                             global_model.set_weights(averaged_weights)
+#                             save_path = os.path.join(MODELS_DIR, 'global_model_secured.h5')
+                            
+#                             # CRITICAL: Use model.save() not save_weights()
+#                             global_model.save(save_path)
+#                             logger.info(f"\n[OK] Model saved to: {save_path}")
+#                             logger.info(f"     Model has {len(global_model.layers)} layers")
+#                         except Exception as e:
+#                             logger.error(f"Model save failed: {e}")
+
+#                     # Save round stats
+#                     round_stats = {
+#                         'round': round_number,
+#                         'timestamp': datetime.now().isoformat(),
+#                         'clients_participated': client_ids,
+#                         'honest_clients': honest_clients,
+#                         'malicious_clients': malicious_clients,
+#                         'security_scores': {
+#                             client_ids[i]: (
+#                                 float(scores[weightful_indices.index(i)]) 
+#                                 if i in weightful_indices and weightful_indices.index(i) < len(scores) 
+#                                 else None
+#                             ) for i in range(len(client_ids))
+#                         },
+#                         'defense_method': DEFENSE_METHOD,
+#                         'aggregation_method': AGGREGATION_METHOD
+#                     }
+                    
+#                     stats_file = os.path.join(METRICS_DIR, f'round_{round_number:03d}_stats.json')
+#                     with open(stats_file, 'w') as f:
+#                         json.dump(round_stats, f, indent=2)
+                    
+#                     logger.info(f"Round stats saved to: {stats_file}")
+#                     logger.info("="*60 + "\n")
+
+#                     client_updates = {}
+
+#                     if round_number >= NUM_FEDERATED_ROUNDS:
+#                         logger.info(f"\n[OK] Completed {NUM_FEDERATED_ROUNDS} rounds - stopping")
+#                         break
+
+#             except Exception as e:
+#                 logger.error(f"Error processing message: {e}", exc_info=True)
+#                 continue
+
+#         if not updates_processed:
+#             logger.warning("Kafka consumer timed out - no messages received")
+
+#     except KeyboardInterrupt:
+#         logger.info("Keyboard interrupt - stopping server")
+#     except Exception as e:
+#         logger.error(f"FATAL ERROR: {e}", exc_info=True)
+#     finally:
+#         logger.info("\n" + "="*60)
+#         logger.info("SERVER SHUTDOWN SUMMARY")
+#         logger.info("="*60)
+#         logger.info(f"Total rounds: {round_number}")
+#         logger.info(f"Total updates: {total_updates_received}")
+#         logger.info(f"Attacks blocked: {total_attacks_blocked}")
+#         if total_updates_received > 0:
+#             block_rate = (total_attacks_blocked / total_updates_received) * 100
+#             logger.info(f"Detection rate: {block_rate:.1f}%")
+#         logger.info("="*60)
+        
+#         try:
+#             if consumer is not None:
+#                 consumer.close()
+#         except Exception:
+#             pass
+
+# if __name__ == "__main__":
+#     main()
+
+
+
 import os
 import sys
 import json
@@ -363,7 +749,9 @@ import io
 import zlib
 from datetime import datetime
 from kafka import KafkaConsumer
+import tensorflow as tf
 
+# Add parent directory to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import *
 from utils.security import (
@@ -373,10 +761,12 @@ from utils.security import (
     aggregate_trimmed_mean,
     multi_krum,
     validate_weight_list,
-    robust_mad
+    validate_update_quality  # Imported from your updated security.py
 )
 from utils.metrics import calculate_model_divergence
+from utils.data_loader import load_test_frames
 
+# Setup Logging
 os.makedirs(LOGS_DIR, exist_ok=True)
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL),
@@ -393,7 +783,6 @@ def deserialize_weights_from_bytes(b):
     if b is None or len(b) == 0:
         raise ValueError("Empty payload")
 
-    # Try zlib + numpy
     try:
         decompressed = zlib.decompress(b)
         buf = io.BytesIO(decompressed)
@@ -401,19 +790,9 @@ def deserialize_weights_from_bytes(b):
         npz = np.load(buf, allow_pickle=True)
         arrays = [npz[f] for f in npz.files]
         return arrays
-    except zlib.error:
-        try:
-            buf = io.BytesIO(b)
-            buf.seek(0)
-            npz = np.load(buf, allow_pickle=True)
-            arrays = [npz[f] for f in npz.files]
-            return arrays
-        except Exception:
-            pass
     except Exception:
         pass
 
-    # JSON fallback
     try:
         payload = b.decode('utf-8')
         parsed = json.loads(payload)
@@ -429,7 +808,6 @@ def deserialize_weights_from_bytes(b):
         raise ValueError(f"Failed to deserialize: {e}")
 
 def extract_metadata_from_headers(headers):
-    """Extract metadata from Kafka message headers."""
     if not headers:
         return {}
     for k, v in headers:
@@ -441,7 +819,6 @@ def extract_metadata_from_headers(headers):
     return {}
 
 def shapes_match(weights_a, weights_b):
-    """Check if two weight lists have matching shapes."""
     if weights_a is None or weights_b is None:
         return False
     if len(weights_a) != len(weights_b):
@@ -459,50 +836,47 @@ def main():
 
     try:
         logger.info("="*60)
-        logger.info("FEDGUARD SECURE SERVER")
+        logger.info("FEDGUARD SECURE SERVER (Dual-Layer Defense)")
         logger.info("="*60)
-        logger.info(f"Defense method: {DEFENSE_METHOD}")
-        logger.info(f"Aggregation method: {AGGREGATION_METHOD}")
-        logger.info(f"Expected clients: {NUM_CLIENTS}")
-        logger.info(f"Min honest clients: {MIN_HONEST_CLIENTS}")
-
-        # Load baseline model (SAME as insecure server)
-        model_path = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
+        logger.info(f"Configuration: {NUM_CLIENTS} Clients")
         
+        # 1. Load Baseline Model
+        model_path = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
         if not os.path.exists(model_path):
             logger.error(f"Baseline model not found at {model_path}")
-            logger.error("Please run 'python training/train_baseline_model.py' first!")
+            logger.error("Run 'python training/train_baseline_model.py' first.")
             return
 
         logger.info(f"Loading baseline model from {model_path}...")
-        import tensorflow as tf
-        
         try:
             global_model = tf.keras.models.load_model(model_path)
-            logger.info("[OK] Baseline model loaded successfully")
+            # Compile to ensure metrics work for validation
+            global_model.compile(optimizer='adam', loss='mse')
+            logger.info("[OK] Baseline model loaded")
         except Exception as e:
-            logger.warning(f"Direct load failed: {e}")
-            logger.info("Attempting load with compile=False...")
-            try:
-                global_model = tf.keras.models.load_model(model_path, compile=False)
-                global_model.compile(optimizer='adam', loss='mse')
-                logger.info("[OK] Model loaded (compile=False)")
-            except Exception as e2:
-                logger.error(f"All model loading attempts failed: {e2}")
-                return
+            logger.error(f"Model load failed: {e}")
+            return
 
         initial_weights = global_model.get_weights()
-        expected_shapes = [w.shape for w in initial_weights]
-        
-        logger.info(f"Model architecture: {len(global_model.layers)} layers")
-        logger.info(f"Expected weight tensors: {len(initial_weights)}")
 
-        os.makedirs(LOGS_DIR, exist_ok=True)
-        os.makedirs(METRICS_DIR, exist_ok=True)
-        os.makedirs(MODELS_DIR, exist_ok=True)
+        # 2. Load Validation Data for Security Layer 1
+        logger.info("Loading validation data for security checks...")
+        try:
+            # Load a small batch from Test set (e.g., 32 frames)
+            # Using IMG_SIZE from config (128)
+            X_val, _ = load_test_frames(UCSD_PED1_TEST, img_size=IMG_SIZE)
+            
+            # Use a small subset for speed (e.g., 32 frames)
+            if len(X_val) > 32:
+                X_val = X_val[:32] 
+                
+            logger.info(f"[OK] Validation set loaded: {X_val.shape}")
+        except Exception as e:
+            logger.error(f"Failed to load validation data: {e}")
+            return
 
-        # Kafka consumer
-        logger.info(f"Connecting to Kafka at {KAFKA_SERVER} (topic: {KAFKA_TOPIC})...")
+        # 3. Kafka Setup
+        logger.info(f"Connecting to Kafka at {KAFKA_SERVER}...")
         consumer_config = {
             'bootstrap_servers': KAFKA_SERVER,
             'value_deserializer': lambda m: m,
@@ -510,7 +884,7 @@ def main():
             'fetch_max_bytes': KAFKA_FETCH_MAX_BYTES,
             'max_partition_fetch_bytes': KAFKA_FETCH_MAX_BYTES,
             'enable_auto_commit': True,
-            'group_id': 'fedguard-server'
+            'group_id': 'fedguard-server-v3'
         }
         if KAFKA_TIMEOUT is not None:
             consumer_config['consumer_timeout_ms'] = KAFKA_TIMEOUT
@@ -520,24 +894,18 @@ def main():
         logger.info("\nSERVER RUNNING - Waiting for client updates\n")
 
         client_updates = {}
-        updates_processed = False
         
         for message in consumer:
-            updates_processed = True
             try:
                 total_updates_received += 1
                 headers = message.headers if hasattr(message, 'headers') else None
                 metadata = extract_metadata_from_headers(headers)
                 key = message.key.decode('utf-8') if message.key else f"unknown_{total_updates_received}"
                 
-                logger.info(f"\n[Round {round_number + 1}] Received message from: {key}")
-
-                if metadata:
-                    logger.info(f"  Metadata: update #{metadata.get('update_number', 'N/A')}, loss: {metadata.get('training_loss', 'N/A')}")
+                logger.info(f"\n[Round {round_number + 1}] Received from: {key}")
 
                 raw_bytes = message.value
                 if raw_bytes is None or len(raw_bytes) == 0:
-                    logger.warning("  Empty payload (metadata only)")
                     client_updates[key] = {'weights': None, 'metadata': metadata}
                 else:
                     try:
@@ -545,194 +913,149 @@ def main():
                         valid, reason, norms = validate_weight_list(received_weights)
                         
                         if not valid:
-                            logger.warning(f"  Update validation failed: {reason}")
-                            client_updates[key] = {'weights': None, 'metadata': metadata, 'validation_reason': reason}
+                            logger.warning(f"  Format Invalid: {reason}")
+                            client_updates[key] = {'weights': None, 'metadata': metadata}
+                        elif initial_weights is not None and not shapes_match(received_weights, initial_weights):
+                            logger.warning(f"  Shape Mismatch")
+                            client_updates[key] = {'weights': None, 'metadata': metadata}
                         else:
-                            # Shape check
-                            if initial_weights is not None:
-                                if not shapes_match(received_weights, initial_weights):
-                                    logger.warning(f"  Shape mismatch - rejecting update")
-                                    client_updates[key] = {'weights': None, 'metadata': metadata, 'validation_reason': 'shape_mismatch'}
-                                else:
-                                    client_updates[key] = {'weights': received_weights, 'metadata': metadata, 'norms': norms}
-                                    logger.info(f"  ✓ Received {len(received_weights)} weight layers from {key}")
-                            else:
-                                client_updates[key] = {'weights': received_weights, 'metadata': metadata, 'norms': norms}
-                                logger.info(f"  ✓ Received {len(received_weights)} weight layers from {key}")
+                            client_updates[key] = {'weights': received_weights, 'metadata': metadata}
+                            logger.info(f"  ✓ Payload OK")
 
                     except Exception as e:
-                        logger.error(f"  Deserialization failed: {e}")
+                        logger.error(f"  Deserialization error: {e}")
                         client_updates[key] = {'weights': None, 'metadata': metadata}
 
-                num_with_weights = len([1 for v in client_updates.values() if v and v.get('weights') is not None])
-                logger.info(f"  Updates collected: {num_with_weights}/{NUM_CLIENTS}")
+                # Check if we have enough updates to aggregate
+                num_collected = len(client_updates)
+                logger.info(f"  Collected: {num_collected}/{NUM_CLIENTS}")
 
-                # Aggregate when enough updates
-                if len(client_updates) >= NUM_CLIENTS:
+                if num_collected >= NUM_CLIENTS:
                     round_number += 1
                     logger.info("\n" + "="*60)
-                    logger.info(f"ROUND {round_number} - SECURE AGGREGATION")
+                    logger.info(f"ROUND {round_number} - SECURITY & AGGREGATION")
                     logger.info("="*60)
 
                     client_ids = list(client_updates.keys())
-                    client_weights_list = [client_updates[cid]['weights'] for cid in client_ids]
-
-                    weightful_indices = [i for i, w in enumerate(client_weights_list) if w is not None]
-                    if not weightful_indices:
-                        logger.error("No valid weights - skipping round")
-                        client_updates = {}
-                        continue
-
-                    selected_weights = [client_weights_list[i] for i in weightful_indices]
-
-                    logger.info("\n[SECURITY] Running FedGuard defense...")
                     
-                    # Apply defense
-                    if DEFENSE_METHOD == "cosine":
-                        honest_indices_rel, scores = detect_outliers_cosine(selected_weights, threshold=SIMILARITY_THRESHOLD)
-                        score_name = "Cosine Similarity"
-                    elif DEFENSE_METHOD == "mad":
-                        honest_indices_rel, scores = detect_outliers_mad(selected_weights, threshold=MAD_THRESHOLD)
-                        score_name = "MAD Score"
-                    elif DEFENSE_METHOD == "krum":
-                        num_attackers = max(0, NUM_CLIENTS - MIN_HONEST_CLIENTS)
-                        honest_indices_rel, scores = multi_krum(selected_weights, num_attackers=num_attackers)
-                        score_name = "Krum Score"
-                    else:
-                        honest_indices_rel = list(range(len(selected_weights)))
-                        scores = [1.0] * len(selected_weights)
-                        score_name = "Score"
-
-                    honest_indices = [weightful_indices[i] for i in honest_indices_rel]
-
-                    logger.info("\nClient Security Scores:")
-                    honest_clients = []
-                    malicious_clients = []
+                    # ---------------------------------------------------------
+                    # DEFENSE LAYER 1: Performance Validation (Independent)
+                    # ---------------------------------------------------------
+                    logger.info("\n[DEFENSE LAYER 1] Performance Validation (Loss Check)...")
+                    validated_clients = []
+                    malicious_clients_l1 = []
                     
-                    for i, cid in enumerate(client_ids):
-                        if i in weightful_indices:
-                            j = weightful_indices.index(i)
-                            score = scores[j] if j < len(scores) else None
-                            is_honest = i in honest_indices
-                            status = "[HONEST]" if is_honest else "[MALICIOUS]"
-                            safe_score = float(score) if score is not None and np.isfinite(score) else None
-                            logger.info(f"  {cid:30s} {score_name}: {safe_score} - {status}")
+                    for cid in client_ids:
+                        w = client_updates[cid]['weights']
+                        if w is None: 
+                            continue
                             
-                            if is_honest:
-                                honest_clients.append(cid)
-                            else:
-                                malicious_clients.append(cid)
-                                total_attacks_blocked += 1
+                        # Validate using the function from utils/security.py
+                        # max_loss_threshold=0.2 is strict enough for normalized data (usually <0.05)
+                        is_valid, loss = validate_update_quality(global_model, w, X_val, max_loss_threshold=0.2)
+                        
+                        status = "[PASS]" if is_valid else "[BLOCK]"
+                        logger.info(f"  {cid:30s} Loss: {loss:.4f} -> {status}")
+                        
+                        if is_valid:
+                            validated_clients.append(cid)
                         else:
-                            logger.info(f"  {cid:30s} No weights (skipped)")
+                            malicious_clients_l1.append(cid)
+                            total_attacks_blocked += 1
 
-                    logger.info(f"\nVerdict: {len(honest_clients)} honest, {len(malicious_clients)} malicious")
-                    
-                    if malicious_clients:
-                        logger.warning(f"[WARNING] Blocked: {', '.join(malicious_clients)}")
-
-                    if len(honest_clients) < MIN_HONEST_CLIENTS:
-                        logger.error(f"[ERROR] Insufficient honest clients - skipping round")
+                    # ---------------------------------------------------------
+                    # DEFENSE LAYER 2: Consensus (MAD)
+                    # ---------------------------------------------------------
+                    if not validated_clients:
+                        logger.error("ALL updates rejected by Layer 1! Skipping round.")
                         client_updates = {}
                         continue
 
-                    honest_weights = [client_updates[cid]['weights'] for cid in honest_clients if client_updates[cid]['weights'] is not None]
+                    # Prepare weights for MAD
+                    selected_weights = [client_updates[cid]['weights'] for cid in validated_clients]
+                    
+                    logger.info("\n[DEFENSE LAYER 2] Statistical Consensus (MAD)...")
+                    
+                    final_honest_clients = []
+                    malicious_clients_l2 = []
 
-                    # Aggregate
-                    if AGGREGATION_METHOD == "mean":
+                    # Only run MAD if we have enough clients to compare (>= 2)
+                    if len(validated_clients) < 2:
+                        logger.info("  < 2 clients passed Layer 1. Trusting the single survivor.")
+                        final_honest_clients = validated_clients
+                    else:
+                        # Use MAD to filter outliers among the "valid" ones
+                        honest_indices_rel, scores = detect_outliers_mad(selected_weights, threshold=3.5)
+                        
+                        for i, cid in enumerate(validated_clients):
+                            score = scores[i]
+                            if i in honest_indices_rel:
+                                logger.info(f"  {cid:30s} MAD Score: {score:.4f} -> [HONEST]")
+                                final_honest_clients.append(cid)
+                            else:
+                                logger.info(f"  {cid:30s} MAD Score: {score:.4f} -> [OUTLIER]")
+                                malicious_clients_l2.append(cid)
+                                total_attacks_blocked += 1
+
+                    all_blocked = malicious_clients_l1 + malicious_clients_l2
+                    logger.info(f"\nFinal Verdict: {len(final_honest_clients)} Honest, {len(all_blocked)} Blocked")
+
+                    if not final_honest_clients:
+                        logger.error("No clients passed both layers. Skipping round.")
+                        client_updates = {}
+                        continue
+
+                    # ---------------------------------------------------------
+                    # AGGREGATION
+                    # ---------------------------------------------------------
+                    final_weights_list = [client_updates[cid]['weights'] for cid in final_honest_clients]
+                    
+                    if AGGREGATION_METHOD == "median":
+                        averaged_weights = aggregate_median(final_weights_list)
+                    else:
+                        # Default to Mean
                         averaged_weights = []
-                        num_layers = len(honest_weights[0])
+                        num_layers = len(final_weights_list[0])
                         for li in range(num_layers):
-                            layer_w = [cw[li] for cw in honest_weights]
+                            layer_w = [cw[li] for cw in final_weights_list]
                             averaged_layer = np.mean(layer_w, axis=0)
                             averaged_weights.append(averaged_layer)
-                    elif AGGREGATION_METHOD == "median":
-                        averaged_weights = aggregate_median(honest_weights)
-                    elif AGGREGATION_METHOD == "trimmed_mean":
-                        averaged_weights = aggregate_trimmed_mean(honest_weights, trim_ratio=0.2)
-                    else:
-                        raise ValueError(f"Unknown aggregation: {AGGREGATION_METHOD}")
 
-                    # Update model
-                    if global_model is not None and initial_weights is not None:
-                        try:
-                            divergence = calculate_model_divergence(initial_weights, averaged_weights)
-                            logger.info(f"\nModel divergence:")
-                            logger.info(f"  L2 distance: {divergence.get('l2_distance', 0):.6f}")
-                            logger.info(f"  Cosine similarity: {divergence.get('cosine_similarity', 0):.6f}")
-                        except Exception as e:
-                            logger.error(f"Divergence calculation failed: {e}")
+                    # Update Global Model
+                    try:
+                        global_model.set_weights(averaged_weights)
+                        save_path = os.path.join(MODELS_DIR, 'global_model_secured.h5')
+                        global_model.save(save_path)
+                        logger.info(f"\n[OK] Model updated and saved: {save_path}")
+                    except Exception as e:
+                        logger.error(f"Model save failed: {e}")
 
-                        try:
-                            global_model.set_weights(averaged_weights)
-                            save_path = os.path.join(MODELS_DIR, 'global_model_secured.h5')
-                            
-                            # CRITICAL: Use model.save() not save_weights()
-                            global_model.save(save_path)
-                            logger.info(f"\n[OK] Model saved to: {save_path}")
-                            logger.info(f"     Model has {len(global_model.layers)} layers")
-                        except Exception as e:
-                            logger.error(f"Model save failed: {e}")
-
-                    # Save round stats
+                    # Save Stats
                     round_stats = {
                         'round': round_number,
                         'timestamp': datetime.now().isoformat(),
-                        'clients_participated': client_ids,
-                        'honest_clients': honest_clients,
-                        'malicious_clients': malicious_clients,
-                        'security_scores': {
-                            client_ids[i]: (
-                                float(scores[weightful_indices.index(i)]) 
-                                if i in weightful_indices and weightful_indices.index(i) < len(scores) 
-                                else None
-                            ) for i in range(len(client_ids))
-                        },
-                        'defense_method': DEFENSE_METHOD,
-                        'aggregation_method': AGGREGATION_METHOD
+                        'honest_clients': final_honest_clients,
+                        'blocked_clients': all_blocked,
+                        'layer1_passed': validated_clients
                     }
-                    
                     stats_file = os.path.join(METRICS_DIR, f'round_{round_number:03d}_stats.json')
                     with open(stats_file, 'w') as f:
                         json.dump(round_stats, f, indent=2)
-                    
-                    logger.info(f"Round stats saved to: {stats_file}")
-                    logger.info("="*60 + "\n")
 
-                    client_updates = {}
+                    client_updates = {} # Reset
 
                     if round_number >= NUM_FEDERATED_ROUNDS:
-                        logger.info(f"\n[OK] Completed {NUM_FEDERATED_ROUNDS} rounds - stopping")
+                        logger.info(f"\n[OK] Completed {NUM_FEDERATED_ROUNDS} rounds.")
                         break
 
             except Exception as e:
-                logger.error(f"Error processing message: {e}", exc_info=True)
+                logger.error(f"Error in main loop: {e}", exc_info=True)
                 continue
 
-        if not updates_processed:
-            logger.warning("Kafka consumer timed out - no messages received")
-
     except KeyboardInterrupt:
-        logger.info("Keyboard interrupt - stopping server")
-    except Exception as e:
-        logger.error(f"FATAL ERROR: {e}", exc_info=True)
+        logger.info("Stopping server...")
     finally:
-        logger.info("\n" + "="*60)
-        logger.info("SERVER SHUTDOWN SUMMARY")
-        logger.info("="*60)
-        logger.info(f"Total rounds: {round_number}")
-        logger.info(f"Total updates: {total_updates_received}")
-        logger.info(f"Attacks blocked: {total_attacks_blocked}")
-        if total_updates_received > 0:
-            block_rate = (total_attacks_blocked / total_updates_received) * 100
-            logger.info(f"Detection rate: {block_rate:.1f}%")
-        logger.info("="*60)
-        
-        try:
-            if consumer is not None:
-                consumer.close()
-        except Exception:
-            pass
+        if consumer: consumer.close()
 
 if __name__ == "__main__":
     main()

@@ -1,26 +1,15 @@
 {
   "round": 1,
-  "timestamp": "2025-12-01T14:28:06.957363",
-  "clients_participated": [
-    "Client-01",
-    "Client-02",
-    "Client-03",
-    "Malicious-Attacker-01"
-  ],
+  "timestamp": "2025-12-06T16:18:24.837736",
   "honest_clients": [
-    "Client-01",
-    "Client-02",
-    "Client-03"
+    "Client-1"
   ],
-  "malicious_clients": [
+  "blocked_clients": [
+    "Malicious-Attacker-03",
+    "Malicious-Attacker-02",
     "Malicious-Attacker-01"
   ],
-  "security_scores": {
-    "Client-01": 0.07493340071900058,
-    "Client-02": -0.07493340071900058,
-    "Client-03": 1.2740665992809994,
-    "Malicious-Attacker-01": -2136.6079155498956
-  },
-  "defense_method": "mad",
-  "aggregation_method": "mean"
+  "layer1_passed": [
+    "Client-1"
+  ]
 }

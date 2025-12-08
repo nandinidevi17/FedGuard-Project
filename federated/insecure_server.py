@@ -1432,556 +1432,777 @@ Insecure Federated Learning Server — with:
  - insecure aggregation semantics (accepts all valid updates)
 """
 
+# import os
+# import sys
+# import json
+# import pickle
+# import io
+# import ast
+# import base64
+# import re
+# import gzip
+# import zlib
+# import time
+# import uuid
+# import numpy as np
+# import tensorflow as tf
+# from kafka import KafkaConsumer
+# import logging
+# from datetime import datetime, timedelta
+
+# # Add project root to path
+# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# from config import *  # expects KAFKA_SERVER/KAFKA_TOPIC/MODELS_DIR/LOGS_DIR/NUM_CLIENTS/NUM_FEDERATED_ROUNDS/LOG_LEVEL/LOG_FORMAT
+
+# os.makedirs(LOGS_DIR, exist_ok=True)
+# INVALID_DIR = os.path.join(LOGS_DIR, "invalid_payloads")
+# os.makedirs(INVALID_DIR, exist_ok=True)
+
+# logging.basicConfig(
+#     level=getattr(logging, LOG_LEVEL),
+#     format=LOG_FORMAT,
+#     handlers=[
+#         logging.FileHandler(os.path.join(LOGS_DIR, 'insecure_server.log'), encoding='utf-8'),
+#         logging.StreamHandler(sys.stdout)
+#     ]
+# )
+# logger = logging.getLogger(__name__)
+
+# logger.warning("="*60)
+# logger.warning("[WARNING] INSECURE SERVER (NO DEFENSE)")
+# logger.warning("="*60)
+# logger.warning("This server accepts ALL client updates without security checks.")
+# logger.warning(f"Expected clients: {NUM_CLIENTS}")
+
+
+# # -------------------------
+# # Deserialization helpers
+# # -------------------------
+# def try_json_bytes(b):
+#     try:
+#         return json.loads(b.decode('utf-8'))
+#     except Exception:
+#         return None
+
+# def try_pickle_bytes(b):
+#     try:
+#         return pickle.loads(b)
+#     except Exception:
+#         return None
+
+# def try_numpy_load_bytes(b):
+#     if not isinstance(b, (bytes, bytearray)):
+#         return None
+#     bio = io.BytesIO(b)
+#     try:
+#         bio.seek(0)
+#         arr = np.load(bio, allow_pickle=True)
+#         # numpy.load on an .npy or .npz returns ndarray or NpzFile
+#         if isinstance(arr, np.ndarray):
+#             return arr.tolist()
+#         out = {}
+#         for kk in arr.files:
+#             out[kk] = arr[kk].tolist()
+#         return out
+#     except Exception:
+#         return None
+
+# def try_gzip_bytes(b):
+#     try:
+#         return gzip.decompress(b)
+#     except Exception:
+#         return None
+
+# def try_zlib_bytes(b):
+#     try:
+#         return zlib.decompress(b)
+#     except Exception:
+#         return None
+
+# def safe_deserialize(raw):
+#     """Try multiple strategies to deserialize payload; returns python object or None."""
+#     if raw is None:
+#         return None
+#     if isinstance(raw, (dict, list, tuple, str, int, float, np.ndarray)):
+#         return raw
+#     if isinstance(raw, (bytes, bytearray)):
+#         # JSON
+#         j = try_json_bytes(raw)
+#         if j is not None:
+#             return j
+#         # pickle
+#         p = try_pickle_bytes(raw)
+#         if p is not None:
+#             return p
+#         # numpy binary
+#         n = try_numpy_load_bytes(raw)
+#         if n is not None:
+#             return n
+#         # gzip
+#         g = try_gzip_bytes(raw)
+#         if g is not None:
+#             inner = safe_deserialize(g)
+#             if inner is not None:
+#                 return inner
+#         # zlib
+#         z = try_zlib_bytes(raw)
+#         if z is not None:
+#             inner = safe_deserialize(z)
+#             if inner is not None:
+#                 return inner
+#         # final attempt: decode to string and ast/json
+#         try:
+#             s = raw.decode('utf-8', errors='replace')
+#         except Exception:
+#             s = None
+#         if s:
+#             try:
+#                 return json.loads(s)
+#             except Exception:
+#                 try:
+#                     return ast.literal_eval(s)
+#                 except Exception:
+#                     # try base64 decode -> numpy/json
+#                     ss = ''.join(s.split())
+#                     if len(ss) >= 100 and re.fullmatch(r'^[A-Za-z0-9+/=\s]+$', ss):
+#                         try:
+#                             raw2 = base64.b64decode(ss)
+#                             n2 = try_numpy_load_bytes(raw2)
+#                             if n2 is not None:
+#                                 return n2
+#                             j2 = try_json_bytes(raw2)
+#                             if j2 is not None:
+#                                 return j2
+#                         except Exception:
+#                             pass
+#                     return s
+#     try:
+#         return str(raw)
+#     except Exception:
+#         return None
+
+
+# # -------------------------
+# # Normalize payload -> list[np.array]
+# # -------------------------
+# def normalize_weights_payload(payload):
+#     """
+#     Convert payload into list of numpy arrays (one per model weight tensor).
+#     Fixed: Sorts 'arr_N' keys numerically (0, 1, 2, 10) instead of alphabetically.
+#     """
+#     if payload is None:
+#         return None
+
+#     # If it's a string that is still JSON-like, attempt parse
+#     if isinstance(payload, str):
+#         parsed = None
+#         try:
+#             parsed = json.loads(payload)
+#         except Exception:
+#             try:
+#                 parsed = ast.literal_eval(payload)
+#             except Exception:
+#                 parsed = None
+#         if parsed is not None:
+#             payload = parsed
+
+#     # If dict with weights key
+#     if isinstance(payload, dict):
+#         for key in ('weights', 'model_weights', 'params', 'w', 'payload', 'data'):
+#             if key in payload:
+#                 payload = payload[key]
+#                 break
+
+#     # If it's numpy array -> single layer
+#     if isinstance(payload, np.ndarray):
+#         try:
+#             return [np.array(payload, dtype=np.float32)]
+#         except Exception:
+#             return None
+
+#     # If dict with arr_ keys (npz-like), convert ordered
+#     if isinstance(payload, dict) and any(k.startswith('arr_') for k in payload.keys()):
+#         try:
+#             # FIX: Sort numerically based on the number after 'arr_'
+#             # Extract number, convert to int, use as sort key
+#             ordered_keys = sorted(payload.keys(), key=lambda x: int(x.split('_')[1]) if '_' in x and x.split('_')[1].isdigit() else x)
+#             return [np.array(payload[k], dtype=np.float32) for k in ordered_keys]
+#         except Exception:
+#             return None
+
+#     # If list/tuple
+#     if isinstance(payload, (list, tuple)):
+#         try:
+#             out = []
+#             for layer in payload:
+#                 if isinstance(layer, (list, tuple, np.ndarray)):
+#                     arr = np.array(layer, dtype=np.float32)
+#                 elif isinstance(layer, dict) and any(k.startswith('arr_') for k in layer.keys()):
+#                     # nested dict representing a single layer? try to flatten single arr entry
+#                     ordered_keys = sorted(layer.keys())
+#                     if len(ordered_keys) == 1:
+#                         arr = np.array(layer[ordered_keys[0]], dtype=np.float32)
+#                     else:
+#                         return None
+#                 else:
+#                     # unsupported element type
+#                     return None
+#                 out.append(arr)
+#             return out
+#         except Exception:
+#             return None
+
+#     return None
+
+
+# # -------------------------
+# # Diagnostics: save invalid payloads
+# # -------------------------
+# def save_invalid_payload(update_data, client_id, reason):
+#     """
+#     Saves a diagnostic pickle with (timestamp, client_id, reason, payload)
+#     to LOGS_DIR/invalid_payloads/ for offline inspection.
+#     """
+#     try:
+#         ts = datetime.now().strftime("%Y%m%dT%H%M%S")
+#         uid = uuid.uuid4().hex[:8]
+#         fname = f"{ts}_{client_id}_{uid}.pkl"
+#         path = os.path.join(INVALID_DIR, fname)
+#         record = {
+#             'timestamp': ts,
+#             'client_id': client_id,
+#             'reason': reason,
+#             'payload_preview_type': type(update_data).__name__,
+#             'payload': update_data
+#         }
+#         # limit pickle size by trying to pickle; if fails, store a lightweight summary
+#         try:
+#             with open(path, 'wb') as f:
+#                 pickle.dump(record, f, protocol=pickle.HIGHEST_PROTOCOL)
+#             logger.info(f"  Saved invalid payload to: {path}")
+#         except Exception:
+#             # fallback: small textual summary
+#             small = {
+#                 'timestamp': ts,
+#                 'client_id': client_id,
+#                 'reason': reason,
+#                 'payload_preview': str(update_data)[:200]
+#             }
+#             path2 = path + ".summary.pkl"
+#             with open(path2, 'wb') as f:
+#                 pickle.dump(small, f, protocol=pickle.HIGHEST_PROTOCOL)
+#             logger.info(f"  Saved invalid payload summary to: {path2}")
+#     except Exception:
+#         logger.exception("Failed saving invalid payload (diagnostic)")
+
+# # -------------------------
+# # Reshape fallback helpers
+# # -------------------------
+# def total_param_count(shapes):
+#     """Return total number of scalar parameters for a list of shapes."""
+#     total = 0
+#     for s in shapes:
+#         mul = 1
+#         for dim in s:
+#             mul *= int(dim)
+#         total += mul
+#     return total
+
+# def attempt_reshape_flat_vector(flat_arr, expected_shapes):
+#     """
+#     Given a 1D flat array, attempt to split it into the expected_shapes and reshape each chunk.
+#     Returns list[np.ndarray] when successful, otherwise None.
+#     """
+#     try:
+#         flat = np.array(flat_arr, dtype=np.float32).ravel()
+#     except Exception:
+#         return None
+
+#     total_needed = total_param_count(expected_shapes)
+#     if flat.size != total_needed:
+#         return None
+
+#     out = []
+#     idx = 0
+#     for shape in expected_shapes:
+#         count = 1
+#         for d in shape:
+#             count *= int(d)
+#         chunk = flat[idx: idx + count]
+#         if chunk.size != count:
+#             return None
+#         arr = chunk.reshape(shape)
+#         out.append(arr.astype(np.float32))
+#         idx += count
+#     return out
+
+
+# # -------------------------
+# # MAIN SERVER
+# # -------------------------
+# def main():
+#     consumer = None
+#     round_number = 0
+
+#     try:
+#         # Load baseline model (same architecture as secure)
+#         model_path = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
+#         logger.info(f"Loading baseline model from {model_path}...")
+#         if not os.path.exists(model_path):
+#             logger.error(f"Baseline model not found at {model_path}")
+#             logger.error("Please run 'python training/train_baseline_model.py' first!")
+#             return
+
+#         try:
+#             global_model = tf.keras.models.load_model(model_path)
+#             logger.info("[OK] Baseline model loaded successfully")
+#         except Exception as e:
+#             logger.error(f"Failed to load baseline model: {e}")
+#             logger.info("Attempting to load without compile...")
+#             try:
+#                 global_model = tf.keras.models.load_model(model_path, compile=False)
+#                 global_model.compile(optimizer='adam', loss='mse')
+#                 logger.info("[OK] Model loaded (compile=False)")
+#             except Exception as e2:
+#                 logger.error(f"All model loading attempts failed: {e2}")
+#                 return
+
+#         expected_weights = global_model.get_weights()
+#         expected_num_layers = len(expected_weights)
+#         expected_shapes = [w.shape for w in expected_weights]
+
+#         total_params = total_param_count(expected_shapes)
+#         logger.info(f"Model architecture: {len(global_model.layers)} layers")
+#         logger.info(f"Expected weight tensors: {expected_num_layers}")
+#         logger.info(f"Total parameter count (scalar): {total_params}")
+#         logger.info(f"Weight shapes (first 3): {expected_shapes[:3]}")
+
+#         # Kafka consumer
+#         try:
+#             consumer = KafkaConsumer(
+#                 KAFKA_TOPIC,
+#                 bootstrap_servers=KAFKA_SERVER,
+#                 value_deserializer=lambda m: m,
+#                 auto_offset_reset='latest',
+#                 enable_auto_commit=True,
+#                 group_id='insecure-server-group-v2'
+#             )
+#             logger.info(f"[OK] Connected to Kafka at {KAFKA_SERVER} (topic={KAFKA_TOPIC})")
+#         except Exception as e:
+#             logger.error(f"Failed to create Kafka consumer: {e}")
+#             return
+
+#         logger.info("\n" + "="*60)
+#         logger.info("INSECURE SERVER RUNNING - with reshape fallback + diagnostics")
+#         logger.info("="*60 + "\n")
+
+#         client_updates = {}
+#         processed_offsets = set()
+
+#         for message in consumer:
+#             partition = getattr(message, 'partition', None)
+#             offset = getattr(message, 'offset', None)
+#             msg_key = message.key
+#             raw_value = message.value
+
+#             po = (partition, offset)
+#             if po in processed_offsets:
+#                 # duplicate; skip
+#                 continue
+#             processed_offsets.add(po)
+
+#             # client key -> string
+#             try:
+#                 if isinstance(msg_key, (bytes, bytearray)):
+#                     key_str = msg_key.decode('utf-8', errors='ignore')
+#                 else:
+#                     key_str = str(msg_key)
+#             except Exception:
+#                 key_str = f"unknown-{partition}-{offset}"
+
+#             update_data = safe_deserialize(raw_value)
+#             if update_data is None:
+#                 logger.warning(f"[Round {round_number + 1}] Failed to deserialize from {key_str}")
+#                 save_invalid_payload(raw_value if raw_value is not None else "<None>", key_str, "deserialize_failed")
+#                 continue
+
+#             logger.info(f"\n[Round {round_number + 1}] Received update from: {key_str}")
+
+#             # identify client id if present
+#             client_id = None
+#             if isinstance(update_data, dict):
+#                 client_id = update_data.get('client_id') or update_data.get('client') or update_data.get('sender')
+#             if not client_id:
+#                 client_id = key_str
+
+#             # extract weights candidate
+#             weights_payload = None
+#             if isinstance(update_data, dict):
+#                 for k in ('weights', 'model_weights', 'params', 'w', 'payload', 'data'):
+#                     if k in update_data:
+#                         weights_payload = update_data[k]
+#                         break
+#                 if weights_payload is None and any(k.startswith('arr_') for k in update_data.keys()):
+#                     weights_payload = update_data
+#             elif isinstance(update_data, (list, tuple, np.ndarray)):
+#                 weights_payload = update_data
+#             else:
+#                 # possibly a base64 string decodes to list etc., or other types
+#                 weights_payload = update_data
+
+#             normalized = normalize_weights_payload(weights_payload)
+
+#             # If not normalized, try reshape fallback when payload is a 1D list/ndarray of scalars
+#             used_reshape = False
+#             if normalized is None:
+#                 # check if update_data or weights_payload is a long 1-D vector
+#                 candidate = None
+#                 if isinstance(weights_payload, (list, tuple, np.ndarray)):
+#                     try:
+#                         arr = np.array(weights_payload, dtype=np.float32)
+#                         if arr.ndim == 1 and arr.size == total_params:
+#                             candidate = arr
+#                     except Exception:
+#                         candidate = None
+#                 elif isinstance(weights_payload, dict) and len(weights_payload) == 1:
+#                     # maybe payload={'arr_0': [..big list..]}
+#                     only_val = list(weights_payload.values())[0]
+#                     try:
+#                         arr = np.array(only_val, dtype=np.float32)
+#                         if arr.ndim == 1 and arr.size == total_params:
+#                             candidate = arr
+#                     except Exception:
+#                         candidate = None
+
+#                 if candidate is not None:
+#                     # attempt reshape
+#                     reshaped = attempt_reshape_flat_vector(candidate, expected_shapes)
+#                     if reshaped is not None:
+#                         normalized = reshaped
+#                         used_reshape = True
+#                         logger.info(f"  Successfully reshaped flattened vector from {client_id} into expected shapes (reshape fallback).")
+
+#             if normalized is None:
+#                 logger.warning(f"  Invalid weight payload from {client_id} (could not normalize or reshape)")
+#                 save_invalid_payload(update_data, client_id, "normalize_failed")
+#                 continue
+
+#             # if normalized successfully but it is a single layer (server expects many),
+#             # try to detect flattened single-layer -> attempt reshape as well
+#             if isinstance(normalized, list) and len(normalized) == 1 and normalized[0].ndim == 1 and normalized[0].size == total_params and not used_reshape:
+#                 # this is a single 1D array matching total params -> attempt reshape
+#                 reshaped = attempt_reshape_flat_vector(normalized[0], expected_shapes)
+#                 if reshaped is not None:
+#                     normalized = reshaped
+#                     used_reshape = True
+#                     logger.info(f"  Converted single flat layer into {len(normalized)} expected layers for {client_id} (reshape fallback).")
+
+#             logger.info(f"  Received {len(normalized)} weight layers from {client_id} (reshape_used={used_reshape})")
+
+#             # Validate shape count
+#             if len(normalized) != expected_num_layers:
+#                 logger.warning(f"  Wrong layer count ({len(normalized)} vs {expected_num_layers}) - skipping")
+#                 save_invalid_payload(update_data, client_id, "wrong_layer_count")
+#                 continue
+
+#             # Validate shapes
+#             mismatch = False
+#             for idx, layer in enumerate(normalized):
+#                 try:
+#                     got_shape = tuple(layer.shape)
+#                 except Exception:
+#                     got_shape = None
+#                 if got_shape != tuple(expected_shapes[idx]):
+#                     logger.warning(f"  Shape mismatch at layer {idx} expected {expected_shapes[idx]} got {got_shape} - skipping")
+#                     mismatch = True
+#                     break
+#             if mismatch:
+#                 # save payload for inspection
+#                 save_invalid_payload(update_data, client_id, f"shape_mismatch_at_{idx}")
+#                 continue
+
+#             # convert to float32 np arrays (defensive)
+#             try:
+#                 np_weights = [np.array(layer, dtype=np.float32) for layer in normalized]
+#             except Exception:
+#                 logger.warning(f"  Failed to convert layers to numpy for {client_id} - skipping")
+#                 save_invalid_payload(update_data, client_id, "numpy_conversion_failed")
+#                 continue
+
+#             # store valid update
+#             client_updates[client_id] = np_weights
+#             logger.info(f"  Updates collected: {len(client_updates)}/{NUM_CLIENTS}")
+
+#             # When enough updates, aggregate
+#             if len(client_updates) >= NUM_CLIENTS:
+#                 round_number += 1
+#                 logger.warning("\n" + "="*60)
+#                 logger.warning(f"ROUND {round_number} - INSECURE AGGREGATION")
+#                 logger.warning("="*60)
+#                 logger.info(f"  Aggregating {len(client_updates)} updates (NO SECURITY FILTERING)")
+#                 logger.info(f"  Clients: {', '.join(client_updates.keys())}")
+
+#                 try:
+#                     averaged_weights = []
+#                     for layer_idx in range(expected_num_layers):
+#                         stack = np.stack([client_updates[cid][layer_idx] for cid in client_updates.keys()], axis=0)
+#                         avg = np.mean(stack, axis=0)
+#                         averaged_weights.append(avg.astype(np.float32))
+#                 except Exception as e:
+#                     logger.error(f"  Averaging failed: {e}")
+#                     # reset collected updates and continue
+#                     client_updates = {}
+#                     continue
+
+#                 # apply and save model
+#                 try:
+#                     global_model.set_weights(averaged_weights)
+#                     save_path = os.path.join(MODELS_DIR, 'global_model_insecured.h5')
+#                     global_model.save(save_path)
+#                     logger.info(f"[OK] Model saved to: {save_path}")
+#                 except Exception as e:
+#                     logger.error(f"  Failed to save updated model: {e}")
+
+#                 # reset for next round
+#                 client_updates = {}
+
+#                 if round_number >= NUM_FEDERATED_ROUNDS:
+#                     logger.info(f"Completed {NUM_FEDERATED_ROUNDS} rounds - stopping")
+#                     break
+
+#     except KeyboardInterrupt:
+#         logger.info("\nKeyboard interrupt - stopping server")
+#     except Exception as e:
+#         logger.error("FATAL ERROR", exc_info=True)
+#     finally:
+#         try:
+#             if consumer is not None:
+#                 consumer.close()
+#         except Exception:
+#             pass
+#         logger.warning(f"\nInsecure server stopped after {round_number} rounds")
+
+
+# if __name__ == "__main__":
+#     main()
+
+
 import os
 import sys
 import json
-import pickle
-import io
-import ast
-import base64
-import re
-import gzip
-import zlib
-import time
-import uuid
 import numpy as np
-import tensorflow as tf
-from kafka import KafkaConsumer
 import logging
-from datetime import datetime, timedelta
+import time
+import io
+import zlib
+from datetime import datetime
+from kafka import KafkaConsumer
+import tensorflow as tf
 
-# Add project root to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from config import *  # expects KAFKA_SERVER/KAFKA_TOPIC/MODELS_DIR/LOGS_DIR/NUM_CLIENTS/NUM_FEDERATED_ROUNDS/LOG_LEVEL/LOG_FORMAT
+from config import *
+from utils.security import validate_weight_list
+from utils.metrics import calculate_model_divergence
 
+# Setup Logging
 os.makedirs(LOGS_DIR, exist_ok=True)
-INVALID_DIR = os.path.join(LOGS_DIR, "invalid_payloads")
-os.makedirs(INVALID_DIR, exist_ok=True)
-
 logging.basicConfig(
     level=getattr(logging, LOG_LEVEL),
     format=LOG_FORMAT,
     handlers=[
         logging.FileHandler(os.path.join(LOGS_DIR, 'insecure_server.log'), encoding='utf-8'),
-        logging.StreamHandler(sys.stdout)
+        logging.StreamHandler()
     ]
 )
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("insecure_server")
 
-logger.warning("="*60)
-logger.warning("[WARNING] INSECURE SERVER (NO DEFENSE)")
-logger.warning("="*60)
-logger.warning("This server accepts ALL client updates without security checks.")
-logger.warning(f"Expected clients: {NUM_CLIENTS}")
-
-
-# -------------------------
-# Deserialization helpers
-# -------------------------
-def try_json_bytes(b):
+def deserialize_weights_from_bytes(b):
+    """Deserialize zlib-compressed numpy weights (Same as FedGuard so it can read input)."""
+    if b is None or len(b) == 0:
+        raise ValueError("Empty payload")
     try:
-        return json.loads(b.decode('utf-8'))
+        decompressed = zlib.decompress(b)
+        buf = io.BytesIO(decompressed)
+        buf.seek(0)
+        npz = np.load(buf, allow_pickle=True)
+        arrays = [npz[f] for f in npz.files]
+        return arrays
     except Exception:
-        return None
-
-def try_pickle_bytes(b):
+        pass
+    # JSON fallback
     try:
-        return pickle.loads(b)
-    except Exception:
-        return None
+        payload = b.decode('utf-8')
+        parsed = json.loads(payload)
+        if isinstance(parsed, dict) and 'weights' in parsed:
+            wlists = parsed['weights']
+        elif isinstance(parsed, list):
+            wlists = parsed
+        else:
+            raise ValueError("Unknown JSON payload structure")
+        arrays = [np.array(w, dtype=np.float32) for w in wlists]
+        return arrays
+    except Exception as e:
+        raise ValueError(f"Failed to deserialize: {e}")
 
-def try_numpy_load_bytes(b):
-    if not isinstance(b, (bytes, bytearray)):
-        return None
-    bio = io.BytesIO(b)
-    try:
-        bio.seek(0)
-        arr = np.load(bio, allow_pickle=True)
-        # numpy.load on an .npy or .npz returns ndarray or NpzFile
-        if isinstance(arr, np.ndarray):
-            return arr.tolist()
-        out = {}
-        for kk in arr.files:
-            out[kk] = arr[kk].tolist()
-        return out
-    except Exception:
-        return None
-
-def try_gzip_bytes(b):
-    try:
-        return gzip.decompress(b)
-    except Exception:
-        return None
-
-def try_zlib_bytes(b):
-    try:
-        return zlib.decompress(b)
-    except Exception:
-        return None
-
-def safe_deserialize(raw):
-    """Try multiple strategies to deserialize payload; returns python object or None."""
-    if raw is None:
-        return None
-    if isinstance(raw, (dict, list, tuple, str, int, float, np.ndarray)):
-        return raw
-    if isinstance(raw, (bytes, bytearray)):
-        # JSON
-        j = try_json_bytes(raw)
-        if j is not None:
-            return j
-        # pickle
-        p = try_pickle_bytes(raw)
-        if p is not None:
-            return p
-        # numpy binary
-        n = try_numpy_load_bytes(raw)
-        if n is not None:
-            return n
-        # gzip
-        g = try_gzip_bytes(raw)
-        if g is not None:
-            inner = safe_deserialize(g)
-            if inner is not None:
-                return inner
-        # zlib
-        z = try_zlib_bytes(raw)
-        if z is not None:
-            inner = safe_deserialize(z)
-            if inner is not None:
-                return inner
-        # final attempt: decode to string and ast/json
+def extract_metadata_from_headers(headers):
+    if not headers: return {}
+    for k, v in headers:
         try:
-            s = raw.decode('utf-8', errors='replace')
-        except Exception:
-            s = None
-        if s:
-            try:
-                return json.loads(s)
-            except Exception:
-                try:
-                    return ast.literal_eval(s)
-                except Exception:
-                    # try base64 decode -> numpy/json
-                    ss = ''.join(s.split())
-                    if len(ss) >= 100 and re.fullmatch(r'^[A-Za-z0-9+/=\s]+$', ss):
-                        try:
-                            raw2 = base64.b64decode(ss)
-                            n2 = try_numpy_load_bytes(raw2)
-                            if n2 is not None:
-                                return n2
-                            j2 = try_json_bytes(raw2)
-                            if j2 is not None:
-                                return j2
-                        except Exception:
-                            pass
-                    return s
-    try:
-        return str(raw)
-    except Exception:
-        return None
+            if k == 'metadata' and v is not None:
+                return json.loads(v.decode('utf-8'))
+        except Exception: continue
+    return {}
 
-
-# -------------------------
-# Normalize payload -> list[np.array]
-# -------------------------
-def normalize_weights_payload(payload):
-    """
-    Convert payload into list of numpy arrays (one per model weight tensor).
-    Fixed: Sorts 'arr_N' keys numerically (0, 1, 2, 10) instead of alphabetically.
-    """
-    if payload is None:
-        return None
-
-    # If it's a string that is still JSON-like, attempt parse
-    if isinstance(payload, str):
-        parsed = None
-        try:
-            parsed = json.loads(payload)
-        except Exception:
-            try:
-                parsed = ast.literal_eval(payload)
-            except Exception:
-                parsed = None
-        if parsed is not None:
-            payload = parsed
-
-    # If dict with weights key
-    if isinstance(payload, dict):
-        for key in ('weights', 'model_weights', 'params', 'w', 'payload', 'data'):
-            if key in payload:
-                payload = payload[key]
-                break
-
-    # If it's numpy array -> single layer
-    if isinstance(payload, np.ndarray):
-        try:
-            return [np.array(payload, dtype=np.float32)]
-        except Exception:
-            return None
-
-    # If dict with arr_ keys (npz-like), convert ordered
-    if isinstance(payload, dict) and any(k.startswith('arr_') for k in payload.keys()):
-        try:
-            # FIX: Sort numerically based on the number after 'arr_'
-            # Extract number, convert to int, use as sort key
-            ordered_keys = sorted(payload.keys(), key=lambda x: int(x.split('_')[1]) if '_' in x and x.split('_')[1].isdigit() else x)
-            return [np.array(payload[k], dtype=np.float32) for k in ordered_keys]
-        except Exception:
-            return None
-
-    # If list/tuple
-    if isinstance(payload, (list, tuple)):
-        try:
-            out = []
-            for layer in payload:
-                if isinstance(layer, (list, tuple, np.ndarray)):
-                    arr = np.array(layer, dtype=np.float32)
-                elif isinstance(layer, dict) and any(k.startswith('arr_') for k in layer.keys()):
-                    # nested dict representing a single layer? try to flatten single arr entry
-                    ordered_keys = sorted(layer.keys())
-                    if len(ordered_keys) == 1:
-                        arr = np.array(layer[ordered_keys[0]], dtype=np.float32)
-                    else:
-                        return None
-                else:
-                    # unsupported element type
-                    return None
-                out.append(arr)
-            return out
-        except Exception:
-            return None
-
-    return None
-
-
-# -------------------------
-# Diagnostics: save invalid payloads
-# -------------------------
-def save_invalid_payload(update_data, client_id, reason):
-    """
-    Saves a diagnostic pickle with (timestamp, client_id, reason, payload)
-    to LOGS_DIR/invalid_payloads/ for offline inspection.
-    """
-    try:
-        ts = datetime.now().strftime("%Y%m%dT%H%M%S")
-        uid = uuid.uuid4().hex[:8]
-        fname = f"{ts}_{client_id}_{uid}.pkl"
-        path = os.path.join(INVALID_DIR, fname)
-        record = {
-            'timestamp': ts,
-            'client_id': client_id,
-            'reason': reason,
-            'payload_preview_type': type(update_data).__name__,
-            'payload': update_data
-        }
-        # limit pickle size by trying to pickle; if fails, store a lightweight summary
-        try:
-            with open(path, 'wb') as f:
-                pickle.dump(record, f, protocol=pickle.HIGHEST_PROTOCOL)
-            logger.info(f"  Saved invalid payload to: {path}")
-        except Exception:
-            # fallback: small textual summary
-            small = {
-                'timestamp': ts,
-                'client_id': client_id,
-                'reason': reason,
-                'payload_preview': str(update_data)[:200]
-            }
-            path2 = path + ".summary.pkl"
-            with open(path2, 'wb') as f:
-                pickle.dump(small, f, protocol=pickle.HIGHEST_PROTOCOL)
-            logger.info(f"  Saved invalid payload summary to: {path2}")
-    except Exception:
-        logger.exception("Failed saving invalid payload (diagnostic)")
-
-# -------------------------
-# Reshape fallback helpers
-# -------------------------
-def total_param_count(shapes):
-    """Return total number of scalar parameters for a list of shapes."""
-    total = 0
-    for s in shapes:
-        mul = 1
-        for dim in s:
-            mul *= int(dim)
-        total += mul
-    return total
-
-def attempt_reshape_flat_vector(flat_arr, expected_shapes):
-    """
-    Given a 1D flat array, attempt to split it into the expected_shapes and reshape each chunk.
-    Returns list[np.ndarray] when successful, otherwise None.
-    """
-    try:
-        flat = np.array(flat_arr, dtype=np.float32).ravel()
-    except Exception:
-        return None
-
-    total_needed = total_param_count(expected_shapes)
-    if flat.size != total_needed:
-        return None
-
-    out = []
-    idx = 0
-    for shape in expected_shapes:
-        count = 1
-        for d in shape:
-            count *= int(d)
-        chunk = flat[idx: idx + count]
-        if chunk.size != count:
-            return None
-        arr = chunk.reshape(shape)
-        out.append(arr.astype(np.float32))
-        idx += count
-    return out
-
-
-# -------------------------
-# MAIN SERVER
-# -------------------------
 def main():
-    consumer = None
     round_number = 0
+    total_updates_received = 0
+    consumer = None
 
     try:
-        # Load baseline model (same architecture as secure)
+        logger.info("="*60)
+        logger.info("INSECURE SERVER (Standard FedAvg - NO DEFENSE)")
+        logger.info("="*60)
+        logger.info(f"Configuration: {NUM_CLIENTS} Clients")
+
+        # 1. Load Baseline Model
         model_path = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
-        logger.info(f"Loading baseline model from {model_path}...")
         if not os.path.exists(model_path):
             logger.error(f"Baseline model not found at {model_path}")
-            logger.error("Please run 'python training/train_baseline_model.py' first!")
             return
 
+        logger.info(f"Loading baseline model from {model_path}...")
         try:
             global_model = tf.keras.models.load_model(model_path)
-            logger.info("[OK] Baseline model loaded successfully")
+            global_model.compile(optimizer='adam', loss='mse')
+            logger.info("[OK] Baseline model loaded")
         except Exception as e:
-            logger.error(f"Failed to load baseline model: {e}")
-            logger.info("Attempting to load without compile...")
-            try:
-                global_model = tf.keras.models.load_model(model_path, compile=False)
-                global_model.compile(optimizer='adam', loss='mse')
-                logger.info("[OK] Model loaded (compile=False)")
-            except Exception as e2:
-                logger.error(f"All model loading attempts failed: {e2}")
-                return
-
-        expected_weights = global_model.get_weights()
-        expected_num_layers = len(expected_weights)
-        expected_shapes = [w.shape for w in expected_weights]
-
-        total_params = total_param_count(expected_shapes)
-        logger.info(f"Model architecture: {len(global_model.layers)} layers")
-        logger.info(f"Expected weight tensors: {expected_num_layers}")
-        logger.info(f"Total parameter count (scalar): {total_params}")
-        logger.info(f"Weight shapes (first 3): {expected_shapes[:3]}")
-
-        # Kafka consumer
-        try:
-            consumer = KafkaConsumer(
-                KAFKA_TOPIC,
-                bootstrap_servers=KAFKA_SERVER,
-                value_deserializer=lambda m: m,
-                auto_offset_reset='latest',
-                enable_auto_commit=True,
-                group_id='insecure-server-group-v2'
-            )
-            logger.info(f"[OK] Connected to Kafka at {KAFKA_SERVER} (topic={KAFKA_TOPIC})")
-        except Exception as e:
-            logger.error(f"Failed to create Kafka consumer: {e}")
+            logger.error(f"Model load failed: {e}")
             return
 
-        logger.info("\n" + "="*60)
-        logger.info("INSECURE SERVER RUNNING - with reshape fallback + diagnostics")
-        logger.info("="*60 + "\n")
+        initial_weights = global_model.get_weights()
+
+        # 2. Kafka Setup
+        logger.info(f"Connecting to Kafka at {KAFKA_SERVER}...")
+        consumer_config = {
+            'bootstrap_servers': KAFKA_SERVER,
+            'value_deserializer': lambda m: m,
+            'auto_offset_reset': 'earliest',
+            'fetch_max_bytes': KAFKA_FETCH_MAX_BYTES,
+            'max_partition_fetch_bytes': KAFKA_FETCH_MAX_BYTES,
+            'enable_auto_commit': True,
+            'group_id': 'insecure-server-v1'
+        }
+        if KAFKA_TIMEOUT is not None:
+            consumer_config['consumer_timeout_ms'] = KAFKA_TIMEOUT
+        
+        consumer = KafkaConsumer(KAFKA_TOPIC, **consumer_config)
+        logger.info("[OK] Kafka consumer initialized")
+        logger.info("\nSERVER RUNNING - Waiting for client updates\n")
 
         client_updates = {}
-        processed_offsets = set()
-
+        
         for message in consumer:
-            partition = getattr(message, 'partition', None)
-            offset = getattr(message, 'offset', None)
-            msg_key = message.key
-            raw_value = message.value
-
-            po = (partition, offset)
-            if po in processed_offsets:
-                # duplicate; skip
-                continue
-            processed_offsets.add(po)
-
-            # client key -> string
             try:
-                if isinstance(msg_key, (bytes, bytearray)):
-                    key_str = msg_key.decode('utf-8', errors='ignore')
+                total_updates_received += 1
+                headers = message.headers if hasattr(message, 'headers') else None
+                metadata = extract_metadata_from_headers(headers)
+                key = message.key.decode('utf-8') if message.key else f"unknown_{total_updates_received}"
+                
+                logger.info(f"\n[Round {round_number + 1}] Received from: {key}")
+
+                raw_bytes = message.value
+                if raw_bytes is None or len(raw_bytes) == 0:
+                    client_updates[key] = {'weights': None, 'metadata': metadata}
                 else:
-                    key_str = str(msg_key)
-            except Exception:
-                key_str = f"unknown-{partition}-{offset}"
-
-            update_data = safe_deserialize(raw_value)
-            if update_data is None:
-                logger.warning(f"[Round {round_number + 1}] Failed to deserialize from {key_str}")
-                save_invalid_payload(raw_value if raw_value is not None else "<None>", key_str, "deserialize_failed")
-                continue
-
-            logger.info(f"\n[Round {round_number + 1}] Received update from: {key_str}")
-
-            # identify client id if present
-            client_id = None
-            if isinstance(update_data, dict):
-                client_id = update_data.get('client_id') or update_data.get('client') or update_data.get('sender')
-            if not client_id:
-                client_id = key_str
-
-            # extract weights candidate
-            weights_payload = None
-            if isinstance(update_data, dict):
-                for k in ('weights', 'model_weights', 'params', 'w', 'payload', 'data'):
-                    if k in update_data:
-                        weights_payload = update_data[k]
-                        break
-                if weights_payload is None and any(k.startswith('arr_') for k in update_data.keys()):
-                    weights_payload = update_data
-            elif isinstance(update_data, (list, tuple, np.ndarray)):
-                weights_payload = update_data
-            else:
-                # possibly a base64 string decodes to list etc., or other types
-                weights_payload = update_data
-
-            normalized = normalize_weights_payload(weights_payload)
-
-            # If not normalized, try reshape fallback when payload is a 1D list/ndarray of scalars
-            used_reshape = False
-            if normalized is None:
-                # check if update_data or weights_payload is a long 1-D vector
-                candidate = None
-                if isinstance(weights_payload, (list, tuple, np.ndarray)):
                     try:
-                        arr = np.array(weights_payload, dtype=np.float32)
-                        if arr.ndim == 1 and arr.size == total_params:
-                            candidate = arr
-                    except Exception:
-                        candidate = None
-                elif isinstance(weights_payload, dict) and len(weights_payload) == 1:
-                    # maybe payload={'arr_0': [..big list..]}
-                    only_val = list(weights_payload.values())[0]
-                    try:
-                        arr = np.array(only_val, dtype=np.float32)
-                        if arr.ndim == 1 and arr.size == total_params:
-                            candidate = arr
-                    except Exception:
-                        candidate = None
+                        received_weights = deserialize_weights_from_bytes(raw_bytes)
+                        valid, reason, norms = validate_weight_list(received_weights)
+                        
+                        if not valid:
+                            logger.warning(f"  Format Invalid: {reason}")
+                            client_updates[key] = {'weights': None, 'metadata': metadata}
+                        else:
+                            client_updates[key] = {'weights': received_weights, 'metadata': metadata}
+                            logger.info(f"  ✓ Payload Accepted (Blindly)")
 
-                if candidate is not None:
-                    # attempt reshape
-                    reshaped = attempt_reshape_flat_vector(candidate, expected_shapes)
-                    if reshaped is not None:
-                        normalized = reshaped
-                        used_reshape = True
-                        logger.info(f"  Successfully reshaped flattened vector from {client_id} into expected shapes (reshape fallback).")
+                    except Exception as e:
+                        logger.error(f"  Deserialization error: {e}")
+                        client_updates[key] = {'weights': None, 'metadata': metadata}
 
-            if normalized is None:
-                logger.warning(f"  Invalid weight payload from {client_id} (could not normalize or reshape)")
-                save_invalid_payload(update_data, client_id, "normalize_failed")
-                continue
+                # Check if we have enough updates to aggregate
+                num_collected = len(client_updates)
+                logger.info(f"  Collected: {num_collected}/{NUM_CLIENTS}")
 
-            # if normalized successfully but it is a single layer (server expects many),
-            # try to detect flattened single-layer -> attempt reshape as well
-            if isinstance(normalized, list) and len(normalized) == 1 and normalized[0].ndim == 1 and normalized[0].size == total_params and not used_reshape:
-                # this is a single 1D array matching total params -> attempt reshape
-                reshaped = attempt_reshape_flat_vector(normalized[0], expected_shapes)
-                if reshaped is not None:
-                    normalized = reshaped
-                    used_reshape = True
-                    logger.info(f"  Converted single flat layer into {len(normalized)} expected layers for {client_id} (reshape fallback).")
+                if num_collected >= NUM_CLIENTS:
+                    round_number += 1
+                    logger.info("\n" + "="*60)
+                    logger.info(f"ROUND {round_number} - INSECURE AGGREGATION")
+                    logger.info("="*60)
 
-            logger.info(f"  Received {len(normalized)} weight layers from {client_id} (reshape_used={used_reshape})")
+                    client_ids = list(client_updates.keys())
+                    valid_weights = [client_updates[cid]['weights'] for cid in client_ids if client_updates[cid]['weights'] is not None]
 
-            # Validate shape count
-            if len(normalized) != expected_num_layers:
-                logger.warning(f"  Wrong layer count ({len(normalized)} vs {expected_num_layers}) - skipping")
-                save_invalid_payload(update_data, client_id, "wrong_layer_count")
-                continue
+                    if not valid_weights:
+                        logger.error("No valid weights to aggregate.")
+                        client_updates = {}
+                        continue
 
-            # Validate shapes
-            mismatch = False
-            for idx, layer in enumerate(normalized):
-                try:
-                    got_shape = tuple(layer.shape)
-                except Exception:
-                    got_shape = None
-                if got_shape != tuple(expected_shapes[idx]):
-                    logger.warning(f"  Shape mismatch at layer {idx} expected {expected_shapes[idx]} got {got_shape} - skipping")
-                    mismatch = True
-                    break
-            if mismatch:
-                # save payload for inspection
-                save_invalid_payload(update_data, client_id, f"shape_mismatch_at_{idx}")
-                continue
-
-            # convert to float32 np arrays (defensive)
-            try:
-                np_weights = [np.array(layer, dtype=np.float32) for layer in normalized]
-            except Exception:
-                logger.warning(f"  Failed to convert layers to numpy for {client_id} - skipping")
-                save_invalid_payload(update_data, client_id, "numpy_conversion_failed")
-                continue
-
-            # store valid update
-            client_updates[client_id] = np_weights
-            logger.info(f"  Updates collected: {len(client_updates)}/{NUM_CLIENTS}")
-
-            # When enough updates, aggregate
-            if len(client_updates) >= NUM_CLIENTS:
-                round_number += 1
-                logger.warning("\n" + "="*60)
-                logger.warning(f"ROUND {round_number} - INSECURE AGGREGATION")
-                logger.warning("="*60)
-                logger.info(f"  Aggregating {len(client_updates)} updates (NO SECURITY FILTERING)")
-                logger.info(f"  Clients: {', '.join(client_updates.keys())}")
-
-                try:
+                    # ---------------------------------------------------------
+                    # NO SECURITY CHECKS - BLIND FEDAVG
+                    # ---------------------------------------------------------
+                    logger.warning("[DANGER] Aggregating ALL received updates (including potential poison)...")
+                    
+                    # Standard FedAvg (Mean)
                     averaged_weights = []
-                    for layer_idx in range(expected_num_layers):
-                        stack = np.stack([client_updates[cid][layer_idx] for cid in client_updates.keys()], axis=0)
-                        avg = np.mean(stack, axis=0)
-                        averaged_weights.append(avg.astype(np.float32))
-                except Exception as e:
-                    logger.error(f"  Averaging failed: {e}")
-                    # reset collected updates and continue
-                    client_updates = {}
-                    continue
+                    num_layers = len(valid_weights[0])
+                    for li in range(num_layers):
+                        layer_w = [cw[li] for cw in valid_weights]
+                        averaged_layer = np.mean(layer_w, axis=0)
+                        averaged_weights.append(averaged_layer)
 
-                # apply and save model
-                try:
-                    global_model.set_weights(averaged_weights)
-                    save_path = os.path.join(MODELS_DIR, 'global_model_insecured.h5')
-                    global_model.save(save_path)
-                    logger.info(f"[OK] Model saved to: {save_path}")
-                except Exception as e:
-                    logger.error(f"  Failed to save updated model: {e}")
+                    # Update Global Model
+                    try:
+                        global_model.set_weights(averaged_weights)
+                        
+                        # Save as INSECURED model
+                        save_path = os.path.join(MODELS_DIR, 'global_model_insecured.h5')
+                        global_model.save(save_path)
+                        logger.info(f"\n[OK] Corrupted Model saved to: {save_path}")
+                        
+                        # Calculate divergence just for logs (to see the damage)
+                        if initial_weights is not None:
+                            div = calculate_model_divergence(initial_weights, averaged_weights)
+                            logger.info(f"  Model Divergence (Damage): L2={div['l2_distance']:.2f}")
 
-                # reset for next round
-                client_updates = {}
+                    except Exception as e:
+                        logger.error(f"Model save failed: {e}")
 
-                if round_number >= NUM_FEDERATED_ROUNDS:
-                    logger.info(f"Completed {NUM_FEDERATED_ROUNDS} rounds - stopping")
-                    break
+                    # Save Stats (Marking everyone as 'Accepted')
+                    round_stats = {
+                        'round': round_number,
+                        'timestamp': datetime.now().isoformat(),
+                        'clients_participated': client_ids,
+                        'status': 'ALL_ACCEPTED_BLINDLY'
+                    }
+                    # Save to a different file prefix so we don't overwrite secure stats
+                    stats_file = os.path.join(METRICS_DIR, f'insecure_round_{round_number:03d}_stats.json')
+                    with open(stats_file, 'w') as f:
+                        json.dump(round_stats, f, indent=2)
+
+                    client_updates = {} # Reset
+
+                    if round_number >= NUM_FEDERATED_ROUNDS:
+                        logger.info(f"\n[OK] Completed {NUM_FEDERATED_ROUNDS} rounds.")
+                        break
+
+            except Exception as e:
+                logger.error(f"Error in main loop: {e}", exc_info=True)
+                continue
 
     except KeyboardInterrupt:
-        logger.info("\nKeyboard interrupt - stopping server")
-    except Exception as e:
-        logger.error("FATAL ERROR", exc_info=True)
+        logger.info("Stopping server...")
     finally:
-        try:
-            if consumer is not None:
-                consumer.close()
-        except Exception:
-            pass
-        logger.warning(f"\nInsecure server stopped after {round_number} rounds")
-
+        if consumer: consumer.close()
 
 if __name__ == "__main__":
     main()
