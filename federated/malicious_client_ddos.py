@@ -25,7 +25,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("ddos_client")
 
-CLIENT_ID = "DDoS-Bot-01"
+CLIENT_ID = "DDoS-Bot-02"
 MODEL_PATH = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
 
 # ATTACK CONFIGURATION

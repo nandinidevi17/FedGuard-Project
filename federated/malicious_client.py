@@ -140,7 +140,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger("malicious_client")
 
-CLIENT_ID = "Malicious-Attacker-03"
+CLIENT_ID = "Malicious-Attacker-02"
 MODEL_PATH = os.path.join(MODELS_DIR, "ucsd_baseline.h5")
 UPDATE_INTERVAL = 20  # seconds
 
